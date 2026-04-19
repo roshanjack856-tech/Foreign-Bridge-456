@@ -1,109 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <head>
-  <title>Your Website</title>
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <style>
-    /* 👇 Paste ALL your footer CSS here */
-
-    .footer-top {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 30px;
-      padding: 40px 20px;
-      background: #081c2b;
-      color: #fff;
-    }
-
-    .footer-desc {
-      margin: 15px 0;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    .footer-col-title {
-      font-weight: bold;
-      margin-bottom: 15px;
-    }
-
-    .footer-links {
-      list-style: none;
-      padding: 0;
-    }
-
-    .footer-links li {
-      margin-bottom: 8px;
-    }
-
-    .footer-links a {
-      color: #ccc;
-      text-decoration: none;
-      font-size: 14px;
-    }
-
-    .footer-links a:hover {
-      color: #f4a825;
-    }
-
-    .footer-social {
-      display: flex;
-      gap: 12px;
-      margin-top: 15px;
-    }
-
-    .social-btn {
-      width: 42px;
-      height: 42px;
-      background: #102c3f;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 18px;
-      transition: 0.3s;
-    }
-
-    .social-btn:hover {
-      background: #f4a825;
-      color: #000;
-      transform: translateY(-3px);
-    }
-
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      padding: 15px 20px;
-      background: #061520;
-      font-size: 13px;
-      color: #aaa;
-    }
-
-    .footer-bottom a {
-      color: #aaa;
-      text-decoration: none;
-    }
-
-    .footer-bottom a:hover {
-      color: #f4a825;
-    }
-
-    .footer-badge {
-      background: #f4a825;
-      color: #000;
-      padding: 5px 10px;
-      font-size: 12px;
-      border-radius: 5px;
-      display: inline-block;
-    }
-
-  </style>
-</head>
+  <title>WWW.FOREIGNBRIDGEGLOBAL.COM</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -119,6 +17,11 @@
     --green:#1e6e3a; --green-pale:#edf7f1;
     --cream:#faf8f5; --cream-dark:#f0ece4; --white:#ffffff;
     --text-dark:#18293f; --text-mid:#4a5f78; --text-light:#8a9ab0; --border:#e5e0d8;
+    --cashew:#8B6914; --cashew-pale:#fdf6e3;
+    --cardamom:#2d6a4f; --cardamom-pale:#d8f3dc;
+    --rice:#5c4033; --rice-pale:#f5ebe0;
+    --pepper:#2d2d2d; --pepper-pale:#f0f0f0;
+    --fertilizer:#4a7c59; --fertilizer-pale:#e8f5e9;
   }
   *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -199,7 +102,7 @@
   .about-visual{position:relative;height:450px;}
   .about-img-main{position:absolute;top:0;left:0;right:55px;bottom:55px;border-radius:12px;overflow:hidden;}
   .about-img-main img{width:100%;height:100%;object-fit:cover;}
-  .about-accent-box{position:absolute;bottom:0;right:0;width:170px;height:170px;background:var(--gold);border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 10px 28px rgb(12, 12, 12);}
+  .about-accent-box{position:absolute;bottom:0;right:0;width:170px;height:170px;background:var(--gold);border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 10px 28px rgb(12,12,12);}
   .about-years{font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;color:var(--navy);line-height:1;}
   .about-years-lbl{font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--navy);text-align:center;line-height:1.5;}
   .about-lead{font-family:'Playfair Display',serif;font-size:1.02rem;font-style:italic;color:var(--text-mid);line-height:1.8;border-left:3px solid var(--gold);padding-left:1.1rem;margin:1.1rem 0;}
@@ -214,6 +117,15 @@
   #products{background:var(--white);}
   .products-header{text-align:center;margin-bottom:2.8rem;}
   .products-header .section-tag{justify-content:center;}
+
+  /* PRODUCT CATEGORY TABS */
+  .product-tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:0.6rem;margin-bottom:2.5rem;}
+  .prod-tab{padding:0.55rem 1.2rem;border:1.5px solid var(--border);border-radius:100px;font-size:0.76rem;font-weight:600;color:var(--text-mid);cursor:pointer;transition:all 0.25s;background:var(--white);font-family:'Outfit',sans-serif;}
+  .prod-tab:hover,.prod-tab.active{background:var(--navy);color:var(--white);border-color:var(--navy);}
+
+  .product-category{display:none;}
+  .product-category.active{display:block;}
+
   .main-product-card{display:grid;grid-template-columns:1.1fr 1fr;border-radius:16px;overflow:hidden;border:1px solid var(--border);box-shadow:0 6px 36px rgba(11,30,61,0.08);max-width:1080px;margin:0 auto 2.5rem;}
   .main-product-img{position:relative;height:440px;overflow:hidden;}
   .main-product-img img{width:100%;height:100%;object-fit:cover;display:block;}
@@ -221,6 +133,11 @@
   .badge-red{background:var(--spice-red);}
   .badge-banana{background:var(--turmeric);}
   .badge-turmeric{background:#c98f1c;}
+  .badge-cashew{background:var(--cashew);}
+  .badge-cardamom{background:var(--cardamom);}
+  .badge-rice{background:var(--rice);}
+  .badge-pepper{background:var(--pepper);}
+  .badge-fertilizer{background:var(--fertilizer);}
   .main-product-body{padding:2.3rem;display:flex;flex-direction:column;background:var(--white);}
   .main-product-name{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--navy);margin-bottom:0.45rem;}
   .main-product-tagline{font-size:0.87rem;color:var(--text-mid);line-height:1.7;margin-bottom:1.1rem;}
@@ -231,6 +148,11 @@
   .chip-red{background:var(--spice-red-pale);color:var(--spice-red);border-color:rgba(192,57,43,0.2);}
   .chip-green{background:var(--green-pale);color:var(--green);border-color:rgba(30,110,58,0.2);}
   .chip-yellow{background:var(--turmeric-pale);color:var(--turmeric);border-color:rgba(212,136,10,0.2);}
+  .chip-cashew{background:var(--cashew-pale);color:var(--cashew);border-color:rgba(139,105,20,0.2);}
+  .chip-cardamom{background:var(--cardamom-pale);color:var(--cardamom);border-color:rgba(45,106,79,0.2);}
+  .chip-rice{background:var(--rice-pale);color:var(--rice);border-color:rgba(92,64,51,0.2);}
+  .chip-pepper{background:var(--pepper-pale);color:var(--pepper);border-color:rgba(45,45,45,0.2);}
+  .chip-fertilizer{background:var(--fertilizer-pale);color:var(--fertilizer);border-color:rgba(74,124,89,0.2);}
   .prod-specs-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.55rem;margin-bottom:1.1rem;}
   .prod-spec{background:var(--cream);border-radius:7px;padding:0.6rem 0.85rem;}
   .prod-spec-lbl{font-size:0.58rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--text-light);font-weight:700;margin-bottom:0.1rem;}
@@ -258,6 +180,19 @@
   .var-spec-row{display:flex;justify-content:space-between;font-size:0.67rem;}
   .var-spec-k{color:var(--text-light);font-weight:600;text-transform:uppercase;letter-spacing:0.07em;}
   .var-spec-v{color:var(--navy);font-weight:600;}
+
+  /* FERTILIZER SUB CARDS */
+  .fertilizer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;max-width:1080px;margin:0 auto;}
+  .fert-card{border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--white);transition:all 0.3s;}
+  .fert-card:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(11,30,61,0.1);}
+  .fert-card-img{height:180px;overflow:hidden;}
+  .fert-card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s;}
+  .fert-card:hover .fert-card-img img{transform:scale(1.07);}
+  .fert-card-body{padding:1.2rem;}
+  .fert-card-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+  .fert-card-desc{font-size:0.78rem;color:var(--text-mid);line-height:1.7;margin-bottom:0.8rem;}
+  .fert-chips{display:flex;flex-wrap:wrap;gap:0.3rem;}
+  .fert-chip{font-size:0.62rem;padding:0.2rem 0.55rem;background:var(--fertilizer-pale);color:var(--fertilizer);border:1px solid rgba(74,124,89,0.2);border-radius:100px;font-weight:600;}
 
   /* SERVICES */
   #services{background:var(--cream);}
@@ -362,6 +297,7 @@
     .varieties-grid{grid-template-columns:repeat(2,1fr);}
     .main-product-card{grid-template-columns:1fr;}
     .main-product-img{height:280px;}
+    .fertilizer-grid{grid-template-columns:repeat(2,1fr);}
   }
   @media(max-width:900px){
     #about{grid-template-columns:1fr;}
@@ -391,6 +327,7 @@
     .varieties-grid{grid-template-columns:repeat(2,1fr);}
     .hero-img-strip{grid-template-columns:1fr;}
     .hero-strip-item:last-child{display:block;}
+    .fertilizer-grid{grid-template-columns:1fr;}
   }
   @media(max-width:480px){
     .why-grid{grid-template-columns:1fr;}
@@ -401,7 +338,7 @@
 </head>
 <body>
 
-<!-- TOP BAR — real Gmail SVG + phone SVG -->
+<!-- TOP BAR -->
 <div class="top-bar">
   <span class="top-bar-left">🌐 Foreign Bridge Export &amp; Import Corp — Chennai, India</span>
   <div class="top-bar-contacts">
@@ -414,7 +351,6 @@
       +91 72007 23492
     </a>
     <a href="mailto:foreignbridge8@gmail.com" class="top-bar-contact">
-      <!-- Real Gmail M-envelope logo -->
       <svg class="tb-gmail-icon" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
         <path fill="#4caf50" d="M45 16.2l-5 2.75-5 4.75V40h7a3 3 0 003-3V16.2z"/>
         <path fill="#1e88e5" d="M3 16.2l3.5 2.75L13 23.7V40H6a3 3 0 01-3-3V16.2z"/>
@@ -459,24 +395,23 @@
 <!-- HERO -->
 <section id="hero">
   <div class="hero-bg-dots"></div>
-  <div class="hero-badge">🌶️ Est. 2008 · Chennai, India · Global Spice Exporters</div>
-  <h1 class="hero-title">India's Finest Spices,<br><span class="accent">Delivered Worldwide.</span></h1>
-  <p class="hero-sub"><strong>Premium Red Chilli, Turmeric &amp; Tropical Produce</strong> — sourced from India's best farms and exported to 40+ countries with full APEDA certification, quality grading, and compliance.</p>
+  <div class="hero-badge">🌶️ Est. 2008 · Chennai, India · Global Agri Exporters</div>
+  <h1 class="hero-title">India's Finest Spices &amp; Produce,<br><span class="accent">Delivered Worldwide.</span></h1>
+  <p class="hero-sub"><strong>Premium Spices, Nuts, Rice, Fruits &amp; Organic Fertilizers</strong> — sourced from India's best farms and exported to 40+ countries with full APEDA certification, quality grading, and compliance.</p>
   <div class="hero-actions">
     <a href="#contact" class="btn-primary">Get Export Quote ↗</a>
     <a href="#products" class="btn-outline">View Our Products →</a>
   </div>
-  <p class="hero-note">📞 <a href="tel:+919025878609">+91 90258 78609</a> &nbsp;|&nbsp; <a href="tel:+917200723492">+91 72007 23492</a> &nbsp;|&nbsp; ✉️ <a href="mailto:foreignbridge8@gmail.com">foreignbridge8@gmail.com</a></p>
+  <p class="hero-note">📞 <a href="tel:+91 7200628777">+91 7200628777</a> &nbsp;|&nbsp; <a href="tel:+91 7200629888">+91 7200629888</a> &nbsp;|&nbsp;✉️ <a href="mailto:foreignbridgeofficial@gmail.com">foreignbridgeofficial@gmail.com</a></p>
   <div class="hero-stats-bar">
     <div class="h-stat"><div class="h-stat-num">40<span>+</span></div><div class="h-stat-label">Countries</div></div>
     <div class="h-stat"><div class="h-stat-num">15<span>+</span></div><div class="h-stat-label">Years Active</div></div>
     <div class="h-stat"><div class="h-stat-num">1200<span>+</span></div><div class="h-stat-label">Shipments</div></div>
     <div class="h-stat"><div class="h-stat-num">200<span>+</span></div><div class="h-stat-label">Global Buyers</div></div>
   </div>
-  <!-- Real product photo strip, no animations -->
   <div class="hero-img-strip">
     <div class="hero-strip-item">
-      <img src="https://images.pexels.com/photos/2802527/pexels-photo-2802527.jpeg?auto=compress&cs=tinysrgb&w=700&h=195&fit=crop" alt="Red Chilli Export" loading="lazy" />
+      <img src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/6d/85/4b/da/eb/v1_E10/E107LCPZ.jpg?w=800&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=c9eb2417d82288860b151ea136cba9748c0ef1c8b674cc5b6dacb888bfa56667" alt="Red Chilli Export" loading="lazy" />
       <div class="hero-strip-label">Red &amp; Green Chilli</div>
     </div>
     <div class="hero-strip-item">
@@ -498,9 +433,9 @@
   </div>
   <div class="about-content">
     <div class="section-tag reveal">Who We Are</div>
-    <h2 class="section-title reveal">Chennai's Premier<br><em>Spice Export Partner</em></h2>
+    <h2 class="section-title reveal">Chennai's Premier<br><em>Agri Export Partner</em></h2>
     <p class="about-lead reveal">"We don't just ship spices — we carry the flavour of India to the world."</p>
-    <p class="about-body reveal">Founded in Chennai, Tamil Nadu, Foreign Bridge Export &amp; Import Corp specialises in exporting India's finest spices and agricultural commodities — premium red &amp; green chillies in 14+ varieties, robusta bananas, and turmeric powder — to discerning buyers across Asia, Europe, the Middle East, and the Americas.</p>
+    <p class="about-body reveal">Founded in Chennai, Tamil Nadu, Foreign Bridge Export &amp; Import Corp specialises in exporting India's finest spices, agricultural commodities, and organic products — premium red &amp; green chillies in 14+ varieties, robusta bananas, turmeric powder, cashew nuts, cardamom, basmati rice, pepper, and organic fertilizers — to discerning buyers across Asia, Europe, the Middle East, and the Americas.</p>
     <p class="about-body reveal">From farm sourcing and ASTA colour grading to APEDA documentation and international freight, our end-to-end approach ensures every shipment meets your exacting quality standards.</p>
     <div class="about-pillars">
       <div class="about-pillar reveal d1"><div class="about-pillar-icon">⚖️</div><div><div class="about-pillar-title">APEDA &amp; FSSAI Certified</div><div class="about-pillar-text">Full compliance with Indian and international phytosanitary norms</div></div></div>
@@ -515,286 +450,321 @@
 <section id="products">
   <div class="products-header">
     <div class="section-tag reveal" style="justify-content:center;">Our Export Products</div>
-    <h2 class="section-title reveal" style="text-align:center;">The World <em>Spices &amp; Flavours</em></h2>
-    <p class="reveal" style="text-align:center;color:var(--text-mid);max-width:520px;margin:0.7rem auto 0;font-size:0.88rem;line-height:1.8;">Premium Indian agricultural commodities — graded, certified, and delivered worldwide.</p>
+    <h2 class="section-title reveal" style="text-align:center;">The World <em>Spices, Produce &amp; More</em></h2>
+    <p class="reveal" style="text-align:center;color:var(--text-mid);max-width:580px;margin:0.7rem auto 0;font-size:0.88rem;line-height:1.8;">Premium Indian agricultural commodities — graded, certified, and delivered worldwide.</p>
   </div>
 
-  <!-- RED CHILLI -->
-  <div class="main-product-card reveal">
-    <div class="main-product-img">
-      <img src="https://images.pexels.com/photos/4198936/pexels-photo-4198936.jpeg?auto=compress&cs=tinysrgb&w=900&h=440&fit=crop" alt="Red Chilli Export India" />
-      <span class="main-product-badge badge-red">Premium Spice Export</span>
-    </div>
-    <div class="main-product-body">
-      <h3 class="main-product-name" style="color:#f12626;">Red &amp; Green Chilli</h3>
-      <p class="main-product-tagline">India's most exported spice — vibrant colour, intense pungency, and rich aroma. First choice for food manufacturers, spice blenders, and restaurant supply chains worldwide.</p>
-      <div class="prod-varieties-wrap">
-        <div class="prod-varieties-title">14 Varieties Available</div>
-        <div class="varieties-list">
-          <span class="v-chip chip-red">Sannam S4/334</span><span class="v-chip chip-red">Teja S17</span><span class="v-chip chip-red">Guntur Corolla 341</span><span class="v-chip chip-red">Indo 5</span><span class="v-chip chip-red">Devanur Deluxe</span><span class="v-chip chip-red">Wrinkle 273</span><span class="v-chip chip-red">S 14</span><span class="v-chip chip-red">Wonder Hot</span><span class="v-chip chip-red">S 12</span><span class="v-chip chip-red">S-668 Byadgi</span><span class="v-chip chip-red">Sygenta Byadgi</span><span class="v-chip chip-red">Kashmiri</span><span class="v-chip chip-red">S9 Mundu Ramnad</span><span class="v-chip chip-green">G4 Green Chilli</span>
-        </div>
-      </div>
-      <div class="prod-specs-grid">
-        <div class="prod-spec"><div class="prod-spec-lbl">Moisture</div><div class="prod-spec-val">Below 12%</div></div>
-        <div class="prod-spec"><div class="prod-spec-lbl">Pungency Range</div><div class="prod-spec-val">1,000–1,10,000 SHU</div></div>
-        <div class="prod-spec"><div class="prod-spec-lbl">ASTA Colour</div><div class="prod-spec-val">25–220 units</div></div>
-        <div class="prod-spec"><div class="prod-spec-lbl">Min. Order</div><div class="prod-spec-val">1 Metric Ton</div></div>
-      </div>
-      <div class="prod-cta-row">
-        <span class="prod-cta-info">With stem &amp; without stem · Year-round supply</span>
-        <a href="#contact" class="prod-cta-btn">Enquire Now</a>
-      </div>
-    </div>
+  <!-- PRODUCT CATEGORY TABS -->
+  <div class="product-tabs reveal">
+    <button class="prod-tab active" onclick="showCategory('chilli', this)">🌶️ Red &amp; Green Chilli</button>
+    <button class="prod-tab" onclick="showCategory('banana', this)">🍌 Robusta Banana</button>
+    <button class="prod-tab" onclick="showCategory('turmeric', this)">🟡 Turmeric</button>
+    <button class="prod-tab" onclick="showCategory('cashew', this)">🥜 Cashew Nuts</button>
+    <button class="prod-tab" onclick="showCategory('cardamom', this)">🫛 Cardamom</button>
+    <button class="prod-tab" onclick="showCategory('rice', this)">🍚 Basmati Rice</button>
+    <button class="prod-tab" onclick="showCategory('pepper', this)">🫙 Pepper</button>
+    <button class="prod-tab" onclick="showCategory('fertilizer', this)">🌱 Organic Fertilizer</button>
   </div>
 
-  <!-- ROBUSTA BANANA -->
-  <div class="main-product-card reveal">
-    <div class="main-product-img">
-      <img src="https://images.unsplash.com/photo-1528825871115-3581a5387919?w=900&q=80" alt="Robusta Banana Export" />
-      <span class="main-product-badge badge-banana">Premium Tropical Fruit</span>
-    </div>
-    <div class="main-product-body">
-      <h3 class="main-product-name" style="color:#e8b04a;">Robusta Banana</h3>
-      <p class="main-product-tagline">The "South Indian Cavendish" — large, slightly curved fruits with sweet aromatic flavour from Tamil Nadu, Karnataka, Maharashtra &amp; Andhra Pradesh. Widely preferred for table use, desserts, and export.</p>
-      <div class="prod-varieties-wrap">
-        <div class="prod-varieties-title">Origins &amp; Grades</div>
-        <div class="varieties-list">
-          <span class="v-chip chip-yellow">Tamil Nadu</span><span class="v-chip chip-yellow">Karnataka</span><span class="v-chip chip-yellow">Maharashtra</span><span class="v-chip chip-yellow">Andhra Pradesh</span><span class="v-chip chip-yellow">Grade A Export</span><span class="v-chip chip-yellow">Bunch / Single Hands</span>
+  <!-- CHILLI CATEGORY -->
+  <div class="product-category active" id="cat-chilli">
+    <div class="main-product-card reveal">
+      <div class="main-product-img">
+        <img src="https://images.pexels.com/photos/7999181/pexels-photo-7999181.jpeg" alt="Red Chilli Export India" />
+        <span class="main-product-badge badge-red">Premium Spice Export</span>
+      </div>
+      <div class="main-product-body">
+        <h3 class="main-product-name" style="color:#c0392b;">Red &amp; Green Chilli</h3>
+        <p class="main-product-tagline">India's most exported spice — vibrant colour, intense pungency, and rich aroma. First choice for food manufacturers, spice blenders, and restaurant supply chains worldwide. Available in 14 varieties from mild Kashmiri (1,000 SHU) to fiery Teja S17 (1,10,000 SHU).</p>
+        <div class="prod-varieties-wrap">
+          <div class="prod-varieties-title">14 Varieties Available</div>
+          <div class="varieties-list">
+            <span class="v-chip chip-red">Sannam S4/334</span><span class="v-chip chip-red">Teja S17</span><span class="v-chip chip-red">Guntur Corolla 341</span><span class="v-chip chip-red">Indo 5</span><span class="v-chip chip-red">Devanur Deluxe</span><span class="v-chip chip-red">Wrinkle 273</span><span class="v-chip chip-red">S 14</span><span class="v-chip chip-red">Wonder Hot</span><span class="v-chip chip-red">S 12</span><span class="v-chip chip-red">S-668 Byadgi</span><span class="v-chip chip-red">Sygenta Byadgi</span><span class="v-chip chip-red">Kashmiri</span><span class="v-chip chip-red">S9 Mundu Ramnad</span><span class="v-chip chip-green">G4 Green Chilli</span>
+          </div>
+        </div>
+        <div class="prod-specs-grid">
+          <div class="prod-spec"><div class="prod-spec-lbl">Moisture</div><div class="prod-spec-val">Below 12%</div></div>
+          <div class="prod-spec"><div class="prod-spec-lbl">Pungency Range</div><div class="prod-spec-val">1,000–1,10,000 SHU</div></div>
+          <div class="prod-spec"><div class="prod-spec-lbl">ASTA Colour</div><div class="prod-spec-val">25–220 units</div></div>
+          <div class="prod-spec"><div class="prod-spec-lbl">Min. Order</div><div class="prod-spec-val">1 Metric Ton</div></div>
+        </div>
+        <div class="prod-cta-row">
+          <span class="prod-cta-info">With stem &amp; without stem · Year-round supply</span>
+          <a href="#contact" class="prod-cta-btn">Enquire Now</a>
         </div>
       </div>
-      <div class="prod-specs-grid">
-        <div class="prod-spec"><div class="prod-spec-lbl">Length</div><div class="prod-spec-val">15–20 cm (6–8 inches)</div></div>
-        <div class="prod-spec"><div class="prod-spec-lbl">Moisture</div><div class="prod-spec-val">75–80%</div></div>
-        <div class="prod-spec"><div class="prod-spec-lbl">Shelf Life</div><div class="prod-spec-val">10–15 days @ 13–15°C</div></div>
-        <div class="prod-spec"><div class="prod-spec-lbl">Colour</div><div class="prod-spec-val">Dark green → Bright yellow</div></div>
-      </div>
-      <p class="prod-desc">Thick, smooth, glossy peel with cream-white pulp. Rich in potassium, Vitamin B6, and natural sugars. Shipped green to ensure quality upon arrival. Available as bunch or single hands. Supplied to supermarkets, food processors, and fresh-produce distributors across the Gulf, Southeast Asia, and Europe.</p>
-      <div class="prod-cta-row">
-        <span class="prod-cta-info">Seasonal availability · MOQ 5 MT</span>
-        <a href="#contact" class="prod-cta-btn">Enquire Now</a>
-      </div>
     </div>
-  </div>
-
-  <!-- TURMERIC -->
-  <div class="main-product-card reveal" style="margin-bottom:3rem;">
-    <div class="main-product-img">
-      <img src="https://images.unsplash.com/photo-1615485500834-bc10199bc727?w=900&q=80" alt="Turmeric Powder Export" />
-      <span class="main-product-badge badge-turmeric">Premium Spice Powder</span>
-    </div>
-    <div class="main-product-body">
-      <h3 class="main-product-name">Turmeric Powder</h3>
-      <p class="main-product-tagline">A vibrant golden-yellow spice derived from rhizomes of Curcuma longa — revered in traditional medicine and cuisine. High curcumin content ideal for pharmaceutical, food, and cosmetic applications.</p>
-      <div class="prod-varieties-wrap">
-        <div class="prod-varieties-title">Origins &amp; Types</div>
-        <div class="varieties-list">
-          <span class="v-chip chip-yellow">Erode, Tamil Nadu</span><span class="v-chip chip-yellow">Sangli, Maharashtra</span><span class="v-chip chip-yellow">Nizamabad, Telangana</span><span class="v-chip chip-yellow">Anantapur, AP</span><span class="v-chip chip-yellow">Fine Powder</span><span class="v-chip chip-yellow">Coarse Grind</span>
-        </div>
-      </div>
-      <div class="prod-specs-grid">
-        <div class="prod-spec"><div class="prod-spec-lbl">Curcumin</div><div class="prod-spec-val">3–7% (1000–3000 CU)</div></div>
-        <div class="prod-spec"><div class="prod-spec-lbl">ASTA Colour</div><div class="prod-spec-val">80–150 units</div></div>
-        <div class="prod-spec"><div class="prod-spec-lbl">Moisture</div><div class="prod-spec-val">Below 12%</div></div>
-        <div class="prod-spec"><div class="prod-spec-lbl">Rhizome Length</div><div class="prod-spec-val">3–5 cm</div></div>
-      </div>
-      <p class="prod-desc">Bright golden yellow corolla colour. Processed using steam sterilisation to meet international food safety standards. Custom packaging: 1kg / 25kg / 50kg bags. Ideal for pharmaceutical, food colouring, cosmetics, and culinary use globally.</p>
-      <div class="prod-cta-row">
-        <span class="prod-cta-info">Year-round supply · MOQ 500 kg</span>
-        <a href="#contact" class="prod-cta-btn">Enquire Now</a>
+    <!-- CHILLI VARIETIES CATALOGUE -->
+    <div class="varieties-section reveal">
+      <h3 class="varieties-heading">Complete Chilli <em style="font-style:italic;color:var(--gold);">Variety Catalogue</em></h3>
+      <p class="varieties-subhead">All 14 red &amp; green chilli varieties with detailed specifications</p>
+      <div class="varieties-grid">
+        <div class="var-card"><div class="var-card-img"><img src="https://images.pexels.com/photos/7094360/pexels-photo-7094360.jpeg" alt="Sannam" loading="lazy"/></div><div class="var-card-body"><div class="var-card-name">Sannam S4 / 334</div><div class="var-card-desc">King of Indian chilli — hot, medium-sized, bright red. Capsicum annuum var. longum. Fruits 5–15 cm, thick skin. Widely used across Indian, Chinese, European &amp; Mexican cuisines.</div><div class="var-card-specs"><div class="var-spec-row"><span class="var-spec-k">Origin</span><span class="var-spec-v">Guntur, AP &amp; MP</span></div><div class="var-spec-row"><span class="var-spec-k">Pungency</span><span class="var-spec-v">35,000–40,000 SHU</span></div><div class="var-spec-row"><span class="var-spec-k">ASTA</span><span class="var-spec-v">~32</span></div></div></div></div>
+        <div class="var-card"><div class="var-card-img"><img src="https://images.pexels.com/photos/6902055/pexels-photo-6902055.jpeg" alt="Teja S17" loading="lazy"/></div><div class="var-card-body"><div class="var-card-name">Teja S17</div><div class="var-card-desc">One of India's hottest chillies from Guntur. Fiery peppery flavour with rich aroma. Ideal for red chilli powder, stir-fry, soups and stews.</div><div class="var-card-specs"><div class="var-spec-row"><span class="var-spec-k">Pungency</span><span class="var-spec-v">75,000–1,10,000 SHU</span></div><div class="var-spec-row"><span class="var-spec-k">ASTA</span><span class="var-spec-v">32–34</span></div><div class="var-spec-row"><span class="var-spec-k">Length</span><span class="var-spec-v">5–7 cm</span></div></div></div></div>
+        <div class="var-card"><div class="var-card-img"><img src="https://images.pexels.com/photos/10487733/pexels-photo-10487733.jpeg" alt="Guntur Corolla" loading="lazy"/></div><div class="var-card-body"><div class="var-card-name">Guntur Corolla 341</div><div class="var-card-desc">Hot and aromatic from Guntur. Popular with masala &amp; powder companies for dark red colour and semi-hot flavour.</div><div class="var-card-specs"><div class="var-spec-row"><span class="var-spec-k">Pungency</span><span class="var-spec-v">30,000–50,000 SHU</span></div><div class="var-spec-row"><span class="var-spec-k">ASTA</span><span class="var-spec-v">80–110</span></div><div class="var-spec-row"><span class="var-spec-k">Length</span><span class="var-spec-v">5–7 cm</span></div></div></div></div>
+        <div class="var-card"><div class="var-card-img"><img src="https://images.pexels.com/photos/31346441/pexels-photo-31346441.jpeg" alt="Indo 5" loading="lazy"/></div><div class="var-card-body"><div class="var-card-name">Indo 5 (Indem-5)</div><div class="var-card-desc">Huge global export demand. Longer size, thicker skin, low heat. Major producers: AP, Karnataka &amp; Maharashtra.</div><div class="var-card-specs"><div class="var-spec-row"><span class="var-spec-k">Pungency</span><span class="var-spec-v">50,000–60,000 SHU</span></div><div class="var-spec-row"><span class="var-spec-k">ASTA</span><span class="var-spec-v">60–80</span></div><div class="var-spec-row"><span class="var-spec-k">Length</span><span class="var-spec-v">10–12 cm</span></div></div></div></div>
+        <div class="var-card"><div class="var-card-img"><img src="https://images.pexels.com/photos/6073162/pexels-photo-6073162.jpeg" alt="Devanur Deluxe" loading="lazy"/></div><div class="var-card-body"><div class="var-card-name">Devanur Deluxe (DD)</div><div class="var-card-desc">Hybrid Byadgi from Guntur. High market preference for powder. Long-sized with very high ASTA colour. Semi-wrinkled, medium heat.</div><div class="var-card-specs"><div class="var-spec-row"><span class="var-spec-k">Pungency</span><span class="var-spec-v">25,000–35,000 SHU</span></div><div class="var-spec-row"><span class="var-spec-k">ASTA</span><span class="var-spec-v">90–180</span></div><div class="var-spec-row"><span class="var-spec-k">Length</span><span class="var-spec-v">12 cm</span></div></div></div></div>
+        <div class="var-card"><div class="var-card-img"><img src="https://images.pexels.com/photos/6359388/pexels-photo-6359388.jpeg" alt="Wrinkle 273" loading="lazy"/></div><div class="var-card-body"><div class="var-card-name">Wrinkle 273</div><div class="var-card-desc">Bright red semi-wrinkled from Guntur. Fewer seeds, known for pungency, high colour &amp; mouth-watering aroma. Exported to Asia, Canada &amp; Europe.</div><div class="var-card-specs"><div class="var-spec-row"><span class="var-spec-k">Pungency</span><span class="var-spec-v">10,000–20,000 SHU</span></div><div class="var-spec-row"><span class="var-spec-k">ASTA</span><span class="var-spec-v">50–90</span></div><div class="var-spec-row"><span class="var-spec-k">Length</span><span class="var-spec-v">10–12 cm</span></div></div></div></div>
+        <div class="var-card"><div class="var-card-img"><img src="https://images.pexels.com/photos/6342150/pexels-photo-6342150.jpeg" alt="S14" loading="lazy"/></div><div class="var-card-body"><div class="var-card-name">S 14</div><div class="var-card-desc">Very popular domestically and internationally. Thick skin, distinctive looks, long &amp; mild pungency. Identical features to the finest Guntur varieties.</div><div class="var-card-specs"><div class="var-spec-row"><span class="var-spec-k">Pungency</span><span class="var-spec-v">75,000–1,00,000 SHU</span></div><div class="var-spec-row"><span class="var-spec-k">ASTA</span><span class="var-spec-v">40–60</span></div><div class="var-spec-row"><span class="var-spec-k">Length</span><span class="var-spec-v">5–6 cm</span></div></div></div></div>
+        <div class="var-card"><div class="var-card-img"><img src="https://images.pexels.com/photos/31464525/pexels-photo-31464525.jpeg" alt="Wonder Hot" loading="lazy"/></div><div class="var-card-body"><div class="var-card-name">Wonder Hot Chilli</div><div class="var-card-desc">One of Andhra Pradesh's hottest varieties. Large shape, thick skin, popular for exotic flavour and colour in food manufacturing.</div><div class="var-card-specs"><div class="var-spec-row"><span class="var-spec-k">Pungency</span><span class="var-spec-v">5,000–8,000 SHU</span></div><div class="var-spec-row"><span class="var-spec-k">ASTA</span><span class="var-spec-v">70–100</span></div><div class="var-spec-row"><span class="var-spec-k">Length</span><span class="var-spec-v">12 cm</span></div></div></div></div>
+        <div class="var-card"><div class="var-card-img"><img src="https://images.pexels.com/photos/30387987/pexels-photo-30387987.jpeg" alt="S12" loading="lazy"/></div><div class="var-card-body"><div class="var-card-name">S 12 Chilli</div><div class="var-card-desc">Cultivated in Madhya Pradesh &amp; Maharashtra. Bright red pods with aromatic flavour and medium pungency. Widely used in spice blending.</div><div class="var-card-specs"><div class="var-spec-row"><span class="var-spec-k">Pungency</span><span class="var-spec-v">50,000–60,000 SHU</span></div><div class="var-spec-row"><span class="var-spec-k">ASTA</span><span class="var-spec-v">60–80</span></div><div class="var-spec-row"><span class="var-spec-k">Length</span><span class="var-spec-v">5–7 cm</span></div></div></div></div>
+        <div class="var-card"><div class="var-card-img"><img src="https://images.pexels.com/photos/31025269/pexels-photo-31025269.jpeg" alt="Byadgi" loading="lazy"/></div><div class="var-card-body"><div class="var-card-name">S-668 Byadgi / Sygenta 2043</div><div class="var-card-desc">Wrinkled, long, dark red from Haveri, Karnataka. Highest ASTA colour (156–220). Rich in vitamins A, B, C, E. Annual production ~21,000 kg. Harvested Jan–May.</div><div class="var-card-specs"><div class="var-spec-row"><span class="var-spec-k">Pungency</span><span class="var-spec-v">15,000–25,000 SHU</span></div><div class="var-spec-row"><span class="var-spec-k">ASTA</span><span class="var-spec-v">156–220</span></div><div class="var-spec-row"><span class="var-spec-k">Length</span><span class="var-spec-v">10–12 cm</span></div></div></div></div>
+        <div class="var-card"><div class="var-card-img"><img src="https://media.istockphoto.com/id/1388889664/photo/red-chilli-pepper-on-black-background.jpg?b=1&s=612x612&w=0&k=20&c=vkOXCwLtyaO6il4VjJttOLwSI3s19nHipbu-tLysmMg=" alt="Kashmiri" loading="lazy"/></div><div class="var-card-body"><div class="var-card-name">Kashmiri Chilli</div><div class="var-card-desc">Grown in J&K, Himachal &amp; Goa. Harvested in winter. Prized for brilliant red colour — adds dark red hue to food without excessive heat.</div><div class="var-card-specs"><div class="var-spec-row"><span class="var-spec-k">Pungency</span><span class="var-spec-v">1,000–2,000 SHU</span></div><div class="var-spec-row"><span class="var-spec-k">ASTA</span><span class="var-spec-v">50–80</span></div><div class="var-spec-row"><span class="var-spec-k">Length</span><span class="var-spec-v">7–10 cm</span></div></div></div></div>
+        <div class="var-card"><div class="var-card-img"><img src="https://images.pexels.com/photos/33440712/pexels-photo-33440712.jpeg" alt="Mundu Ramnad" loading="lazy"/></div><div class="var-card-body"><div class="var-card-name">S9 Mundu / Ramnad Gundu</div><div class="var-card-desc">Round cherry-shaped from Tamil Nadu &amp; Anantpur AP. Called 'Gundu Molzuka' in Tamil. Moderately pungent, yellowish red. Preferred for chutneys &amp; sambar.</div><div class="var-card-specs"><div class="var-spec-row"><span class="var-spec-k">Pungency</span><span class="var-spec-v">3,000–5,000 SHU</span></div><div class="var-spec-row"><span class="var-spec-k">ASTA</span><span class="var-spec-v">50–80</span></div><div class="var-spec-row"><span class="var-spec-k">Shape</span><span class="var-spec-v">Round, 5–6 cm</span></div></div></div></div>
+        <div class="var-card"><div class="var-card-img"><img src="https://images.pexels.com/photos/13548953/pexels-photo-13548953.jpeg" alt="G4 Green Chilli" loading="lazy"/></div><div class="var-card-body"><div class="var-card-name">G4 Green Chilli</div><div class="var-card-desc">Slender, dark green, glossy pods from Karnataka. High export demand to Middle East &amp; UK. Often called 'Gauri'. Bunches of 10–12 fruits, 8–12 tons/acre yield.</div><div class="var-card-specs"><div class="var-spec-row"><span class="var-spec-k">Pungency</span><span class="var-spec-v">30,000–50,000 SHU</span></div><div class="var-spec-row"><span class="var-spec-k">Shelf Life</span><span class="var-spec-v">10–15 days @ 8–10°C</span></div><div class="var-spec-row"><span class="var-spec-k">Moisture</span><span class="var-spec-v">85–90%</span></div></div></div></div>
       </div>
     </div>
   </div>
 
-  <!-- CHILLI VARIETIES CATALOGUE -->
-  <div class="varieties-section reveal">
-    <h3 class="varieties-heading">Complete Chilli <em style="font-style:italic;color:var(--gold);">Variety Catalogue</em></h3>
-    <p class="varieties-subhead">All 14 red &amp; green chilli varieties with detailed specifications from our PDF catalogue</p>
-    <div class="varieties-grid">
-
-      <!-- 1. Sannam S4/334 — heap of dried red chillies -->
-      <div class="var-card">
-        <div class="var-card-img"><img src="https://images.pexels.com/photos/4198936/pexels-photo-4198936.jpeg?auto=compress&cs=tinysrgb&w=400&h=200&fit=crop" alt="Sannam Chilli" loading="lazy"/></div>
-        <div class="var-card-body">
-          <div class="var-card-name">Sannam S4 / 334</div>
-          <div class="var-card-desc">King of Indian chilli — hot, medium-sized, bright red. Famous worldwide for mouth-watering aroma &amp; medium pungency. Used in Indian, Chinese, European, Mexican &amp; Japanese cuisines.</div>
-          <div class="var-card-specs">
-            <div class="var-spec-row"><span class="var-spec-k">Place</span><span class="var-spec-v">Guntur, AP &amp; MP</span></div>
-            <div class="var-spec-row"><span class="var-spec-k">Pungency</span><span class="var-spec-v">Medium heat</span></div>
-            <div class="var-spec-row"><span class="var-spec-k">Colour</span><span class="var-spec-v">Bright Red</span></div>
+  <!-- BANANA CATEGORY -->
+  <div class="product-category" id="cat-banana">
+    <div class="main-product-card reveal">
+      <div class="main-product-img">
+        <img src="https://images.unsplash.com/photo-1528825871115-3581a5387919?w=900&q=80" alt="Robusta Banana Export" />
+        <span class="main-product-badge badge-banana">Premium Tropical Fruit</span>
+      </div>
+      <div class="main-product-body">
+        <h3 class="main-product-name" style="color:#e8b04a;">Robusta Banana</h3>
+        <p class="main-product-tagline">The "South Indian Cavendish" — large, slightly curved fruits with sweet aromatic flavour from Tamil Nadu, Karnataka, Maharashtra &amp; Andhra Pradesh. Widely preferred for table use, desserts, and export.</p>
+        <div class="prod-varieties-wrap">
+          <div class="prod-varieties-title">Origins &amp; Grades</div>
+          <div class="varieties-list">
+            <span class="v-chip chip-yellow">Tamil Nadu</span><span class="v-chip chip-yellow">Karnataka</span><span class="v-chip chip-yellow">Maharashtra</span><span class="v-chip chip-yellow">Andhra Pradesh</span><span class="v-chip chip-yellow">Grade A Export</span><span class="v-chip chip-yellow">Bunch / Single Hands</span>
           </div>
         </div>
-      </div>
-
-      <!-- 2. Teja S17 — long thin dried red chillies -->
-      <div class="var-card">
-        <div class="var-card-img"><img src="https://images.pexels.com/photos/2802527/pexels-photo-2802527.jpeg" alt="Teja S17" loading="lazy"/></div>
-        <div class="var-card-body">
-          <div class="var-card-name">Teja S17</div>
-          <div class="var-card-desc">One of India's hottest chillies from Guntur's fertile soils. Fiery peppery flavour with rich aroma. Ideal for red chilli powder, stir-fry, soups and stews.</div>
-          <div class="var-card-specs">
-            <div class="var-spec-row"><span class="var-spec-k">Pungency</span><span class="var-spec-v">75,000–1,10,000 SHU</span></div>
-            <div class="var-spec-row"><span class="var-spec-k">ASTA</span><span class="var-spec-v">32–34</span></div>
-            <div class="var-spec-row"><span class="var-spec-k">Length</span><span class="var-spec-v">5–7 cm</span></div>
-          </div>
+        <div class="prod-specs-grid">
+          <div class="prod-spec"><div class="prod-spec-lbl">Length</div><div class="prod-spec-val">15–20 cm (6–8 inches)</div></div>
+          <div class="prod-spec"><div class="prod-spec-lbl">Moisture</div><div class="prod-spec-val">75–80%</div></div>
+          <div class="prod-spec"><div class="prod-spec-lbl">Shelf Life</div><div class="prod-spec-val">10–15 days @ 13–15°C</div></div>
+          <div class="prod-spec"><div class="prod-spec-lbl">Colour</div><div class="prod-spec-val">Dark green → Bright yellow</div></div>
+        </div>
+        <p class="prod-desc">Thick, smooth, glossy peel with cream-white pulp. Rich in potassium, Vitamin B6, and natural sugars. Shipped green to ensure quality upon arrival. Available as bunch or single hands. Supplied to supermarkets, food processors, and fresh-produce distributors across the Gulf, Southeast Asia, and Europe.</p>
+        <div class="prod-cta-row">
+          <span class="prod-cta-info">Seasonal availability · MOQ 5 MT</span>
+          <a href="#contact" class="prod-cta-btn">Enquire Now</a>
         </div>
       </div>
-
-      <!-- 3. Guntur Corolla 341 — red chilli pile closeup -->
-      <div class="var-card">
-        <div class="var-card-img"><img src="https://images.pexels.com/photos/2802527/pexels-photo-2802527.jpeg" alt="Guntur Corolla" loading="lazy"/></div>
-        <div class="var-card-body">
-          <div class="var-card-name">Guntur Corolla 341</div>
-          <div class="var-card-desc">Hot and aromatic from Guntur. Popular with masala &amp; powder companies for dark red colour and semi-hot flavour. High ASTA colour value.</div>
-          <div class="var-card-specs">
-            <div class="var-spec-row"><span class="var-spec-k">Pungency</span><span class="var-spec-v">30,000–50,000 SHU</span></div>
-            <div class="var-spec-row"><span class="var-spec-k">ASTA</span><span class="var-spec-v">80–110</span></div>
-            <div class="var-spec-row"><span class="var-spec-k">Length</span><span class="var-spec-v">5–7 cm</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 4. Indo 5 — dried chillies on plate -->
-      <div class="var-card">
-        <div class="var-card-img"><img src="https://images.pexels.com/photos/4198937/pexels-photo-4198937.jpeg" alt="Indo 5" loading="lazy"/></div>
-        <div class="var-card-body">
-          <div class="var-card-name">Indo 5 (Indem-5)</div>
-          <div class="var-card-desc">Huge global export demand. Longer size, thicker skin, low heat. Major producers: Andhra Pradesh, Karnataka &amp; Maharashtra.</div>
-          <div class="var-card-specs">
-            <div class="var-spec-row"><span class="var-spec-k">Pungency</span><span class="var-spec-v">50,000–60,000 SHU</span></div>
-            <div class="var-spec-row"><span class="var-spec-k">ASTA</span><span class="var-spec-v">60–80</span></div>
-            <div class="var-spec-row"><span class="var-spec-k">Length</span><span class="var-spec-v">10–12 cm</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 5. Devanur Deluxe — red chilli powder and whole chillies -->
-      <div class="var-card">
-        <div class="var-card-img"><img src="https://images.pexels.com/photos/3656859/pexels-photo-3656859.jpeg" alt="Devanur Deluxe" loading="lazy"/></div>
-        <div class="var-card-body">
-          <div class="var-card-name">Devanur Deluxe (DD)</div>
-          <div class="var-card-desc">Hybrid Byadgi from Guntur. High market preference for powder. Long-sized with very high ASTA colour. Semi-wrinkled, medium heat.</div>
-          <div class="var-card-specs">
-            <div class="var-spec-row"><span class="var-spec-k">Pungency</span><span class="var-spec-v">25,000–35,000 SHU</span></div>
-            <div class="var-spec-row"><span class="var-spec-k">ASTA</span><span class="var-spec-v">90–180</span></div>
-            <div class="var-spec-row"><span class="var-spec-k">Length</span><span class="var-spec-v">12 cm</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 6. Wrinkle 273 — dark red wrinkled chillies -->
-      <div class="var-card">
-        <div class="var-card-img"><img src="https://images.pexels.com/photos/1145004/pexels-photo-1145004.jpeg" alt="Wrinkle 273" loading="lazy"/></div>
-        <div class="var-card-body">
-          <div class="var-card-name">Wrinkle 273</div>
-          <div class="var-card-desc">Bright red semi-wrinkled from Guntur. Fewer seeds, known for pungency, high colour &amp; mouth-watering aroma. Exported to Asia, Canada &amp; Europe.</div>
-          <div class="var-card-specs">
-            <div class="var-spec-row"><span class="var-spec-k">Pungency</span><span class="var-spec-v">10,000–20,000 SHU</span></div>
-            <div class="var-spec-row"><span class="var-spec-k">ASTA</span><span class="var-spec-v">50–90</span></div>
-            <div class="var-spec-row"><span class="var-spec-k">Length</span><span class="var-spec-v">10–12 cm</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 7. S14 — red chilli bunch -->
-      <div class="var-card">
-        <div class="var-card-img"><img src="https://images.pexels.com/photos/3683060/pexels-photo-3683060.jpeg" alt="S14" loading="lazy"/></div>
-        <div class="var-card-body">
-          <div class="var-card-name">S 14</div>
-          <div class="var-card-desc">Very popular domestically and internationally. Thick skin, distinctive looks, long &amp; mild pungency. Identical features to the finest varieties from Guntur.</div>
-          <div class="var-card-specs">
-            <div class="var-spec-row"><span class="var-spec-k">Pungency</span><span class="var-spec-v">75,000–10,00,000 SHU</span></div>
-            <div class="var-spec-row"><span class="var-spec-k">ASTA</span><span class="var-spec-v">40–60</span></div>
-            <div class="var-spec-row"><span class="var-spec-k">Length</span><span class="var-spec-v">5–6 cm</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 8. Wonder Hot — hot red chilli closeup -->
-      <div class="var-card">
-        <div class="var-card-img"><img src="https://images.pexels.com/photos/2802527/pexels-photo-2802527.jpeg" alt="Wonder Hot" loading="lazy"/></div>
-        <div class="var-card-body">
-          <div class="var-card-name">Wonder Hot Chilli</div>
-          <div class="var-card-desc">One of Andhra Pradesh's hottest varieties. Large shape, thick skin, popular for exotic flavour. Widely used for colour and pungency in food manufacturing.</div>
-          <div class="var-card-specs">
-            <div class="var-spec-row"><span class="var-spec-k">Pungency</span><span class="var-spec-v">5,000–8,000 SHU</span></div>
-            <div class="var-spec-row"><span class="var-spec-k">ASTA</span><span class="var-spec-v">70–100</span></div>
-            <div class="var-spec-row"><span class="var-spec-k">Length</span><span class="var-spec-v">12 cm</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 9. S12 — red chilli market heap -->
-      <div class="var-card">
-        <div class="var-card-img"><img src="https://images.pexels.com/photos/2802527/pexels-photo-2802527.jpeg" alt="S12" loading="lazy"/></div>
-        <div class="var-card-body">
-          <div class="var-card-name">S 12 Chilli</div>
-          <div class="var-card-desc">Cultivated in Madhya Pradesh &amp; Maharashtra. Bright red pods with aromatic flavour and medium pungency. Nice aromatic profile, widely used in spice blending.</div>
-          <div class="var-card-specs">
-            <div class="var-spec-row"><span class="var-spec-k">Pungency</span><span class="var-spec-v">50,000–60,000 SHU</span></div>
-            <div class="var-spec-row"><span class="var-spec-k">ASTA</span><span class="var-spec-v">60–80</span></div>
-            <div class="var-spec-row"><span class="var-spec-k">Length</span><span class="var-spec-v">5–7 cm</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 10. Byadgi / Sygenta — dark red dried chillies -->
-      <div class="var-card">
-        <div class="var-card-img"><img src="https://images.pexels.com/photos/4198936/pexels-photo-4198936.jpeg" alt="Byadgi" loading="lazy"/></div>
-        <div class="var-card-body">
-          <div class="var-card-name">S-668 Byadgi / Sygenta 2043</div>
-          <div class="var-card-desc">Wrinkled, long, dark red from Haveri, Karnataka. Acclaimed for nutritional retention. Rich in vitamins A, B, C, E. Highest ASTA colour (156–220). Also in Sygenta 2043 variant.</div>
-          <div class="var-card-specs">
-            <div class="var-spec-row"><span class="var-spec-k">Pungency</span><span class="var-spec-v">10,000–30,000 SHU</span></div>
-            <div class="var-spec-row"><span class="var-spec-k">ASTA</span><span class="var-spec-v">156–220</span></div>
-            <div class="var-spec-row"><span class="var-spec-k">Length</span><span class="var-spec-v">10–12 cm</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 11. Kashmiri — vibrant red chilli powder mound -->
-      <div class="var-card">
-        <div class="var-card-img"><img src="https://images.pexels.com/photos/4198013/pexels-photo-4198013.jpeg?auto=compress&cs=tinysrgb&w=400&h=200&fit=crop" alt="Kashmiri" loading="lazy"/></div>
-        <div class="var-card-body">
-          <div class="var-card-name">Kashmiri Chilli</div>
-          <div class="var-card-desc">Smaller, rounder, less pungent. Prized for brilliant red colour retention — bred to redden anything. Kashmiri powder enhances dish colour without heat.</div>
-          <div class="var-card-specs">
-            <div class="var-spec-row"><span class="var-spec-k">Pungency</span><span class="var-spec-v">1,000–2,000 SHU</span></div>
-            <div class="var-spec-row"><span class="var-spec-k">ASTA</span><span class="var-spec-v">50–80</span></div>
-            <div class="var-spec-row"><span class="var-spec-k">Length</span><span class="var-spec-v">7–10 cm</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 12. S9 Mundu Ramnad — round red chillies -->
-      <div class="var-card">
-        <div class="var-card-img"><img src="https://images.pexels.com/photos/3338681/pexels-photo-3338681.jpeg?auto=compress&cs=tinysrgb&w=400&h=200&fit=crop" alt="Mundu Ramnad" loading="lazy"/></div>
-        <div class="var-card-body">
-          <div class="var-card-name">S9 Mundu / Ramnad Gundu</div>
-          <div class="var-card-desc">Round cherry-shaped from Tamil Nadu &amp; Anantpur AP. Called 'Gundu Molzuka' (Fat Chilli) in Tamil. Moderately pungent with yellowish red colour. Preferred for chutneys &amp; sambar.</div>
-          <div class="var-card-specs">
-            <div class="var-spec-row"><span class="var-spec-k">Pungency</span><span class="var-spec-v">3,000–5,000 SHU</span></div>
-            <div class="var-spec-row"><span class="var-spec-k">ASTA</span><span class="var-spec-v">50–80</span></div>
-            <div class="var-spec-row"><span class="var-spec-k">Shape</span><span class="var-spec-v">Round, 5–6 cm</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 13. G4 Green Chilli — fresh green chillies -->
-      <div class="var-card">
-        <div class="var-card-img"><img src="https://images.pexels.com/photos/3683060/pexels-photo-3683060.jpeg?auto=compress&cs=tinysrgb&w=400&h=200&fit=crop" alt="G4 Green Chilli" loading="lazy"/></div>
-        <div class="var-card-body">
-          <div class="var-card-name">G4 Green Chilli</div>
-          <div class="var-card-desc">Slender elongated pods, dark green turning deep red. Bunches of 10–12 fruits, firm glossy skin. High heat, ideal for spicy curries, exports &amp; processing. 8–12 tons/acre yield.</div>
-          <div class="var-card-specs">
-            <div class="var-spec-row"><span class="var-spec-k">Pungency</span><span class="var-spec-v">40,000–60,000 SHU</span></div>
-            <div class="var-spec-row"><span class="var-spec-k">Moisture</span><span class="var-spec-v">85–90%</span></div>
-            <div class="var-spec-row"><span class="var-spec-k">Shelf Life</span><span class="var-spec-v">15–20 days @ 4–6°C</span></div>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
+
+  <!-- TURMERIC CATEGORY -->
+  <div class="product-category" id="cat-turmeric">
+    <div class="main-product-card reveal">
+      <div class="main-product-img">
+        <img src="https://images.unsplash.com/photo-1615485500834-bc10199bc727?w=900&q=80" alt="Turmeric Powder Export" />
+        <span class="main-product-badge badge-turmeric">Premium Spice Powder</span>
+      </div>
+      <div class="main-product-body">
+        <h3 class="main-product-name">Turmeric Powder</h3>
+        <p class="main-product-tagline">Known as the "Golden Spice" (Curcuma longa) — a cornerstone of Indian culture, cuisine, and medicine. India is the world's largest producer, consumer, and exporter. High curcumin content with potent anti-inflammatory and antioxidant properties.</p>
+        <div class="prod-varieties-wrap">
+          <div class="prod-varieties-title">Origins &amp; Types</div>
+          <div class="varieties-list">
+            <span class="v-chip chip-yellow">Erode, Tamil Nadu</span><span class="v-chip chip-yellow">Sangli, Maharashtra</span><span class="v-chip chip-yellow">Nizamabad, Telangana</span><span class="v-chip chip-yellow">Anantapur, AP</span><span class="v-chip chip-yellow">Fine Powder</span><span class="v-chip chip-yellow">Coarse Grind</span>
+          </div>
+        </div>
+        <div class="prod-specs-grid">
+          <div class="prod-spec"><div class="prod-spec-lbl">Curcumin</div><div class="prod-spec-val">3–7% (1000–3000 CU)</div></div>
+          <div class="prod-spec"><div class="prod-spec-lbl">ASTA Colour</div><div class="prod-spec-val">80–150 units</div></div>
+          <div class="prod-spec"><div class="prod-spec-lbl">Moisture</div><div class="prod-spec-val">Below 12%</div></div>
+          <div class="prod-spec"><div class="prod-spec-lbl">Rhizome Length</div><div class="prod-spec-val">3–5 cm</div></div>
+        </div>
+        <p class="prod-desc">Bright golden yellow colour. Rhizome fleshy with bright orange interior. Contains 2–5% volatile oils (turmerone). Processed using steam sterilisation to meet international food safety standards. Custom packaging: 1kg / 25kg / 50kg bags. Ideal for pharmaceutical, food colouring, cosmetics, and culinary use globally.</p>
+        <div class="prod-cta-row">
+          <span class="prod-cta-info">Year-round supply · MOQ 500 kg</span>
+          <a href="#contact" class="prod-cta-btn">Enquire Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASHEW CATEGORY -->
+  <div class="product-category" id="cat-cashew">
+    <div class="main-product-card reveal">
+      <div class="main-product-img">
+        <img src="https://images.pexels.com/photos/36285399/pexels-photo-36285399.jpeg" alt="Cashew Nuts Export India" />
+        <span class="main-product-badge badge-cashew">Premium Dry Fruit</span>
+      </div>
+      <div class="main-product-body">
+        <h3 class="main-product-name" style="color:var(--cashew);">Cashew Nuts</h3>
+        <p class="main-product-tagline">Highly nutritious kidney-shaped nuts with a rich, buttery taste — enjoyed worldwide. India is one of the leading global producers &amp; exporters, with Maharashtra, Andhra Pradesh, and Odisha as top-producing states.</p>
+        <div class="prod-varieties-wrap">
+          <div class="prod-varieties-title">Grades &amp; Origins</div>
+          <div class="varieties-list">
+            <span class="v-chip chip-cashew">Maharashtra</span><span class="v-chip chip-cashew">Andhra Pradesh</span><span class="v-chip chip-cashew">Odisha</span><span class="v-chip chip-cashew">Goa</span><span class="v-chip chip-cashew">W180 (King)</span><span class="v-chip chip-cashew">W210</span><span class="v-chip chip-cashew">W240</span><span class="v-chip chip-cashew">W320 (Popular)</span>
+          </div>
+        </div>
+        <div class="prod-specs-grid">
+          <div class="prod-spec"><div class="prod-spec-lbl">Shape</div><div class="prod-spec-val">Kidney-shaped, creamy white</div></div>
+          <div class="prod-spec"><div class="prod-spec-lbl">Texture</div><div class="prod-spec-val">Soft, rich, buttery</div></div>
+          <div class="prod-spec"><div class="prod-spec-lbl">Protein</div><div class="prod-spec-val">~18g per 100g</div></div>
+          <div class="prod-spec"><div class="prod-spec-lbl">Packaging</div><div class="prod-spec-val">Vacuum 1kg / 25kg</div></div>
+        </div>
+        <p class="prod-desc">Rich in healthy fats, protein, and essential minerals like magnesium, iron, and zinc which support overall body health. Known to improve heart health and aid brain function. Widely used in sweets, curries, and snacks. Easily digestible compared to many other nuts. Grown in tropical climates on cashew trees (Anacardium occidentale).</p>
+        <div class="prod-cta-row">
+          <span class="prod-cta-info">Year-round supply · MOQ 500 kg</span>
+          <a href="#contact" class="prod-cta-btn">Enquire Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARDAMOM CATEGORY -->
+  <div class="product-category" id="cat-cardamom">
+    <div class="main-product-card reveal">
+      <div class="main-product-img">
+        <img src="https://images.pexels.com/photos/10487768/pexels-photo-10487768.jpeg" alt="Cardamom Export India" />
+        <span class="main-product-badge badge-cardamom">Queen of Spices</span>
+      </div>
+      <div class="main-product-body">
+        <h3 class="main-product-name" style="color:var(--cardamom);">Cardamom</h3>
+        <p class="main-product-tagline">The "Queen of Spices" — world's third most expensive spice by weight, trailing only saffron and vanilla. Prized for its complex aroma and medicinal properties. India is a top global producer alongside Guatemala.</p>
+        <div class="prod-varieties-wrap">
+          <div class="prod-varieties-title">Origins &amp; Types</div>
+          <div class="varieties-list">
+            <span class="v-chip chip-cardamom">Kerala</span><span class="v-chip chip-cardamom">Karnataka</span><span class="v-chip chip-cardamom">Tamil Nadu</span><span class="v-chip chip-cardamom">Green Cardamom</span><span class="v-chip chip-cardamom">Bold Grade</span><span class="v-chip chip-cardamom">Extra Bold</span>
+          </div>
+        </div>
+        <div class="prod-specs-grid">
+          <div class="prod-spec"><div class="prod-spec-lbl">Form</div><div class="prod-spec-val">Small green pods</div></div>
+          <div class="prod-spec"><div class="prod-spec-lbl">Family</div><div class="prod-spec-val">Ginger family (Zingiberaceae)</div></div>
+          <div class="prod-spec"><div class="prod-spec-lbl">Essential Oils</div><div class="prod-spec-val">Rich, complex aromatics</div></div>
+          <div class="prod-spec"><div class="prod-spec-lbl">MOQ</div><div class="prod-spec-val">100 kg</div></div>
+        </div>
+        <p class="prod-desc">Obtained from seeds of plants in the ginger family. Small green pods containing tiny black seeds. Strong, pleasant aroma and sweet-spicy flavour. Widely used in Indian cooking — sweets, tea, biryani, and dishes. Offers health benefits including improved digestion, freshening breath, and supporting respiratory health. Also used in traditional medicine.</p>
+        <div class="prod-cta-row">
+          <span class="prod-cta-info">Year-round supply · Whole pods &amp; powder</span>
+          <a href="#contact" class="prod-cta-btn">Enquire Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BASMATI RICE CATEGORY -->
+  <div class="product-category" id="cat-rice">
+    <div class="main-product-card reveal">
+      <div class="main-product-img">
+        <img src="https://images.pexels.com/photos/7421204/pexels-photo-7421204.jpeg" alt="Basmati Rice Export India" />
+        <span class="main-product-badge badge-rice">Premium Aromatic Rice</span>
+      </div>
+      <div class="main-product-body">
+        <h3 class="main-product-name" style="color:var(--rice);">Basmati Rice</h3>
+        <p class="main-product-tagline">Premium long-grain aromatic rice traditionally grown in the Himalayan foothills. As of 2019, India accounts for 65% of international basmati trade. Geographically exclusive to certain districts of India and Pakistan.</p>
+        <div class="prod-varieties-wrap">
+          <div class="prod-varieties-title">Varieties &amp; Origins</div>
+          <div class="varieties-list">
+            <span class="v-chip chip-rice">Punjab</span><span class="v-chip chip-rice">Haryana</span><span class="v-chip chip-rice">1121 Basmati</span><span class="v-chip chip-rice">Traditional Basmati</span><span class="v-chip chip-rice">Pusa Basmati</span><span class="v-chip chip-rice">Aged (1–2 yr)</span>
+          </div>
+        </div>
+        <div class="prod-specs-grid">
+          <div class="prod-spec"><div class="prod-spec-lbl">Grain Length</div><div class="prod-spec-val">6.61 mm+ (milled)</div></div>
+          <div class="prod-spec"><div class="prod-spec-lbl">Elongation</div><div class="prod-spec-val">~2x when cooked</div></div>
+          <div class="prod-spec"><div class="prod-spec-lbl">Texture</div><div class="prod-spec-val">Fluffy, light, non-sticky</div></div>
+          <div class="prod-spec"><div class="prod-spec-lbl">Premium (1121)</div><div class="prod-spec-val">7.4–8.4 mm grain</div></div>
+        </div>
+        <p class="prod-desc">Distinguished by slender grains that elongate up to twice their original size when cooked. Distinct delicate, nutty and slightly floral aroma — "Basmati" means "fragrant" in Hindi. Aged 1–2 years to reduce moisture, intensifying aroma and improving elongation. Fluffy, light, and non-sticky — each grain remains separate. Available in white, parboiled, and brown variants.</p>
+        <div class="prod-cta-row">
+          <span class="prod-cta-info">Year-round supply · MOQ 1 MT · 25kg/50kg bags</span>
+          <a href="#contact" class="prod-cta-btn">Enquire Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PEPPER CATEGORY -->
+  <div class="product-category" id="cat-pepper">
+    <div class="main-product-card reveal">
+      <div class="main-product-img">
+        <img src="https://images.pexels.com/photos/7925714/pexels-photo-7925714.jpeg" alt="Black Pepper Export India" />
+        <span class="main-product-badge badge-pepper">King of Spices</span>
+      </div>
+      <div class="main-product-body">
+        <h3 class="main-product-name" style="color:var(--pepper);">Black Pepper</h3>
+        <p class="main-product-tagline">The "King of Spices" — one of the most widely traded and utilized spices globally. Sourced primarily from the Piper nigrum vine. Pungent heat comes from piperine, concentrated in the outer skin and pit.</p>
+        <div class="prod-varieties-wrap">
+          <div class="prod-varieties-title">Types &amp; Origins</div>
+          <div class="varieties-list">
+            <span class="v-chip chip-pepper">Black Peppercorn</span><span class="v-chip chip-pepper">White Peppercorn</span><span class="v-chip chip-pepper">Green Peppercorn</span><span class="v-chip chip-pepper">Kerala</span><span class="v-chip chip-pepper">Karnataka</span><span class="v-chip chip-pepper">Whole / Ground</span>
+          </div>
+        </div>
+        <div class="prod-specs-grid">
+          <div class="prod-spec"><div class="prod-spec-lbl">Size</div><div class="prod-spec-val">~5mm drupes</div></div>
+          <div class="prod-spec"><div class="prod-spec-lbl">Heat Compound</div><div class="prod-spec-val">Piperine</div></div>
+          <div class="prod-spec"><div class="prod-spec-lbl">Moisture</div><div class="prod-spec-val">Below 12%</div></div>
+          <div class="prod-spec"><div class="prod-spec-lbl">MOQ</div><div class="prod-spec-val">500 kg</div></div>
+        </div>
+        <p class="prod-desc">Black peppercorns: sharp, pungent, smoky and woody aroma. White peppercorns: earthy, pungent with sharper heat than black. Green peppercorns: fresh, herbal and tangy, especially in brined form. High in antioxidants, aids digestion, and helps improve nutrient absorption. Best stored whole and ground immediately before use — they lose aroma quickly once ground.</p>
+        <div class="prod-cta-row">
+          <span class="prod-cta-info">Year-round supply · Whole, cracked &amp; ground</span>
+          <a href="#contact" class="prod-cta-btn">Enquire Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ORGANIC FERTILIZER CATEGORY -->
+  <div class="product-category" id="cat-fertilizer">
+    <div class="main-product-card reveal" style="margin-bottom:2.5rem;">
+      <div class="main-product-img">
+        <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=900&q=80" alt="Organic Fertilizer Export" />
+        <span class="main-product-badge badge-fertilizer">100% Organic</span>
+      </div>
+      <div class="main-product-body">
+        <h3 class="main-product-name" style="color:var(--fertilizer);">Organic Fertilizers</h3>
+        <p class="main-product-tagline">Naturally sourced substances — animal waste, plant compost, and minerals — that provide essential nutrients like nitrogen, phosphorus, and potassium. Unlike synthetic options, they improve soil structure and foster beneficial microbial activity for long-term soil health.</p>
+        <div class="prod-varieties-wrap">
+          <div class="prod-varieties-title">Product Range</div>
+          <div class="varieties-list">
+            <span class="v-chip chip-fertilizer">Vermicompost</span><span class="v-chip chip-fertilizer">Cow Dung Manure</span><span class="v-chip chip-fertilizer">Bio-Fertilizers</span><span class="v-chip chip-fertilizer">NPK Organic</span><span class="v-chip chip-fertilizer">Fine Powder</span><span class="v-chip chip-fertilizer">Granular Form</span>
+          </div>
+        </div>
+        <div class="prod-specs-grid">
+          <div class="prod-spec"><div class="prod-spec-lbl">Key Nutrients</div><div class="prod-spec-val">Nitrogen, Phosphorus, Potassium</div></div>
+          <div class="prod-spec"><div class="prod-spec-lbl">Form</div><div class="prod-spec-val">Powder / Granular</div></div>
+          <div class="prod-spec"><div class="prod-spec-lbl">Safety</div><div class="prod-spec-val">Odorless, eco-friendly</div></div>
+          <div class="prod-spec"><div class="prod-spec-lbl">MOQ</div><div class="prod-spec-val">500 kg</div></div>
+        </div>
+        <p class="prod-desc">Improve soil structure, increase water retention, and foster beneficial microbial activity for long-term soil health. Chemical-free, odorless alternatives to synthetic fertilizers. Suitable for garden soil application, home gardening, potted plants, and sustainable agriculture. Possess antimicrobial and antioxidant properties that help preserve soil and prevent bacterial growth.</p>
+        <div class="prod-cta-row">
+          <span class="prod-cta-info">Year-round supply · Custom packaging</span>
+          <a href="#contact" class="prod-cta-btn">Enquire Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- FERTILIZER SUB PRODUCTS -->
+    <div class="varieties-section reveal">
+      <h3 class="varieties-heading">Our <em style="font-style:italic;color:var(--gold);">Fertilizer Range</em></h3>
+      <p class="varieties-subhead">Three categories of premium organic soil enhancers</p>
+      <div class="fertilizer-grid">
+        <div class="fert-card">
+          <div class="fert-card-img"><img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80" alt="Vermicompost" loading="lazy"/></div>
+          <div class="fert-card-body">
+            <div class="fert-card-name">Vermicompost</div>
+            <div class="fert-card-desc">Nutrient-rich organic fertilizer produced by earthworms (red wiggler worms) breaking down organic waste in 75–90 days. Superior, nutrient-dense castings that boost plant growth, improve soil structure, aeration, and water retention. Rich in enzymes, microbes, and essential nutrients (N, P, K, Ca, Mg). Reduces risk of pests, diseases, and parasitic nematodes. Eco-friendly, odorless, chemical-free.</div>
+            <div class="fert-chips"><span class="fert-chip">Pest Repellent</span><span class="fert-chip">Soil Aeration</span><span class="fert-chip">Chemical-Free</span><span class="fert-chip">75–90 Day Process</span></div>
+          </div>
+        </div>
+        <div class="fert-card">
+          <div class="fert-card-img"><img src="https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?w=600&q=80" alt="Cow Dung Manure" loading="lazy"/></div>
+          <div class="fert-card-body">
+            <div class="fert-card-name">Cow Dung Manure</div>
+            <div class="fert-card-desc">100% organic, sun-dried, and pulverized fertilizer called "Black Gold" — rich in nitrogen, phosphorus, and potassium. Fully aged and decomposed, making it odorless and safe for immediate use without burning plant roots. Improves soil porosity, moisture retention, and acts as a natural pesticide. Sun-dried and often sourced from Desi cows. Ideal for potting mixes to improve nutrient content and moisture retention.</div>
+            <div class="fert-chips"><span class="fert-chip">Sun-Dried</span><span class="fert-chip">Desi Cow Source</span><span class="fert-chip">Fine Powder</span><span class="fert-chip">No Root Burn</span></div>
+          </div>
+        </div>
+        <div class="fert-card">
+          <div class="fert-card-img"><img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=600&q=80" alt="Bio Fertilizers" loading="lazy"/></div>
+          <div class="fert-card-body">
+            <div class="fert-card-name">Bio-Fertilizers</div>
+            <div class="fert-card-desc">Eco-friendly products containing living microorganisms — bacteria, fungi, or algae — that improve soil fertility and promote plant growth by increasing nutrient availability. Key types: nitrogen-fixing (Rhizobium, Azotobacter), phosphorus-solubizing, and VAM fungi. Enhance yield by 10–20%, reduce reliance on chemical fertilizers, and improve soil health sustainably. Non-polluting and help restore natural soil ecosystems.</div>
+            <div class="fert-chips"><span class="fert-chip">Nitrogen-Fixing</span><span class="fert-chip">+10–20% Yield</span><span class="fert-chip">Living Microbes</span><span class="fert-chip">Eco-Friendly</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </section>
 
 <!-- SERVICES -->
@@ -855,6 +825,8 @@
     <div class="industry-chip"><span>🌿</span> Herbal &amp; Ayurvedic</div>
     <div class="industry-chip"><span>🚢</span> Export Trading Houses</div>
     <div class="industry-chip"><span>🥫</span> Food Processors &amp; Canners</div>
+    <div class="industry-chip"><span>🌱</span> Organic Farming</div>
+    <div class="industry-chip"><span>🍚</span> Rice &amp; Grain Traders</div>
   </div>
 </section>
 
@@ -864,9 +836,8 @@
     <div class="contact-info">
       <div class="section-tag reveal">Get In Touch</div>
       <h2 class="section-title reveal">Start Your<br><em>Export Journey</em></h2>
-      <p class="contact-desc reveal">Ready to source premium Indian spices? Contact us for competitive pricing, product samples, and full export documentation support.</p>
+      <p class="contact-desc reveal">Ready to source premium Indian spices, nuts, rice, or organic products? Contact us for competitive pricing, product samples, and full export documentation support.</p>
       <div class="contact-details reveal">
-
         <div class="contact-detail">
           <div class="contact-detail-icon">📍</div>
           <div>
@@ -874,19 +845,17 @@
             <div class="contact-detail-value">Foreign Bridge Export &amp; Import Corp<br>Chennai, Tamil Nadu, India</div>
           </div>
         </div>
-
         <div class="contact-detail">
           <div class="contact-detail-icon">📞</div>
           <div>
             <div class="contact-detail-label">Phone / WhatsApp</div>
             <div class="contact-detail-value">
-              <a href="tel:+919025878609">+91 90258 78609</a><br>
-              <a href="tel:+917200723492">+91 72007 23492</a>
+              <a href="tel:+917200628777">+91 7200628777</a><br>
+              <a href="tel:+917200629888">+91 7200629888</a><br>
+              <a href="tel:+917842300431">+91 7842300431</a>
             </div>
           </div>
         </div>
-
-        <!-- Gmail with coloured icon -->
         <div class="contact-detail">
           <div class="contact-detail-icon gmail-box">
             <svg viewBox="0 0 48 48" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
@@ -900,11 +869,17 @@
           <div>
             <div class="contact-detail-label">Gmail</div>
             <div class="contact-detail-value">
-              <a href="mailto:foreignbridge8@gmail.com">foreignbridge8@gmail.com</a>
+              <a href="mailto:foreignbridgeofficial@gmail.com">foreignbridgeofficial@gmail.com</a>
             </div>
           </div>
         </div>
-
+        <div class="contact-detail">
+          <div class="contact-detail-icon">🌐</div>
+          <div>
+            <div class="contact-detail-label">Website</div>
+            <div class="contact-detail-value">www.foreignbridgeglobal.com</div>
+          </div>
+        </div>
         <div class="contact-detail">
           <div class="contact-detail-icon">🕐</div>
           <div>
@@ -912,7 +887,6 @@
             <div class="contact-detail-value">Mon – Sat: 9:00 AM – 6:30 PM IST<br>Sunday: Closed</div>
           </div>
         </div>
-
         <div class="contact-detail">
           <div class="contact-detail-icon">🏛️</div>
           <div>
@@ -960,16 +934,37 @@
               <option>Turmeric Powder (Erode)</option>
               <option>Turmeric Powder (Nizamabad)</option>
             </optgroup>
+            <optgroup label="🥜 Nuts">
+              <option>Cashew Nuts (W180 – King Grade)</option>
+              <option>Cashew Nuts (W240)</option>
+              <option>Cashew Nuts (W320 – Popular)</option>
+            </optgroup>
+            <optgroup label="🫛 Spices">
+              <option>Cardamom (Green / Bold Grade)</option>
+              <option>Black Pepper (Whole)</option>
+              <option>Black Pepper (Ground)</option>
+              <option>White Pepper</option>
+            </optgroup>
+            <optgroup label="🍚 Grains">
+              <option>Basmati Rice (1121 Premium)</option>
+              <option>Basmati Rice (Traditional)</option>
+              <option>Basmati Rice (Pusa)</option>
+            </optgroup>
+            <optgroup label="🌱 Organic Fertilizers">
+              <option>Vermicompost</option>
+              <option>Cow Dung Manure (Powder)</option>
+              <option>Bio-Fertilizers</option>
+            </optgroup>
             <optgroup label="Other">
               <option>General / Trade Enquiry</option>
             </optgroup>
           </select>
         </div>
         <div class="form-group full"><label class="form-label">Destination Country</label><input type="text" class="form-input" placeholder="e.g. UAE, Malaysia, UK, USA..." /></div>
-        <div class="form-group full"><label class="form-label">Your Message</label><textarea class="form-textarea" placeholder="Quantity (MT), required ASTA, packaging preference, delivery timeline, or specific variety needs…"></textarea></div>
+        <div class="form-group full"><label class="form-label">Your Message</label><textarea class="form-textarea" placeholder="Quantity (MT/kg), quality specifications, packaging preference, delivery timeline, or any specific requirements…"></textarea></div>
       </div>
       <button class="form-submit" onclick="handleSubmit()">Send Enquiry ↗</button>
-      <p class="form-note">🔒 We respond within 24 hrs · foreignbridge8@gmail.com · +91 90258 78609</p>
+      <p class="form-note">🔒 We respond within 24 hrs · foreignbridgeofficial@gmail.com · +91 7200628777</p>
     </div>
   </div>
 </section>
@@ -977,79 +972,65 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-top">
-    
-    <!-- Brand -->
     <div class="footer-brand">
-      <div class="footer-logo">
-        <a href="#hero" class="nav-logo" style="text-decoration:none;">
-          <div class="nav-logo-icon">FB</div>
-          <div class="nav-logo-text">
-            <span style="color: darkgrey;" class="nav-logo-main">FOREIGN BRIDGE</span>
-            <span class="nav-logo-sub">Export & Import Corp</span>
-          </div>
-        </a>
-      </div>
-
-      <p class="footer-desc">
-        Connecting Chennai's trade ecosystem to global markets with over 15 years of expertise, integrity, and excellence.
-      </p>
-
-      <!-- Social Icons -->
+      <a href="#hero" class="nav-logo" style="text-decoration:none;">
+        <div class="nav-logo-hex">FB</div>
+        <div class="nav-logo-text">
+          <span style="color:darkgrey;" class="nav-logo-main">FOREIGN BRIDGE</span>
+          <span class="nav-logo-sub">Export &amp; Import Corp</span>
+        </div>
+      </a>
+      <p class="footer-desc">Connecting Chennai's trade ecosystem to global markets with over 15 years of expertise, integrity, and excellence.</p>
       <div class="footer-social">
         <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
         <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
         <a href="#" class="social-btn"><i class="fab fa-x-twitter"></i></a>
         <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
         <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
-        <a href="#" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://wa.me/917200723492" class="social-btn"><i class="fab fa-whatsapp"></i></a>
       </div>
     </div>
-
-    <!-- Quick Links -->
     <div>
       <div class="footer-col-title">Quick Links</div>
       <ul class="footer-links">
         <li><a href="#about">About Us</a></li>
+        <li><a href="#products">Our Products</a></li>
         <li><a href="#services">Our Services</a></li>
         <li><a href="#why">Why Choose Us</a></li>
-        <li><a href="#industries">Industries</a></li>
         <li><a href="#contact">Contact Us</a></li>
       </ul>
     </div>
-
-    <!-- Services -->
     <div>
-      <div class="footer-col-title">Services</div>
+      <div class="footer-col-title">Products</div>
       <ul class="footer-links">
-        <li><a href="#services">Export Management</a></li>
-        <li><a href="#services">Import Facilitation</a></li>
-        <li><a href="#services">Trade Documentation</a></li>
-        <li><a href="#services">Freight & Logistics</a></li>
-        <li><a href="#services">Trade Finance</a></li>
+        <li><a href="#products">Red &amp; Green Chilli</a></li>
+        <li><a href="#products">Robusta Banana</a></li>
+        <li><a href="#products">Turmeric Powder</a></li>
+        <li><a href="#products">Cashew Nuts</a></li>
+        <li><a href="#products">Cardamom</a></li>
+        <li><a href="#products">Basmati Rice</a></li>
+        <li><a href="#products">Black Pepper</a></li>
+        <li><a href="#products">Organic Fertilizers</a></li>
       </ul>
     </div>
-
-    <!-- Contact -->
     <div>
       <div class="footer-col-title">Contact</div>
       <ul class="footer-links">
-        <li><a href="tel:+914445678900">+91 44 4567 8900</a></li>
-        <li><a href="mailto:info@foreignbridge.co.in">info@foreignbridge.co.in</a></li>
-        <li><a href="#">Perungudi, Chennai</a></li>
-        <li><a href="#">Tamil Nadu – 600 096</a></li>
-        <li><div class="footer-badge">Made in India</div></li>
+        <li><a href="tel:+919025878609">+91 90258 78609</a></li>
+        <li><a href="tel:+917200723492">+91 72007 23492</a></li>
+        <li><a href="tel:+917842300431">+91 78423 00431</a></li>
+        <li><a href="mailto:foreignbridge8@gmail.com">foreignbridge8@gmail.com</a></li>
+        <li><a href="#">Chennai, Tamil Nadu, India</a></li>
+        <li><div class="footer-badge">🇮🇳 Made in India</div></li>
       </ul>
     </div>
-
   </div>
-
-  <!-- Bottom -->
   <div class="footer-bottom">
-    <span>© 2024 Foreign Bridge Export & Import Corp. All rights reserved.</span>
+    <span>© 2024 Foreign Bridge Export &amp; Import Corp. All rights reserved.</span>
     <span>
-      <a href="#">Privacy Policy</a> · 
-      <a href="#">Terms of Service</a> · 
-      <a href="#">IEC: AABCF1234R</a>
+      <a href="#">Privacy Policy</a> ·
+      <a href="#">Terms of Service</a> ·
+      <a href="#">www.foreignbridgeglobal.com</a>
     </span>
   </div>
 </footer>
@@ -1057,15 +1038,38 @@
 <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
 
 <script>
+  // Back to top
   window.addEventListener('scroll',()=>{document.getElementById('btt').classList.toggle('visible',window.scrollY>400);});
+
+  // Mobile menu
   document.getElementById('hamburger').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.add('open');document.body.style.overflow='hidden';});
   document.getElementById('mobileClose').addEventListener('click',closeMenu);
   document.querySelectorAll('.mobile-link').forEach(l=>l.addEventListener('click',closeMenu));
   function closeMenu(){document.getElementById('mobileMenu').classList.remove('open');document.body.style.overflow='';}
+
+  // Scroll reveal
   const obs=new IntersectionObserver(e=>{e.forEach(i=>{if(i.isIntersecting){i.target.classList.add('visible');obs.unobserve(i.target);}});},{threshold:0.08});
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+  // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){const t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}});});
+
+  // Form submit
   function handleSubmit(){const b=document.querySelector('.form-submit');b.textContent='✓ Sent! We\'ll reply within 24hrs';b.style.background='#1e6e3a';setTimeout(()=>{b.textContent='Send Enquiry ↗';b.style.background='';},4000);}
+
+  // Product category tabs
+  function showCategory(id, btn) {
+    document.querySelectorAll('.product-category').forEach(c=>c.classList.remove('active'));
+    document.querySelectorAll('.prod-tab').forEach(t=>t.classList.remove('active'));
+    document.getElementById('cat-' + id).classList.add('active');
+    btn.classList.add('active');
+    // Re-trigger reveal for newly shown items
+    document.querySelectorAll('#cat-' + id + ' .reveal:not(.visible)').forEach(el=>{
+      const rect = el.getBoundingClientRect();
+      if(rect.top < window.innerHeight) { el.classList.add('visible'); }
+      else { obs.observe(el); }
+    });
+  }
 </script>
 </body>
 </html>
