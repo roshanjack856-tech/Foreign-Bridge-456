@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | Foreign Bridge Export & Import Corp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Outfit:wght@300;400;500;600;700&family=Teko:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root {
+    --navy:#0b1e3d; --gold:#c8922a; --gold-light:#e8b04a; --gold-pale:#fdf3e0;
+    --green:#1e6e3a;
+    --cream:#faf8f5; --cream-dark:#f0ece4; --white:#ffffff;
+    --text-dark:#18293f; --text-mid:#4a5f78; --text-light:#8a9ab0; --border:#e5e0d8;
+  }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Outfit',sans-serif;background:var(--white);color:var(--text-dark);overflow-x:hidden;}
+  ::-webkit-scrollbar{width:5px;}
+  ::-webkit-scrollbar-track{background:var(--cream);}
+  ::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px;}
+
+  /* TOP BAR */
+  .top-bar{background:var(--navy);color:rgba(255,255,255,0.75);padding:0.45rem 4rem;font-size:0.74rem;display:flex;align-items:center;justify-content:space-between;}
+  .top-bar-left{opacity:0.6;font-size:0.7rem;}
+  .top-bar-contacts{display:flex;gap:1.6rem;align-items:center;}
+  .top-bar-contact{display:flex;align-items:center;gap:0.45rem;color:rgba(255,255,255,0.85);text-decoration:none;transition:color 0.2s;font-size:0.73rem;}
+  .top-bar-contact:hover{color:var(--gold-light);}
+  .tb-phone-icon{width:13px;height:13px;fill:currentColor;flex-shrink:0;}
+  .tb-gmail-icon{width:16px;height:16px;flex-shrink:0;}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0.9rem 4rem;background:var(--white);border-bottom:1px solid var(--border);box-shadow:0 2px 20px rgba(11,30,61,0.06);}
+  .nav-logo{display:flex;align-items:center;gap:0.8rem;text-decoration:none;}
+  .nav-logo-hex{width:42px;height:42px;background:var(--navy);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);display:flex;align-items:center;justify-content:center;font-family:'Teko',sans-serif;font-size:1rem;color:var(--gold);font-weight:600;}
+  .nav-logo-text{display:flex;flex-direction:column;line-height:1.1;}
+  .nav-logo-main{font-family:'Teko',sans-serif;font-size:1.1rem;letter-spacing:0.08em;color:var(--navy);font-weight:600;}
+  .nav-logo-sub{font-size:0.56rem;letter-spacing:0.18em;color:var(--gold);text-transform:uppercase;}
+  .nav-links{display:flex;align-items:center;gap:2.2rem;list-style:none;}
+  .nav-links a{text-decoration:none;color:var(--text-mid);font-size:0.79rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;transition:color 0.25s;position:relative;}
+  .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--gold);transition:width 0.25s;}
+  .nav-links a:hover{color:var(--navy);}
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{background:var(--navy)!important;color:var(--white)!important;padding:0.5rem 1.4rem;border-radius:4px;font-weight:600!important;}
+  .nav-cta:hover{background:var(--gold)!important;color:var(--navy)!important;}
+  .nav-cta::after{display:none!important;}
+  .nav-cta-active{background:var(--gold)!important;color:var(--navy)!important;}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+  .hamburger span{display:block;width:24px;height:2px;background:var(--navy);}
+  .mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--white);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:2rem;}
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{text-decoration:none;color:var(--navy);font-family:'Teko',sans-serif;font-size:2rem;letter-spacing:0.08em;}
+  .mobile-menu a:hover{color:var(--gold);}
+  .mobile-close{position:absolute;top:1.5rem;right:2rem;background:none;border:none;font-size:2rem;cursor:pointer;color:var(--navy);}
+
+  /* PAGE HERO BANNER */
+  .page-banner{background:var(--navy);padding:4rem 4rem 3.5rem;text-align:center;position:relative;overflow:hidden;}
+  .page-banner::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(200,146,42,0.08) 1.5px,transparent 1.5px);background-size:28px 28px;pointer-events:none;}
+  .page-banner-tag{display:inline-flex;align-items:center;gap:0.5rem;color:var(--gold-light);font-size:0.67rem;letter-spacing:0.28em;text-transform:uppercase;font-weight:700;margin-bottom:0.65rem;}
+  .page-banner-tag::before{content:'';width:20px;height:2px;background:var(--gold-light);}
+  .page-banner h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:900;color:var(--white);line-height:1.15;}
+  .page-banner h1 em{font-style:italic;color:var(--gold-light);}
+  .page-banner p{color:rgba(255,255,255,0.55);font-size:0.95rem;margin-top:0.8rem;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.8;}
+
+  /* SHARED */
+  .section-tag{display:inline-flex;align-items:center;gap:0.5rem;color:var(--gold);font-size:0.67rem;letter-spacing:0.28em;text-transform:uppercase;font-weight:700;margin-bottom:0.65rem;}
+  .section-tag::before{content:'';width:20px;height:2px;background:var(--gold);}
+  .section-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.5rem);font-weight:700;color:var(--navy);line-height:1.2;}
+  .section-title em{font-style:italic;color:var(--gold);}
+
+  /* CONTACT */
+  #contact{background:var(--cream);padding:5rem 4rem;}
+  .contact-wrap{display:grid;grid-template-columns:1fr 1.4fr;gap:3.8rem;max-width:1060px;margin:0 auto;align-items:start;}
+  .contact-desc{color:var(--text-mid);line-height:1.9;font-size:0.88rem;margin:1rem 0 1.7rem;}
+  .contact-details{display:flex;flex-direction:column;gap:0.95rem;}
+  .contact-detail{display:flex;align-items:flex-start;gap:0.82rem;}
+  .contact-detail-icon{width:38px;height:38px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.95rem;flex-shrink:0;}
+  .contact-detail-icon.gmail-box{background:#fff;border:1px solid var(--border);}
+  .contact-detail-label{font-size:0.59rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:0.1rem;}
+  .contact-detail-value{font-size:0.84rem;color:var(--text-dark);font-weight:500;line-height:1.6;}
+  .contact-detail-value a{color:var(--navy);text-decoration:none;}
+  .contact-detail-value a:hover{color:var(--gold);}
+  .contact-form-card{background:var(--white);border-radius:14px;padding:2.2rem;box-shadow:0 10px 40px rgba(11,30,61,0.08);border:1px solid var(--border);}
+  .form-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:1.2rem;}
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.85rem;}
+  .form-group{display:flex;flex-direction:column;gap:0.32rem;}
+  .form-group.full{grid-column:1/-1;}
+  .form-label{font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-mid);font-weight:700;}
+  .form-input,.form-select,.form-textarea{width:100%;padding:0.62rem 0.82rem;border:1.5px solid var(--border);border-radius:7px;font-family:'Outfit',sans-serif;font-size:0.84rem;color:var(--text-dark);background:var(--cream);transition:all 0.25s;outline:none;}
+  .form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--gold);background:var(--white);box-shadow:0 0 0 3px rgba(200,146,42,0.1);}
+  .form-textarea{resize:vertical;min-height:90px;}
+  .form-submit{width:100%;margin-top:0.85rem;padding:0.85rem;background:var(--navy);color:var(--white);border:none;border-radius:7px;font-family:'Outfit',sans-serif;font-size:0.84rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:all 0.25s;}
+  .form-submit:hover{background:var(--gold);color:var(--navy);transform:translateY(-2px);}
+  .form-note{font-size:0.68rem;color:var(--text-light);text-align:center;margin-top:0.55rem;}
+
+  /* WHATSAPP CTA */
+  #whatsapp-cta{background:var(--white);padding:3.5rem 4rem;text-align:center;}
+  .wa-box{max-width:600px;margin:0 auto;background:var(--cream);border:1px solid var(--border);border-radius:16px;padding:2.5rem 2rem;}
+  .wa-icon{font-size:2.5rem;margin-bottom:0.8rem;}
+  .wa-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;}
+  .wa-desc{color:var(--text-mid);font-size:0.85rem;line-height:1.7;margin-bottom:1.4rem;}
+  .btn-whatsapp{display:inline-flex;align-items:center;gap:0.55rem;background:#25D366;color:#fff;text-decoration:none;padding:0.85rem 2rem;border-radius:8px;font-weight:700;font-size:0.88rem;transition:all 0.25s;}
+  .btn-whatsapp:hover{background:#1ebe5d;transform:translateY(-2px);box-shadow:0 8px 20px rgba(37,211,102,0.3);}
+
+  /* FOOTER */
+  footer{background:#060f1c;color:rgba(255,255,255,0.55);padding:3.5rem 4rem 2rem;}
+  .footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,0.06);}
+  .footer-desc{font-size:0.79rem;line-height:1.8;max-width:240px;color:rgba(255,255,255,0.38);margin:0.85rem 0 1rem;}
+  .footer-social{display:flex;gap:0.52rem;}
+  .social-btn{width:32px;height:32px;border:1px solid rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.45);text-decoration:none;font-size:0.76rem;transition:all 0.25s;}
+  .social-btn:hover{background:var(--gold);border-color:var(--gold);color:var(--navy);}
+  .footer-col-title{font-size:0.63rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:0.95rem;}
+  .footer-links{list-style:none;display:flex;flex-direction:column;gap:0.58rem;}
+  .footer-links a{text-decoration:none;color:rgba(255,255,255,0.38);font-size:0.79rem;transition:color 0.25s;}
+  .footer-links a:hover{color:var(--gold-light);}
+  .footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:0.69rem;color:rgba(255,255,255,0.22);}
+  .footer-bottom a{color:var(--gold);text-decoration:none;}
+  .footer-badge{display:inline-flex;align-items:center;gap:0.38rem;background:rgba(200,146,42,0.1);border:1px solid rgba(200,146,42,0.2);padding:0.26rem 0.7rem;border-radius:100px;color:var(--gold-light);font-size:0.64rem;}
+
+  /* BTT */
+  #btt{position:fixed;bottom:2rem;right:2rem;z-index:999;width:40px;height:40px;background:var(--navy);border:none;border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:1rem;cursor:pointer;opacity:0;transform:translateY(10px);transition:all 0.3s;pointer-events:none;box-shadow:0 4px 16px rgba(11,30,61,0.25);}
+  #btt.visible{opacity:1;transform:translateY(0);pointer-events:all;}
+  #btt:hover{background:var(--gold);}
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.65s ease,transform 0.65s ease;}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+  .d1{transition-delay:0.1s;}.d2{transition-delay:0.2s;}.d3{transition-delay:0.3s;}
+
+  /* RESPONSIVE */
+  @media(max-width:900px){
+    .contact-wrap{grid-template-columns:1fr;gap:2.5rem;}
+  }
+  @media(max-width:768px){
+    #contact{padding:3.5rem 1.5rem;}
+    #whatsapp-cta{padding:3rem 1.5rem;}
+    nav{padding:0.82rem 1.5rem;}
+    .top-bar{padding:0.4rem 1.2rem;font-size:0.67rem;flex-direction:column;gap:0.35rem;text-align:center;}
+    .top-bar-contacts{gap:0.8rem;flex-wrap:wrap;justify-content:center;}
+    .nav-links{display:none;}
+    .hamburger{display:flex;}
+    .page-banner{padding:3rem 1.5rem 2.5rem;}
+    .form-grid{grid-template-columns:1fr;}
+    .footer-top{grid-template-columns:1fr;gap:2rem;}
+    .footer-bottom{flex-direction:column;align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <span class="top-bar-left">🌐 Foreign Bridge Export &amp; Import Corp — Chennai, India</span>
+  <div class="top-bar-contacts">
+    <a href="tel:+917200628777" class="top-bar-contact">
+      <svg class="tb-phone-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.24 1.02L6.6 10.8z"/></svg>
+      +91 72006 28777
+    </a>
+    <a href="tel:+917200629888" class="top-bar-contact">
+      <svg class="tb-phone-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.24 1.02L6.6 10.8z"/></svg>
+      +91 72006 29888
+    </a>
+    <a href="mailto:foreignbridgeofficial@gmail.com" class="top-bar-contact">
+      <svg class="tb-gmail-icon" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#4caf50" d="M45 16.2l-5 2.75-5 4.75V40h7a3 3 0 003-3V16.2z"/>
+        <path fill="#1e88e5" d="M3 16.2l3.5 2.75L13 23.7V40H6a3 3 0 01-3-3V16.2z"/>
+        <polygon fill="#e53935" points="35,11.2 24,19.45 13,11.2 12,17 13,23.7 24,31.95 35,23.7 36,17"/>
+        <path fill="#c62828" d="M3 12.298V16.2l10 7.5V11.2L9.848 8.123C9.15 7.49 8 7.95 8 8.875V12z"/>
+        <path fill="#fbc02d" d="M45 12.298V16.2l-10 7.5V11.2l3.152-3.077C38.85 7.49 40 7.95 40 8.875V12z"/>
+      </svg>
+      foreignbridgeofficial@gmail.com
+    </a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-hex">FB</div>
+    <div class="nav-logo-text">
+      <span class="nav-logo-main">FOREIGN BRIDGE</span>
+      <span class="nav-logo-sub">Export &amp; Import Corp</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="why us.html">Why Us</a></li>
+    <li><a href="contact.html" class="nav-cta nav-cta-active">Contact Us</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose">✕</button>
+  <a href="about.html" class="mobile-link">About</a>
+  <a href="products.html" class="mobile-link">Products</a>
+  <a href="services.html" class="mobile-link">Services</a>
+  <a href="why us.html" class="mobile-link">Why Us</a>
+  <a href="contact.html" class="mobile-link">Contact</a>
+</div>
+
+<!-- PAGE BANNER -->
+<div class="page-banner">
+  <div class="page-banner-tag">Get In Touch</div>
+  <h1>Start Your <em>Export Journey</em></h1>
+  <p>Ready to source premium Indian spices, nuts, rice, or organic products? We respond within 24 hours.</p>
+</div>
+
+<!-- CONTACT SECTION -->
+<section id="contact">
+  <div class="contact-wrap">
+    <div class="contact-info">
+      <div class="section-tag reveal">Get In Touch</div>
+      <h2 class="section-title reveal">Start Your<br><em>Export Journey</em></h2>
+      <p class="contact-desc reveal">Ready to source premium Indian spices, nuts, rice, or organic products? Contact us for competitive pricing, product samples, and full export documentation support.</p>
+      <div class="contact-details reveal">
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📍</div>
+          <div>
+            <div class="contact-detail-label">Head Office</div>
+            <div class="contact-detail-value">Foreign Bridge Export &amp; Import Corp<br>Chennai, Tamil Nadu, India</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📞</div>
+          <div>
+            <div class="contact-detail-label">Phone / WhatsApp</div>
+            <div class="contact-detail-value">
+              <a href="tel:+917200628777">+91 7200628777</a><br>
+              <a href="tel:+917200629888">+91 7200629888</a><br>
+              <a href="tel:+917842300431">+91 7842300431</a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon gmail-box">
+            <svg viewBox="0 0 48 48" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#4caf50" d="M45 16.2l-5 2.75-5 4.75V40h7a3 3 0 003-3V16.2z"/>
+              <path fill="#1e88e5" d="M3 16.2l3.5 2.75L13 23.7V40H6a3 3 0 01-3-3V16.2z"/>
+              <polygon fill="#e53935" points="35,11.2 24,19.45 13,11.2 12,17 13,23.7 24,31.95 35,23.7 36,17"/>
+              <path fill="#c62828" d="M3 12.298V16.2l10 7.5V11.2L9.848 8.123C9.15 7.49 8 7.95 8 8.875V12z"/>
+              <path fill="#fbc02d" d="M45 12.298V16.2l-10 7.5V11.2l3.152-3.077C38.85 7.49 40 7.95 40 8.875V12z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-detail-label">Gmail</div>
+            <div class="contact-detail-value">
+              <a href="mailto:foreignbridgeofficial@gmail.com">foreignbridgeofficial@gmail.com</a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">🌐</div>
+          <div>
+            <div class="contact-detail-label">Website</div>
+            <div class="contact-detail-value">www.foreignbridgeglobal.com</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">🕐</div>
+          <div>
+            <div class="contact-detail-label">Business Hours</div>
+            <div class="contact-detail-value">Mon – Sat: 9:00 AM – 6:30 PM IST<br>Sunday: Closed</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">🏛️</div>
+          <div>
+            <div class="contact-detail-label">Certifications</div>
+            <div class="contact-detail-value">APEDA Registered · IEC Holder<br>FSSAI Certified Exporter</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-card reveal">
+      <div class="form-title">Send Us an Enquiry</div>
+      <div class="form-grid">
+        <div class="form-group"><label class="form-label">First Name</label><input type="text" class="form-input" placeholder="Your first name" /></div>
+        <div class="form-group"><label class="form-label">Last Name</label><input type="text" class="form-input" placeholder="Your last name" /></div>
+        <div class="form-group"><label class="form-label">Company</label><input type="text" class="form-input" placeholder="Company name" /></div>
+        <div class="form-group"><label class="form-label">Phone / WhatsApp</label><input type="tel" class="form-input" placeholder="+91 / country code..." /></div>
+        <div class="form-group full"><label class="form-label">Email / Gmail</label><input type="email" class="form-input" placeholder="your@gmail.com" /></div>
+        <div class="form-group full">
+          <label class="form-label">Product Required</label>
+          <select class="form-select">
+            <option value="">— Select a Product —</option>
+            <optgroup label="🌶️ Red Chilli Varieties">
+              <option>Sannam S4 / 334 (Guntur)</option>
+              <option>Teja S17 (Super Hot)</option>
+              <option>Guntur Corolla 341</option>
+              <option>Indo 5</option>
+              <option>Devanur Deluxe (DD)</option>
+              <option>Wrinkle 273</option>
+              <option>S 14</option>
+              <option>Wonder Hot Chilli</option>
+              <option>S 12</option>
+              <option>S-668 Byadgi</option>
+              <option>Sygenta Byadgi 2043</option>
+              <option>Kashmiri Chilli</option>
+              <option>S9 Mundu / Ramnad Gundu</option>
+            </optgroup>
+            <optgroup label="🟢 Green Chilli">
+              <option>G4 Green Chilli (Fresh Export)</option>
+            </optgroup>
+            <optgroup label="🍌 Fresh Produce">
+              <option>Robusta Banana</option>
+            </optgroup>
+            <optgroup label="🟡 Spice Powder">
+              <option>Turmeric Powder (Erode)</option>
+              <option>Turmeric Powder (Nizamabad)</option>
+            </optgroup>
+            <optgroup label="🥜 Nuts">
+              <option>Cashew Nuts (W180 – King Grade)</option>
+              <option>Cashew Nuts (W240)</option>
+              <option>Cashew Nuts (W320 – Popular)</option>
+            </optgroup>
+            <optgroup label="🫛 Spices">
+              <option>Cardamom (Green / Bold Grade)</option>
+              <option>Black Pepper (Whole)</option>
+              <option>Black Pepper (Ground)</option>
+              <option>White Pepper</option>
+            </optgroup>
+            <optgroup label="🍚 Grains">
+              <option>Basmati Rice (1121 Premium)</option>
+              <option>Basmati Rice (Traditional)</option>
+              <option>Basmati Rice (Pusa)</option>
+            </optgroup>
+            <optgroup label="🌱 Organic Fertilizers">
+              <option>Vermicompost</option>
+              <option>Cow Dung Manure (Powder)</option>
+              <option>Bio-Fertilizers</option>
+            </optgroup>
+            <optgroup label="Other">
+              <option>General / Trade Enquiry</option>
+            </optgroup>
+          </select>
+        </div>
+        <div class="form-group full"><label class="form-label">Destination Country</label><input type="text" class="form-input" placeholder="e.g. UAE, Malaysia, UK, USA..." /></div>
+        <div class="form-group full"><label class="form-label">Your Message</label><textarea class="form-textarea" placeholder="Quantity (MT/kg), quality specifications, packaging preference, delivery timeline, or any specific requirements…"></textarea></div>
+      </div>
+      <button class="form-submit" onclick="handleSubmit()">Send Enquiry ↗</button>
+      <p class="form-note">🔒 We respond within 24 hrs · foreignbridgeofficial@gmail.com · +91 7200628777</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHATSAPP CTA -->
+<section id="whatsapp-cta">
+  <div class="wa-box reveal">
+    <div class="wa-icon">💬</div>
+    <div class="wa-title">Prefer to Chat on WhatsApp?</div>
+    <p class="wa-desc">Send us a quick message on WhatsApp for faster responses. Our trade team is available Mon–Sat, 9 AM to 6:30 PM IST.</p>
+    <a href="https://wa.me/917200628777" class="btn-whatsapp" target="_blank">
+      <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo" style="text-decoration:none;">
+        <div class="nav-logo-hex">FB</div>
+        <div class="nav-logo-text">
+          <span style="color:darkgrey;" class="nav-logo-main">FOREIGN BRIDGE</span>
+          <span class="nav-logo-sub">Export &amp; Import Corp</span>
+        </div>
+      </a>
+      <p class="footer-desc">Connecting Chennai's trade ecosystem to global markets with over 15 years of expertise, integrity, and excellence.</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-btn"><i class="fab fa-x-twitter"></i></a>
+        <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+        <a href="https://wa.me/917200628777" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="products.html">Our Products</a></li>
+        <li><a href="services.html">Our Services</a></li>
+        <li><a href="why us.html">Why Choose Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Products</div>
+      <ul class="footer-links">
+        <li><a href="products.html">Red &amp; Green Chilli</a></li>
+        <li><a href="products.html">Robusta Banana</a></li>
+        <li><a href="products.html">Turmeric Powder</a></li>
+        <li><a href="products.html">Cashew Nuts</a></li>
+        <li><a href="products.html">Cardamom</a></li>
+        <li><a href="products.html">Basmati Rice</a></li>
+        <li><a href="products.html">Black Pepper</a></li>
+        <li><a href="products.html">Organic Fertilizers</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="tel:+917200628777">+91 72006 28777</a></li>
+        <li><a href="tel:+917200629888">+91 72006 29888</a></li>
+        <li><a href="tel:+917842300431">+91 78423 00431</a></li>
+        <li><a href="mailto:foreignbridgeofficial@gmail.com">foreignbridgeofficial@gmail.com</a></li>
+        <li><a href="#">Chennai, Tamil Nadu, India</a></li>
+        <li><div class="footer-badge">🇮🇳 Made in India</div></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 Foreign Bridge Export &amp; Import Corp. All rights reserved.</span>
+    <span>
+      <a href="#">Privacy Policy</a> ·
+      <a href="#">Terms of Service</a> ·
+      <a href="#">www.foreignbridgeglobal.com</a>
+    </span>
+  </div>
+</footer>
+
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+
+<script>
+  window.addEventListener('scroll',()=>{document.getElementById('btt').classList.toggle('visible',window.scrollY>400);});
+  document.getElementById('hamburger').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.add('open');document.body.style.overflow='hidden';});
+  document.getElementById('mobileClose').addEventListener('click',closeMenu);
+  document.querySelectorAll('.mobile-link').forEach(l=>l.addEventListener('click',closeMenu));
+  function closeMenu(){document.getElementById('mobileMenu').classList.remove('open');document.body.style.overflow='';}
+  const obs=new IntersectionObserver(e=>{e.forEach(i=>{if(i.isIntersecting){i.target.classList.add('visible');obs.unobserve(i.target);}});},{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  function handleSubmit(){const b=document.querySelector('.form-submit');b.textContent='✓ Sent! We\'ll reply within 24hrs';b.style.background='#1e6e3a';setTimeout(()=>{b.textContent='Send Enquiry ↗';b.style.background='';},4000);}
+</script>
+</body>
+</html>
