@@ -85,12 +85,18 @@
     .h-stat-num span{color:var(--gold-light);}
     .h-stat-label{font-size:0.65rem;color:rgba(255,255,255,0.55);letter-spacing:0.15em;text-transform:uppercase;margin-top:0.25rem;}
 
-    /* Product image strip */
-    .hero-img-strip{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:940px;margin:2.3rem auto 0;border-radius:14px;overflow:hidden;box-shadow:0 22px 65px rgba(0,0,0,0.35);animation:fadeUp 0.8s 0.6s ease both;}
-    .hero-strip-item{position:relative;height:195px;overflow:hidden;}
-    .hero-strip-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;}
-    .hero-strip-item:hover img{transform:scale(1.05);}
-    .hero-strip-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,0.72),transparent);color:var(--white);font-family:'Teko',sans-serif;font-size:0.93rem;letter-spacing:0.18em;padding:0.75rem 1rem 0.45rem;text-align:center;}
+    /* Product category bar */
+    .prod-bar{position:relative;z-index:2;background:rgba(6,15,28,0.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid rgba(200,146,42,0.25);animation:fadeUp 0.8s 0.6s ease both;}
+    .prod-bar-inner{display:flex;align-items:stretch;justify-content:center;flex-wrap:wrap;max-width:1100px;margin:0 auto;}
+    .prod-cat{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.55rem;padding:1.1rem 1.4rem;text-decoration:none;border-right:1px solid rgba(255,255,255,0.06);transition:background 0.25s;flex:1;min-width:100px;cursor:pointer;}
+    .prod-cat:last-child{border-right:none;}
+    .prod-cat:hover{background:rgba(200,146,42,0.15);}
+    .prod-cat-img{width:52px;height:52px;object-fit:cover;border-radius:50%;border:2px solid rgba(200,146,42,0.4);transition:border-color 0.25s,transform 0.25s;}
+    .prod-cat:hover .prod-cat-img{border-color:var(--gold-light);transform:scale(1.08);}
+    .prod-cat-name{font-size:0.62rem;color:rgba(255,255,255,0.7);letter-spacing:0.14em;text-transform:uppercase;text-align:center;font-weight:500;transition:color 0.25s;}
+    .prod-cat:hover .prod-cat-name{color:var(--gold-light);}
+    @media(max-width:768px){.prod-cat{min-width:80px;padding:0.9rem 0.7rem;}.prod-cat-img{width:42px;height:42px;}.prod-cat-name{font-size:0.55rem;}}
+    @media(max-width:480px){.prod-cat{min-width:70px;padding:0.7rem 0.4rem;}}
 
     /* ── FOOTER ── */
     footer{background:#060f1c;color:rgba(255,255,255,0.55);padding:3.5rem 4rem 2rem;}
@@ -114,8 +120,7 @@
 
     /* ── RESPONSIVE ── */
     @media(max-width:900px){
-      .hero-img-strip{grid-template-columns:1fr 1fr;}
-      .hero-strip-item:last-child{display:none;}
+
     }
     @media(max-width:768px){
       nav{padding:0.82rem 1.5rem;}
@@ -126,8 +131,7 @@
       .footer-top{grid-template-columns:1fr 1fr;}
       .footer-bottom{flex-direction:column;align-items:flex-start;}
       .hero-content{padding:3.5rem 1.2rem 3rem;}
-      .hero-img-strip{grid-template-columns:1fr;}
-      .hero-strip-item:last-child{display:block;}
+
       footer{padding:2.5rem 1.5rem 1.5rem;}
     }
     @media(max-width:480px){
@@ -198,7 +202,7 @@
   <!-- VIDEO BACKGROUND -->
   <div class="hero-video-bg">
     <video autoplay muted loop playsinline>
-      <source src="WhatsApp_Video_2026-04-25_at_7_18_55_PM.mp4">
+      <source src="WhatsApp_Video_2026-04-25_at_7_18_55_PM.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
   </div>
@@ -220,23 +224,47 @@
       <div class="h-stat"><div class="h-stat-num">1200<span>+</span></div><div class="h-stat-label">Shipments</div></div>
       <div class="h-stat"><div class="h-stat-num">200<span>+</span></div><div class="h-stat-label">Global Buyers</div></div>
     </div>
-    <div class="hero-img-strip">
-      <div class="hero-strip-item">
-        <img src="https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/6d/85/4b/da/eb/v1_E10/E107LCPZ.jpg?w=800&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=c9eb2417d82288860b151ea136cba9748c0ef1c8b674cc5b6dacb888bfa56667" alt="Red Chilli Export" loading="lazy" />
-        <div class="hero-strip-label">Red &amp; Green Chilli</div>
-      </div>
-      <div class="hero-strip-item">
-        <img src="https://images.unsplash.com/photo-1528825871115-3581a5387919?w=700&q=80" alt="Robusta Banana" loading="lazy" />
-        <div class="hero-strip-label">Robusta Banana</div>
-      </div>
-      <div class="hero-strip-item">
-        <img src="https://images.unsplash.com/photo-1615485500834-bc10199bc727?w=700&q=80" alt="Turmeric Powder" loading="lazy" />
-        <div class="hero-strip-label">Turmeric Powder</div>
-      </div>
-    </div>
   </div>
 
 </section>
+
+<!-- PRODUCT CATEGORY BAR -->
+<div class="prod-bar">
+  <div class="prod-bar-inner">
+    <a href="products.html#chilli" class="prod-cat">
+      <img class="prod-cat-img" src="https://images.unsplash.com/photo-1588252303782-cb80119abd6d?w=120&q=80" alt="Chilli" loading="lazy">
+      <span class="prod-cat-name">Red &amp; Green Chilli</span>
+    </a>
+    <a href="products.html#banana" class="prod-cat">
+      <img class="prod-cat-img" src="https://images.unsplash.com/photo-1528825871115-3581a5387919?w=120&q=80" alt="Banana" loading="lazy">
+      <span class="prod-cat-name">Robusta Banana</span>
+    </a>
+    <a href="products.html#turmeric" class="prod-cat">
+      <img class="prod-cat-img" src="https://images.unsplash.com/photo-1615485500834-bc10199bc727?w=120&q=80" alt="Turmeric" loading="lazy">
+      <span class="prod-cat-name">Turmeric</span>
+    </a>
+    <a href="products.html#cashew" class="prod-cat">
+      <img class="prod-cat-img" src="https://images.unsplash.com/photo-1563636619-e9143da7973b?w=120&q=80" alt="Cashew" loading="lazy">
+      <span class="prod-cat-name">Cashew Nuts</span>
+    </a>
+    <a href="products.html#cardamom" class="prod-cat">
+      <img class="prod-cat-img" src="https://images.unsplash.com/photo-1615485291234-9d694218aeb3?w=120&q=80" alt="Cardamom" loading="lazy">
+      <span class="prod-cat-name">Cardamom</span>
+    </a>
+    <a href="products.html#rice" class="prod-cat">
+      <img class="prod-cat-img" src="https://images.unsplash.com/photo-1536304993881-ff86e0c9e6e9?w=120&q=80" alt="Rice" loading="lazy">
+      <span class="prod-cat-name">Basmati Rice</span>
+    </a>
+    <a href="products.html#pepper" class="prod-cat">
+      <img class="prod-cat-img" src="https://images.unsplash.com/photo-1599909533731-1b235da94a80?w=120&q=80" alt="Black Pepper" loading="lazy">
+      <span class="prod-cat-name">Black Pepper</span>
+    </a>
+    <a href="products.html#fertilizer" class="prod-cat">
+      <img class="prod-cat-img" src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=120&q=80" alt="Fertilizer" loading="lazy">
+      <span class="prod-cat-name">Organic Fertilizer</span>
+    </a>
+  </div>
+</div>
 
 <!-- FOOTER -->
 <footer>
