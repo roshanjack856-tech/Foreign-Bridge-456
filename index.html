@@ -21,22 +21,17 @@
     ::-webkit-scrollbar-track{background:var(--cream);}
     ::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px;}
 
-    /* ── TOP BAR ── */
-    .top-bar{background:var(--navy);color:rgba(255,255,255,0.75);padding:0.45rem 4rem;font-size:0.74rem;display:flex;align-items:center;justify-content:space-between;}
-    .top-bar-left{opacity:0.6;font-size:0.7rem;}
-    .top-bar-contacts{display:flex;gap:1.6rem;align-items:center;}
-    .top-bar-contact{display:flex;align-items:center;gap:0.45rem;color:rgba(255,255,255,0.85);text-decoration:none;transition:color 0.2s;font-size:0.73rem;}
-    .top-bar-contact:hover{color:var(--gold-light);}
-    .tb-phone-icon{width:13px;height:13px;fill:currentColor;flex-shrink:0;}
-    .tb-gmail-icon{width:16px;height:16px;flex-shrink:0;}
+
 
     /* ── NAV ── */
     nav{position:sticky;top:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0.9rem 4rem;background:var(--white);border-bottom:1px solid var(--border);box-shadow:0 2px 20px rgba(11,30,61,0.06);}
-    .nav-logo{display:flex;align-items:center;gap:0.8rem;text-decoration:none;}
-    .nav-logo-hex{width:42px;height:42px;background:var(--navy);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);display:flex;align-items:center;justify-content:center;font-family:'Teko',sans-serif;font-size:1rem;color:var(--gold);font-weight:600;}
+    .nav-logo{display:flex;align-items:center;gap:0.5rem;text-decoration:none;}
+    .nav-logo-hex{display:none;}
+    .nav-logo-img{width:54px;height:54px;object-fit:contain;border-radius:50%;filter:drop-shadow(0 0 6px rgba(200,146,42,0.5));}
     .nav-logo-text{display:flex;flex-direction:column;line-height:1.1;}
     .nav-logo-main{font-family:'Teko',sans-serif;font-size:1.1rem;letter-spacing:0.08em;color:var(--navy);font-weight:600;}
     .nav-logo-sub{font-size:0.56rem;letter-spacing:0.18em;color:var(--gold);text-transform:uppercase;}
+    .footer-logo-img{width:60px;height:60px;object-fit:contain;border-radius:50%;filter:drop-shadow(0 0 8px rgba(200,146,42,0.4));}
     .nav-links{display:flex;align-items:center;gap:2.2rem;list-style:none;}
     .nav-links a{text-decoration:none;color:var(--text-mid);font-size:0.79rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;transition:color 0.25s;position:relative;}
     .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--gold);transition:width 0.25s;}
@@ -124,8 +119,6 @@
     }
     @media(max-width:768px){
       nav{padding:0.82rem 1.5rem;}
-      .top-bar{padding:0.4rem 1.2rem;font-size:0.67rem;flex-direction:column;gap:0.35rem;text-align:center;}
-      .top-bar-contacts{gap:0.8rem;flex-wrap:wrap;justify-content:center;}
       .nav-links{display:none;}
       .hamburger{display:flex;}
       .footer-top{grid-template-columns:1fr 1fr;}
@@ -142,35 +135,10 @@
 </head>
 <body>
 
-<!-- TOP BAR -->
-<div class="top-bar">
-  <span class="top-bar-left">🌐 Foreign Bridge Export &amp; Import Corp — Chennai, India</span>
-  <div class="top-bar-contacts">
-    <a href="tel:+917200628777" class="top-bar-contact">
-      <svg class="tb-phone-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.24 1.02L6.6 10.8z"/></svg>
-      +91 72006 28777
-    </a>
-    <a href="tel:+917200629888" class="top-bar-contact">
-      <svg class="tb-phone-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.24 1.02L6.6 10.8z"/></svg>
-      +91 72006 29888
-    </a>
-    <a href="mailto:foreignbridgeofficial@gmail.com" class="top-bar-contact">
-      <svg class="tb-gmail-icon" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-        <path fill="#4caf50" d="M45 16.2l-5 2.75-5 4.75V40h7a3 3 0 003-3V16.2z"/>
-        <path fill="#1e88e5" d="M3 16.2l3.5 2.75L13 23.7V40H6a3 3 0 01-3-3V16.2z"/>
-        <polygon fill="#e53935" points="35,11.2 24,19.45 13,11.2 12,17 13,23.7 24,31.95 35,23.7 36,17"/>
-        <path fill="#c62828" d="M3 12.298V16.2l10 7.5V11.2L9.848 8.123C9.15 7.49 8 7.95 8 8.875V12z" clip-rule="evenodd" fill-rule="evenodd"/>
-        <path fill="#fbc02d" d="M45 12.298V16.2l-10 7.5V11.2l3.152-3.077C38.85 7.49 40 7.95 40 8.875V12z" clip-rule="evenodd" fill-rule="evenodd"/>
-      </svg>
-      foreignbridgeofficial@gmail.com
-    </a>
-  </div>
-</div>
-
 <!-- NAV -->
-<nav id="navbar">
+<nav style="background-color: whitesmoke;" id="navbar">
   <a href="index.html" class="nav-logo">
-    <div class="nav-logo-hex">FB</div>
+    <img class="nav-logo-img" src="c:\Users\acer\OneDrive\图片\foreign bridge logo.png" alt="Foreign Bridge Logo">
     <div class="nav-logo-text">
       <span class="nav-logo-main">FOREIGN BRIDGE</span>
       <span class="nav-logo-sub">Export &amp; Import Corp</span>
@@ -244,7 +212,7 @@
       <span class="prod-cat-name">Turmeric</span>
     </a>
     <a href="products.html#cashew" class="prod-cat">
-      <img class="prod-cat-img" src="https://images.pexels.com/photos/36285399/pexels-photo-36285399.jpeg" alt="Cashew" loading="lazy">
+      <img class="prod-cat-img" src="https://images.unsplash.com/photo-1563636619-e9143da7973b?w=120&q=80" alt="Cashew" loading="lazy">
       <span class="prod-cat-name">Cashew Nuts</span>
     </a>
     <a href="products.html#cardamom" class="prod-cat">
@@ -271,9 +239,9 @@
   <div class="footer-top">
     <div class="footer-brand">
       <a href="index.html" class="nav-logo" style="text-decoration:none;">
-        <div class="nav-logo-hex">FB</div>
+        <img class="footer-logo-img" src="WhatsApp_Image_2026-04-23_at_5_50_02_PM.jpeg" alt="Foreign Bridge Logo">
         <div class="nav-logo-text">
-          <span style="color:darkgrey;" class="nav-logo-main">FOREIGN BRIDGE</span>
+          <span style="color:#ccc;" class="nav-logo-main">FOREIGN BRIDGE</span>
           <span class="nav-logo-sub">Export &amp; Import Corp</span>
         </div>
       </a>
