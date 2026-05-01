@@ -326,7 +326,7 @@
         <div class="prod-modal-tags" id="modalTags"></div>
         <div class="prod-modal-actions">
           <a href="contact.html" class="btn-primary">Get Export Quote ↗</a>
-          <a id="modalViewAll" href="products.html" class="btn-outline-navy">View All Products →</a>
+          <a id="modalViewProduct" href="products.html" class="btn-outline-navy"></a>
         </div>
       </div>
     </div>
@@ -564,8 +564,10 @@
     const tagsEl = document.getElementById('modalTags');
     tagsEl.innerHTML = p.tags.map(t => `<span class="prod-tag">${t}</span>`).join('');
 
-    // View all link
-    document.getElementById('modalViewAll').href = p.link;
+    // View product link — goes to products.html with the correct tab pre-selected
+    const viewBtn = document.getElementById('modalViewProduct');
+    viewBtn.href = 'products.html?tab=' + key;
+    viewBtn.textContent = 'View ' + p.title + ' →';
 
     // Open
     document.getElementById('prodModalOverlay').classList.add('active');
