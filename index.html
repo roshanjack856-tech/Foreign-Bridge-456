@@ -21,8 +21,6 @@
     ::-webkit-scrollbar-track{background:var(--cream);}
     ::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px;}
 
-
-
     /* ── NAV ── */
     nav{position:sticky;top:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0.9rem 4rem;background:var(--white);border-bottom:1px solid var(--border);box-shadow:0 2px 20px rgba(11,30,61,0.06);}
     .nav-logo{display:flex;align-items:center;gap:0.5rem;text-decoration:none;}
@@ -114,9 +112,6 @@
     #btt:hover{background:var(--gold);}
 
     /* ── RESPONSIVE ── */
-    @media(max-width:900px){
-
-    }
     @media(max-width:768px){
       nav{padding:0.82rem 1.5rem;}
       .nav-links{display:none;}
@@ -124,7 +119,6 @@
       .footer-top{grid-template-columns:1fr 1fr;}
       .footer-bottom{flex-direction:column;align-items:flex-start;}
       .hero-content{padding:3.5rem 1.2rem 3rem;}
-
       footer{padding:2.5rem 1.5rem 1.5rem;}
     }
     @media(max-width:480px){
@@ -138,7 +132,7 @@
 <!-- NAV -->
 <nav style="background-color: whitesmoke;" id="navbar">
   <a href="index.html" class="nav-logo">
-    <img class="nav-logo-img" src="foreign bridge logo.png">
+    <img class="nav-logo-img" src="foreign bridge logo.png" alt="Foreign Bridge Logo">
     <div class="nav-logo-text">
       <span class="nav-logo-main">FOREIGN BRIDGE</span>
       <span class="nav-logo-sub">Export &amp; Import Corp</span>
@@ -168,9 +162,10 @@
 <section class="hero" id="home">
 
   <!-- VIDEO BACKGROUND -->
+  <!-- FIX: Rename your video file to remove spaces, e.g. hero-video.mp4 -->
   <div class="hero-video-bg">
     <video autoplay muted loop playsinline>
-      <source src="WhatsApp_Video_2026-04-25_at_7_18_55_PM.mp4" type="video/mp4">
+      <source src="hero-video.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
   </div>
@@ -212,23 +207,24 @@
       <span class="prod-cat-name">Turmeric</span>
     </a>
     <a href="products.html#cashew" class="prod-cat">
-      <img class="prod-cat-img" src="https://images.pexels.com/photos/36285399/pexels-photo-36285399.jpeg" alt="Cashew" loading="lazy">
+      <!-- FIX: Replaced broken Pexels cashew URL with working Unsplash URL -->
+      <img class="prod-cat-img" src="https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?w=120&q=80" alt="Cashew" loading="lazy">
       <span class="prod-cat-name">Cashew Nuts</span>
     </a>
     <a href="products.html#cardamom" class="prod-cat">
-      <img class="prod-cat-img" src="https://images.pexels.com/photos/10487768/pexels-photo-10487768.jpeg" alt="Cardamom" loading="lazy">
+      <img class="prod-cat-img" src="https://images.pexels.com/photos/10487768/pexels-photo-10487768.jpeg?auto=compress&cs=tinysrgb&w=120" alt="Cardamom" loading="lazy">
       <span class="prod-cat-name">Cardamom</span>
     </a>
     <a href="products.html#rice" class="prod-cat">
-      <img class="prod-cat-img" src="https://images.pexels.com/photos/7421204/pexels-photo-7421204.jpeg" alt="Rice" loading="lazy">
+      <img class="prod-cat-img" src="https://images.pexels.com/photos/7421204/pexels-photo-7421204.jpeg?auto=compress&cs=tinysrgb&w=120" alt="Rice" loading="lazy">
       <span class="prod-cat-name">Basmati Rice</span>
     </a>
     <a href="products.html#pepper" class="prod-cat">
-      <img class="prod-cat-img" src="https://images.pexels.com/photos/7925714/pexels-photo-7925714.jpeg" alt="Black Pepper" loading="lazy">
+      <img class="prod-cat-img" src="https://images.pexels.com/photos/7925714/pexels-photo-7925714.jpeg?auto=compress&cs=tinysrgb&w=120" alt="Black Pepper" loading="lazy">
       <span class="prod-cat-name">Black Pepper</span>
     </a>
     <a href="products.html#fertilizer" class="prod-cat">
-      <img class="prod-cat-img" src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=900&q=80" alt="Fertilizer" loading="lazy">
+      <img class="prod-cat-img" src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=120&q=80" alt="Fertilizer" loading="lazy">
       <span class="prod-cat-name">Organic Fertilizer</span>
     </a>
   </div>
@@ -262,21 +258,22 @@
         <li><a href="about.html">About Us</a></li>
         <li><a href="products.html">Our Products</a></li>
         <li><a href="services.html">Our Services</a></li>
-        <li><a href="why us.html">Why Choose Us</a></li>
+        <!-- FIX: was "why us.html" (space breaks the link) -->
+        <li><a href="why-us.html">Why Choose Us</a></li>
         <li><a href="contact.html">Contact Us</a></li>
       </ul>
     </div>
     <div>
       <div class="footer-col-title">Products</div>
       <ul class="footer-links">
-        <li><a href="products.html">Red &amp; Green Chilli</a></li>
-        <li><a href="products.html">Robusta Banana</a></li>
-        <li><a href="products.html">Turmeric Powder</a></li>
-        <li><a href="products.html">Cashew Nuts</a></li>
-        <li><a href="products.html">Cardamom</a></li>
-        <li><a href="products.html">Basmati Rice</a></li>
-        <li><a href="products.html">Black Pepper</a></li>
-        <li><a href="products.html">Organic Fertilizers</a></li>
+        <li><a href="products.html#chilli">Red &amp; Green Chilli</a></li>
+        <li><a href="products.html#banana">Robusta Banana</a></li>
+        <li><a href="products.html#turmeric">Turmeric Powder</a></li>
+        <li><a href="products.html#cashew">Cashew Nuts</a></li>
+        <li><a href="products.html#cardamom">Cardamom</a></li>
+        <li><a href="products.html#rice">Basmati Rice</a></li>
+        <li><a href="products.html#pepper">Black Pepper</a></li>
+        <li><a href="products.html#fertilizer">Organic Fertilizers</a></li>
       </ul>
     </div>
     <div>
