@@ -564,11 +564,22 @@
     const tagsEl = document.getElementById('modalTags');
     tagsEl.innerHTML = p.tags.map(t => `<span class="prod-tag">${t}</span>`).join('');
 
-    // View product link — goes to products.html with the correct tab pre-selected
-    const viewBtn = document.getElementById('modalViewProduct');
-    viewBtn.href = 'products.html?tab=' + key;
-    viewBtn.textContent = 'View ' + p.title + ' →';
+   // Product page links
+const productPages = {
+  chilli: 'green-chillie.html',
+  banana: 'banana.html',
+  turmeric: 'turmeric.html',
+  cashew: 'cashew.html',
+  cardamom: 'cardamom.html',
+  rice: 'basmati.html',
+  pepper: 'black-pepper.html',
+  fertilizer: 'organic-fertilizer.html'
+};
 
+// View Product Button
+const viewBtn = document.getElementById('modalViewProduct');
+viewBtn.href = productPages[key] || 'products.html';
+viewBtn.textContent = 'View ' + p.title + ' →';
     // Open
     document.getElementById('prodModalOverlay').classList.add('active');
     document.body.style.overflow = 'hidden';
