@@ -187,22 +187,20 @@ body{font-family:'Outfit',sans-serif;background:var(--light);color:#222;}
 .quote-btn-green{background:var(--green);color:white;}
 .quote-btn-green:hover{background:#155120;}
 
-/* photo side — 2×2 grid */
+/* photo side — single image */
 .card-photos{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  grid-template-rows:1fr 1fr;
-  gap:0;
   min-height:340px;
+  overflow:hidden;
 }
 .card-photos img{
   width:100%;height:100%;object-fit:cover;display:block;
-  transition:transform 0.4s;
+  transition:transform 0.5s;
 }
-.card-photos img:hover{transform:scale(1.04);}
+.card-photos img:not(:first-child){display:none;}
+.card-photos img:hover{transform:scale(1.05);}
 /* overflow clip on corners */
-.variety-card:not(.reverse) .card-photos{border-radius:0 16px 16px 0;overflow:hidden;}
-.variety-card.reverse .card-photos{border-radius:16px 0 0 16px;overflow:hidden;}
+.variety-card:not(.reverse) .card-photos{border-radius:0 16px 16px 0;}
+.variety-card.reverse .card-photos{border-radius:16px 0 0 16px;}
 .variety-card.reverse .card-photos{order:-1;}
 
 /* ── FOOTER ── */
@@ -297,10 +295,7 @@ body{font-family:'Outfit',sans-serif;background:var(--light);color:#222;}
         <a href="contact.html" class="quote-btn quote-btn-red">Get Export Quote →</a>
       </div>
       <div class="card-photos">
-        <img src="https://images.unsplash.com/photo-1583119022894-919a68a3d0e3?w=600&q=85" alt="Teja S17 red chilli whole">
-        <img src="https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=600&q=85" alt="Teja red chilli pile">
-        <img src="https://images.unsplash.com/photo-1515942400420-2b98fed1f515?w=600&q=85" alt="Teja red chilli dry">
-        <img src="https://images.unsplash.com/photo-1574856344991-aaa31b6f4ce3?w=600&q=85" alt="Teja red chilli market">
+        <img src="https://images.unsplash.com/photo-1583119022894-919a68a3d0e3?w=800&q=90" alt="Teja S17 red chilli">
       </div>
     </div>
 
@@ -326,10 +321,7 @@ body{font-family:'Outfit',sans-serif;background:var(--light);color:#222;}
         <a href="contact.html" class="quote-btn quote-btn-red">Get Export Quote →</a>
       </div>
       <div class="card-photos">
-        <img src="https://images.unsplash.com/photo-1601648764658-cf37e8c89b70?w=600&q=85" alt="Byadgi whole red chilli">
-        <img src="https://images.unsplash.com/photo-1556020685-ae41abfc9365?w=600&q=85" alt="Byadgi dried chilli">
-        <img src="https://images.unsplash.com/photo-1588951197685-8e5f0bfb89ce?w=600&q=85" alt="Byadgi chilli closeup">
-        <img src="https://images.unsplash.com/photo-1598456630879-2423fdf35ae1?w=600&q=85" alt="Byadgi chilli batch">
+        <img src="https://images.unsplash.com/photo-1601648764658-cf37e8c89b70?w=800&q=90" alt="Byadgi red chilli">
       </div>
     </div>
 
@@ -355,10 +347,7 @@ body{font-family:'Outfit',sans-serif;background:var(--light);color:#222;}
         <a href="contact.html" class="quote-btn quote-btn-red">Get Export Quote →</a>
       </div>
       <div class="card-photos">
-        <img src="https://images.unsplash.com/photo-1607623488569-4e0e5ded4a1e?w=600&q=85" alt="Sannam S4 red chilli">
-        <img src="https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=600&q=85" alt="Sannam chilli powder">
-        <img src="https://images.unsplash.com/photo-1602470520998-f4a52199a3d6?w=600&q=85" alt="Sannam dry red">
-        <img src="https://images.unsplash.com/photo-1615485290382-5b607a79e50b?w=600&q=85" alt="Sannam export pack">
+        <img src="https://images.unsplash.com/photo-1607623488569-4e0e5ded4a1e?w=800&q=90" alt="Guntur Sannam S4 chilli">
       </div>
     </div>
 
@@ -384,10 +373,7 @@ body{font-family:'Outfit',sans-serif;background:var(--light);color:#222;}
         <a href="contact.html" class="quote-btn quote-btn-red">Get Export Quote →</a>
       </div>
       <div class="card-photos">
-        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=85" alt="Jwala finger chilli fresh">
-        <img src="https://images.unsplash.com/photo-1574856344991-aaa31b6f4ce3?w=600&q=85" alt="Jwala chilli farm">
-        <img src="https://images.unsplash.com/photo-1515942400420-2b98fed1f515?w=600&q=85" alt="Jwala thin chilli">
-        <img src="https://images.unsplash.com/photo-1556020685-ae41abfc9365?w=600&q=85" alt="Jwala red dry">
+        <img src="https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=800&q=90" alt="Jwala finger chilli">
       </div>
     </div>
 
@@ -414,10 +400,7 @@ body{font-family:'Outfit',sans-serif;background:var(--light);color:#222;}
         <a href="contact.html" class="quote-btn quote-btn-red">Get Export Quote →</a>
       </div>
       <div class="card-photos">
-        <img src="https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=600&q=85" alt="Kashmiri mirch red">
-        <img src="https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=600&q=85" alt="Kashmiri chilli dried">
-        <img src="https://images.unsplash.com/photo-1583119022894-919a68a3d0e3?w=600&q=85" alt="Kashmiri spice market">
-        <img src="https://images.unsplash.com/photo-1607623488569-4e0e5ded4a1e?w=600&q=85" alt="Kashmiri colour grade">
+        <img src="https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=800&q=90" alt="Kashmiri Mirch red chilli">
       </div>
     </div>
 
@@ -443,10 +426,7 @@ body{font-family:'Outfit',sans-serif;background:var(--light);color:#222;}
         <a href="contact.html" class="quote-btn quote-btn-red">Get Export Quote →</a>
       </div>
       <div class="card-photos">
-        <img src="https://images.unsplash.com/photo-1602470520998-f4a52199a3d6?w=600&q=85" alt="Wonder hot 334 chilli">
-        <img src="https://images.unsplash.com/photo-1598456630879-2423fdf35ae1?w=600&q=85" alt="Wonder hot red pile">
-        <img src="https://images.unsplash.com/photo-1588951197685-8e5f0bfb89ce?w=600&q=85" alt="Wonder hot dry chilli">
-        <img src="https://images.unsplash.com/photo-1574856344991-aaa31b6f4ce3?w=600&q=85" alt="Wonder hot harvest">
+        <img src="https://images.unsplash.com/photo-1602470520998-f4a52199a3d6?w=800&q=90" alt="Wonder Hot 334 chilli">
       </div>
     </div>
 
@@ -472,10 +452,7 @@ body{font-family:'Outfit',sans-serif;background:var(--light);color:#222;}
         <a href="contact.html" class="quote-btn quote-btn-red">Get Export Quote →</a>
       </div>
       <div class="card-photos">
-        <img src="https://images.unsplash.com/photo-1601648764658-cf37e8c89b70?w=600&q=85" alt="Bird eye chilli small">
-        <img src="https://images.unsplash.com/photo-1615485290382-5b607a79e50b?w=600&q=85" alt="Kanthare red chilli">
-        <img src="https://images.unsplash.com/photo-1556020685-ae41abfc9365?w=600&q=85" alt="Bird eye dry red">
-        <img src="https://images.unsplash.com/photo-1515942400420-2b98fed1f515?w=600&q=85" alt="Bird eye export">
+        <img src="https://images.unsplash.com/photo-1598456630879-2423fdf35ae1?w=800&q=90" alt="Bird's Eye chilli">
       </div>
     </div>
 
@@ -501,10 +478,7 @@ body{font-family:'Outfit',sans-serif;background:var(--light);color:#222;}
         <a href="contact.html" class="quote-btn quote-btn-red">Get Export Quote →</a>
       </div>
       <div class="card-photos">
-        <img src="https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=600&q=85" alt="Mathania red chilli">
-        <img src="https://images.unsplash.com/photo-1583119022894-919a68a3d0e3?w=600&q=85" alt="Mathania dry whole">
-        <img src="https://images.unsplash.com/photo-1602470520998-f4a52199a3d6?w=600&q=85" alt="Mathania spice grade">
-        <img src="https://images.unsplash.com/photo-1574856344991-aaa31b6f4ce3?w=600&q=85" alt="Mathania GI variety">
+        <img src="https://images.unsplash.com/photo-1556020685-ae41abfc9365?w=800&q=90" alt="Mathania Rajasthani red chilli">
       </div>
     </div>
 
@@ -530,10 +504,7 @@ body{font-family:'Outfit',sans-serif;background:var(--light);color:#222;}
         <a href="contact.html" class="quote-btn quote-btn-red">Get Export Quote →</a>
       </div>
       <div class="card-photos">
-        <img src="https://images.unsplash.com/photo-1615485290382-5b607a79e50b?w=600&q=85" alt="Reshampatti silk chilli">
-        <img src="https://images.unsplash.com/photo-1588951197685-8e5f0bfb89ce?w=600&q=85" alt="Reshampatti red dry">
-        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=85" alt="Reshampatti whole">
-        <img src="https://images.unsplash.com/photo-1607623488569-4e0e5ded4a1e?w=600&q=85" alt="Reshampatti export grade">
+        <img src="https://images.unsplash.com/photo-1615485290382-5b607a79e50b?w=800&q=90" alt="Reshampatti silk chilli">
       </div>
     </div>
 
@@ -559,10 +530,7 @@ body{font-family:'Outfit',sans-serif;background:var(--light);color:#222;}
         <a href="contact.html" class="quote-btn quote-btn-red">Get Export Quote →</a>
       </div>
       <div class="card-photos">
-        <img src="https://images.unsplash.com/photo-1556020685-ae41abfc9365?w=600&q=85" alt="Warangal chapatta chilli">
-        <img src="https://images.unsplash.com/photo-1598456630879-2423fdf35ae1?w=600&q=85" alt="Indian paprika red">
-        <img src="https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=600&q=85" alt="Paprika dried whole">
-        <img src="https://images.unsplash.com/photo-1601648764658-cf37e8c89b70?w=600&q=85" alt="Chapatta export grade">
+        <img src="https://images.unsplash.com/photo-1588951197685-8e5f0bfb89ce?w=800&q=90" alt="Warangal Chapatta Indian Paprika">
       </div>
     </div>
 
@@ -604,10 +572,7 @@ body{font-family:'Outfit',sans-serif;background:var(--light);color:#222;}
         <a href="contact.html" class="quote-btn quote-btn-green">Get Export Quote →</a>
       </div>
       <div class="card-photos">
-        <img src="https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?w=600&q=85" alt="G4 green chilli fresh">
-        <img src="https://images.unsplash.com/photo-1601648764658-cf37e8c89b70?w=600&q=85" alt="G4 green chilli pile">
-        <img src="https://images.unsplash.com/photo-1582515073490-dc6c7d52f8c0?w=600&q=85" alt="G4 green export">
-        <img src="https://images.unsplash.com/photo-1603046891744-76e6300f69f5?w=600&q=85" alt="G4 green chilli market">
+        <img src="https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?w=800&q=90" alt="G4 green chilli fresh">
       </div>
     </div>
 
