@@ -40,11 +40,15 @@
     .nav-cta::after{display:none!important;}
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
     .hamburger span{display:block;width:24px;height:2px;background:var(--navy);}
-    .mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--white);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:2rem;}
+    
+    /* ── MOBILE MENU UPDATES ── */
+    .mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--white);z-index:1999;flex-direction:column;}
     .mobile-menu.open{display:flex;}
+    .mobile-menu-header{display:flex;align-items:center;justify-content:space-between;padding:0.9rem 1.5rem;border-bottom:1px solid var(--border);width:100%;}
+    .mobile-menu-links{display:flex;flex-direction:column;align-items:center;justify-content:center;flex-grow:1;gap:2rem;padding-bottom:5rem;}
     .mobile-menu a{text-decoration:none;color:var(--navy);font-family:'Teko',sans-serif;font-size:2rem;letter-spacing:0.08em;}
     .mobile-menu a:hover{color:var(--gold);}
-    .mobile-close{position:absolute;top:1.5rem;right:2rem;background:none;border:none;font-size:2rem;cursor:pointer;color:var(--navy);}
+    .mobile-close{background:none;border:none;font-size:1.8rem;cursor:pointer;color:var(--navy);padding:4px;display:flex;align-items:center;justify-content:center;}
 
     /* ── HERO ── */
     .hero{position:relative;overflow:hidden;min-height:100vh;display:flex;flex-direction:column;}
@@ -216,7 +220,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav style="background-color: whitesmoke;" id="navbar">
   <a href="index.html" class="nav-logo">
     <img class="nav-logo-img" src="foreign bridge logo.png">
@@ -235,17 +238,27 @@
   <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
-<!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-close" id="mobileClose">✕</button>
-  <a href="about.html" class="mobile-link">About</a>
-  <a href="products.html" class="mobile-link">Products</a>
-  <a href="services.html" class="mobile-link">Services</a>
-  <a href="why-us.html" class="mobile-link">Why Us</a>
-  <a href="contact.html" class="mobile-link">Contact</a>
+  <div class="mobile-menu-header">
+    <a href="index.html" class="nav-logo">
+      <img class="nav-logo-img" src="foreign bridge logo.png">
+      <div class="nav-logo-text">
+        <span class="nav-logo-main">FOREIGN BRIDGE</span>
+        <span class="nav-logo-sub">Export &amp; Import Corp</span>
+      </div>
+    </a>
+    <button class="mobile-close" id="mobileClose">✕</button>
+  </div>
+  <div class="mobile-menu-links">
+    <a href="index.html" class="mobile-link">Home</a>
+    <a href="about.html" class="mobile-link">About</a>
+    <a href="products.html" class="mobile-link">Products</a>
+    <a href="services.html" class="mobile-link">Services</a>
+    <a href="why-us.html" class="mobile-link">Why Us</a>
+    <a href="contact.html" class="mobile-link">Contact Us</a>
+  </div>
 </div>
 
-<!-- HERO SECTION -->
 <section class="hero" id="home">
   <div class="hero-video-bg">
     <video autoplay muted loop playsinline>
@@ -272,7 +285,6 @@
   </div>
 </section>
 
-<!-- PRODUCT CATEGORY BAR -->
 <div class="prod-bar">
   <div class="prod-bar-inner">
     <div class="prod-cat" onclick="openModal('chilli')">
@@ -310,7 +322,6 @@
   </div>
 </div>
 
-<!-- ── PRODUCT MODAL ── -->
 <div class="prod-modal-overlay" id="prodModalOverlay" onclick="handleOverlayClick(event)">
   <div class="prod-modal-wrapper">
     <div class="prod-modal" id="prodModal">
@@ -334,7 +345,6 @@
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
@@ -565,21 +575,21 @@
     tagsEl.innerHTML = p.tags.map(t => `<span class="prod-tag">${t}</span>`).join('');
 
    // Product page links
-const productPages = {
-  chilli: 'green-chillie.html',
-  banana: 'banana.html',
-  turmeric: 'turmeric.html',
-  cashew: 'cashew.html',
-  cardamom: 'cardamom.html',
-  rice: 'basmati.html',
-  pepper: 'black-pepper.html',
-  fertilizer: 'organic-fertilizer.html'
-};
+   const productPages = {
+     chilli: 'green-chillie.html',
+     banana: 'banana.html',
+     turmeric: 'turmeric.html',
+     cashew: 'cashew.html',
+     cardamom: 'cardamom.html',
+     rice: 'basmati.html',
+     pepper: 'black-pepper.html',
+     fertilizer: 'organic-fertilizer.html'
+   };
 
-// View Product Button
-const viewBtn = document.getElementById('modalViewProduct');
-viewBtn.href = productPages[key] || 'products.html';
-viewBtn.textContent = 'View ' + p.title + ' →';
+    // View Product Button
+    const viewBtn = document.getElementById('modalViewProduct');
+    viewBtn.href = productPages[key] || 'products.html';
+    viewBtn.textContent = 'View ' + p.title + ' →';
     // Open
     document.getElementById('prodModalOverlay').classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -615,4 +625,3 @@ viewBtn.textContent = 'View ' + p.title + ' →';
 
 </body>
 </html>
-  
