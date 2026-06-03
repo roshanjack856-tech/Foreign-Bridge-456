@@ -40,13 +40,13 @@
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
     .hamburger span{display:block;width:24px;height:2px;background:var(--navy);}
     
-    /* ── NEW SIDEBAR MOBILE MENU (Matching WhatsApp Image 2026-06-03 at 3.25.56 PM.jpeg) ── */
+    /* ── HIGH BLUR MOBILE SIDEBAR (WhatsApp Image 2026-06-03 at 3.25.56 PM.jpeg) ── */
     .mobile-menu-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
+      background: rgba(10, 16, 26, 0.45);
+      backdrop-filter: blur(8px); /* Blurs page content behind the drawer */
+      -webkit-backdrop-filter: blur(8px);
       z-index: 1999;
       opacity: 0;
       pointer-events: none;
@@ -63,9 +63,10 @@
       bottom: 0;
       width: 290px;
       max-width: 85%;
-      background: linear-gradient(145deg, rgba(15, 28, 54, 0.98), rgba(6, 15, 28, 0.98));
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      /* Frosted semi-transparent surface gradient */
+      background: linear-gradient(135deg, rgba(15, 28, 54, 0.82), rgba(6, 12, 24, 0.88));
+      backdrop-filter: blur(20px); /* Internal frosted glass depth element */
+      -webkit-backdrop-filter: blur(20px);
       z-index: 2000;
       transform: translateX(-100%);
       transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -73,6 +74,7 @@
       flex-direction: column;
       padding: 2.2rem 1.5rem;
       border-right: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 15px 0 35px rgba(0, 0, 0, 0.3);
     }
     .mobile-menu-overlay.open .mobile-menu-sidebar {
       transform: translateX(0);
@@ -135,9 +137,8 @@
       color: rgba(255, 255, 255, 0.4);
       transition: color 0.2s ease;
     }
-    /* Active Link Styling matching screenshot */
     .mobile-nav-item.active {
-      background: rgba(255, 255, 255, 0.07);
+      background: rgba(255, 255, 255, 0.08);
       color: var(--white);
       font-weight: 600;
     }
@@ -358,7 +359,7 @@
   <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
-<!-- ── RE-ENGINEERED MOBILE DRAWERS OVERLAY ── -->
+<!-- ── RE-ENGINEERED MOBILE SIDEBAR WITH ADVANCED BLUR LAYER ── -->
 <div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="handleOverlayClose(event)">
   <div class="mobile-menu-sidebar">
     <div class="mobile-brand-block">
@@ -538,7 +539,7 @@
   // ── PRODUCT DATA ──
   const products = {
     chilli: {
-      category: 'Spices', badge: 'Best Seller', title: 'Red & Green Chilli',
+      category: 'Spices', batch: 'Best Seller', title: 'Red & Green Chilli',
       img: 'https://images.unsplash.com/photo-1588252303782-cb80119abd6d?w=900&q=90',
       desc: 'Our premium Red & Green Chillies are sourced from the finest growing regions of Andhra Pradesh and Telangana. Available in 14+ varieties including Teja S17, Byadagi, Guntur Sannam, and more — with precise SHU and ASTA colour value grading for global buyers.',
       specs: [
@@ -553,7 +554,7 @@
       link: 'products.html#chilli'
     },
     banana: {
-      category: 'Fresh Fruits', badge: 'Premium Export', title: 'Robusta Banana',
+      category: 'Fresh Fruits', batch: 'Premium Export', title: 'Robusta Banana',
       img: 'https://images.unsplash.com/photo-1528825871115-3581a5387919?w=900&q=90',
       desc: 'Robusta Bananas from Tamil Nadu and Kerala — thick-peeled, firm, and sweet with a long shelf life ideal for long-distance export. Harvested at precise ripeness stages and packed with ethylene control for freshness on arrival.',
       specs: [
@@ -568,7 +569,7 @@
       link: 'products.html#banana'
     },
     turmeric: {
-      category: 'Spices', badge: 'High Curcumin', title: 'Turmeric',
+      category: 'Spices', batch: 'High Curcumin', title: 'Turmeric',
       img: 'https://images.illustrationx.com/images_artists/22022/153171/612/turmeric-root-and-powder-botanical-illustration.jpg?w=900&q=90',
       desc: 'Sourced from Erode — the "Turmeric City" of India — our turmeric boasts high curcumin content (3–7%), vibrant golden colour, and consistent quality. Available as whole finger, polished bulb, or powder in custom micron grades.',
       specs: [
@@ -583,7 +584,7 @@
       link: 'products.html#turmeric'
     },
     cashew: {
-      category: 'Nuts & Dry Fruits', badge: 'W240 · W320 · W450', title: 'Cashew Nuts',
+      category: 'Nuts & Dry Fruits', batch: 'W240 · W320 · W450', title: 'Cashew Nuts',
       img: 'https://images.pexels.com/photos/36285399/pexels-photo-36285399.jpeg?w=900&q=90',
       desc: 'Premium grade Indian cashews — ivory white, crisp, and full-flavoured. We export W180, W240, W320, W450 grades and splits/pieces for industrial buyers. Processed in certified units with metal-detection and moisture-controlled packaging.',
       specs: [
@@ -598,7 +599,7 @@
       link: 'products.html#cashew'
     },
     cardamom: {
-      category: 'Spices', badge: 'Bold Aroma', title: 'Green Cardamom',
+      category: 'Spices', batch: 'Bold Aroma', title: 'Green Cardamom',
       img: 'https://images.pexels.com/photos/10487768/pexels-photo-10487768.jpeg?w=900&q=90',
       desc: 'Hand-picked green cardamom from the misty hills of Idukki, Kerala. Rich essential oil content (5–8%), bold camphor-sweet aroma, and bright green colour make our cardamom the preferred choice for Middle Eastern and European buyers.',
       specs: [
@@ -613,7 +614,7 @@
       link: 'products.html#cardamom'
     },
     rice: {
-      category: 'Grains & Rice', badge: 'FSSAI & APEDA', title: 'Basmati Rice',
+      category: 'Grains & Rice', batch: 'FSSAI & APEDA', title: 'Basmati Rice',
       img: 'https://images.pexels.com/photos/7421204/pexels-photo-7421204.jpeg?w=900&q=90',
       desc: 'Long-grain, aged Basmati rice with signature aromatic fragrance, non-sticky texture, and 2x elongation on cooking. We supply 1121 Extra Long, Traditional Basmati, and Pusa varieties — aged 12–24 months for maximum aroma and texture.',
       specs: [
@@ -628,7 +629,7 @@
       link: 'products.html#rice'
     },
     pepper: {
-      category: 'Spices', badge: 'High Piperine', title: 'Black Pepper',
+      category: 'Spices', batch: 'High Piperine', title: 'Black Pepper',
       img: 'https://images.pexels.com/photos/7925714/pexels-photo-7925714.jpeg?w=900&q=90',
       desc: 'Bold, pungent Indian Black Pepper from the Wayanad and Coorg estates. Available as whole berry (500–600 g/L bulk density), ground pepper, or cracked — with piperine content tested per batch. A favourite among European spice importers.',
       specs: [
@@ -643,7 +644,7 @@
       link: 'products.html#pepper'
     },
     fertilizer: {
-      category: 'Organic Inputs', badge: '100% Organic', title: 'Organic Fertilizers',
+      category: 'Organic Inputs', batch: '100% Organic', title: 'Organic Fertilizers',
       img: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=900&q=80',
       desc: 'Our certified organic fertilizers — including vermicompost, neem cake, and bio-compost — are exported to organic farming markets across Europe, Japan, and South Korea. Rich in NPK and soil microbiota, ideal for sustainable agriculture.',
       specs: [
@@ -722,13 +723,11 @@
   }
 
   function handleOverlayClose(e) {
-    // If clicking outside the sidebar block area container, dismiss menu
     if (e.target === menuOverlay) {
       closeMenu();
     }
   }
 
-  // Attach listener to individual links inside mobile sidebar
   document.querySelectorAll('.mobile-nav-item, .mobile-menu-cta').forEach(link => {
     link.addEventListener('click', closeMenu);
   });
