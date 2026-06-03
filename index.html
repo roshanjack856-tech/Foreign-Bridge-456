@@ -40,18 +40,17 @@
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
     .hamburger span{display:block;width:24px;height:2px;background:var(--navy);}
     
-    /* ── MOBILE SIDEBAR (CORRECTED ALIGNMENT & GLASS BLUR) ── */
+    /* ── MOBILE SIDEBAR (ULTRA-HIGH GLASS BLUR EFFECT) ── */
     .mobile-menu-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(10, 16, 26, 0.55);
-      /* Heavy blur matching edited-image_2.png */
-      backdrop-filter: blur(20px); 
-      -webkit-backdrop-filter: blur(20px);
+      background: rgba(255, 255, 255, 0.08); 
+      backdrop-filter: blur(60px) saturate(140%); 
+      -webkit-backdrop-filter: blur(60px) saturate(140%);
       z-index: 1999;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.4s ease;
     }
     .mobile-menu-overlay.open {
       opacity: 1;
@@ -64,22 +63,20 @@
       bottom: 0;
       width: 295px;
       max-width: 85%;
-      background: linear-gradient(to right, #172339 0%, #17243c 65%, #232d3f 100%);
+      background: linear-gradient(135deg, rgba(23, 35, 57, 0.88) 0%, rgba(35, 45, 63, 0.92) 100%);
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
       z-index: 2000;
       transform: translateX(-100%);
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       display: flex;
       flex-direction: column;
-      padding: 2.5rem 2rem; /* Adjusted padding to create a balanced container space */
-    }
-    .mobile-menu-overlay.open .mobile-menu-sidebar {
-      transform: translateX(0);
+      padding: 2.5rem 2rem;
     }
     .mobile-brand-block {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      padding-left: 0.2rem; /* Ensures alignment line matches the text perfectly */
+      padding-left: 0.2rem;
     }
     .mobile-menu-logo {
       width: 58px;
@@ -356,7 +353,6 @@
 <div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="handleOverlayClose(event)">
   <div class="mobile-menu-sidebar">
     <div class="mobile-brand-block">
-      <!-- Fixed left indentation/alignment structure -->
       <img class="mobile-menu-logo" src="foreign bridge logo.png" alt="Logo">
       <span class="mobile-brand-name">Foreign Bridge Corp</span>
       <span class="mobile-brand-sub">Global Export Ecosystem</span>
