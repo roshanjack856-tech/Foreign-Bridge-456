@@ -1,1 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chilli Export | Foreign Bridge</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0b1e3d;
+  --gold:#c8922a;
+  --red:#b82a1e;
+  --green:#1e6b2e;
+  --light:#f5f5f5;
+  --white:#ffffff;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Outfit',sans-serif;background:var(--light);color:#222;}
 
+/* ── HEADER ── */
+.header{
+  background:var(--navy);
+  padding:18px 40px;
+  display:flex;justify-content:space-between;align-items:center;
+  position:sticky;top:0;z-index:200;
+}
+.logo{color:white;font-size:22px;font-weight:700;letter-spacing:1px;font-family:'Playfair Display',serif;}
+.back-btn{
+  text-decoration:none;color:white;
+  border:1px solid rgba(255,255,255,0.35);
+  padding:9px 20px;border-radius:5px;font-size:13px;transition:0.3s;
+}
+.back-btn:hover{background:white;color:var(--navy);}
+
+/* ── HERO ── */
+.hero{
+  height:480px;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:url('https://images.pexels.com/photos/2894234/pexels-photo-2894234.jpeg?cs=srgb&dl=pexels-enginakyurt-2894234.jpg&fm=jpg&_gl=1*1xgxzd8*_ga*MTM4MzkzMzc4NS4xNzcyNzEzMzk4*_ga_8JE65Q40S6*czE3ODA0NjkzMjMkbzMkZzEkdDE3ODA0NzIzMDckajQ1JGwwJGgw') center/cover no-repeat;
+}
+.hero-overlay{position:absolute;inset:0;background:rgba(10,5,0,0.58);}
+.hero-content{position:relative;z-index:2;text-align:center;color:white;padding:20px;}
+.hero-content h1{
+  font-family:'Playfair Display',serif;
+  font-size:68px;font-weight:900;
+  letter-spacing:-1px;margin-bottom:14px;
+  text-shadow:0 4px 30px rgba(0,0,0,0.6);
+}
+.hero-content p{font-size:18px;opacity:0.88;max-width:560px;margin:auto;line-height:1.7;}
+
+/* ── TAB SWITCHER ── */
+.tab-switcher{
+  display:grid;grid-template-columns:1fr 1fr;
+  height:120px;position:relative;
+}
+.tab-btn{
+  position:relative;overflow:hidden;
+  border:none;cursor:pointer;
+  font-family:'Outfit',sans-serif;font-size:18px;font-weight:700;
+  color:white;letter-spacing:0.5px;
+  transition:0.4s;
+}
+/* red tab BG image */
+.tab-btn.red-tab::before{
+  content:'';position:absolute;inset:0;
+  background:url('https://images.pexels.com/photos/33440709/pexels-photo-33440709.jpeg?cs=srgb&dl=pexels-bonaventure-fernandez-744363-33440709.jpg&fm=jpg&_gl=1*jpjlul*_ga*MTM4MzkzMzc4NS4xNzcyNzEzMzk4*_ga_8JE65Q40S6*czE3ODA0NjkzMjMkbzMkZzEkdDE3ODA0NzMyNzIkajM4JGwwJGgw') center/cover;
+  transition:0.4s;
+}
+/* green tab BG image */
+.tab-btn.green-tab::before{
+  content:'';position:absolute;inset:0;
+  background:url('https://images.pexels.com/photos/5792476/pexels-photo-5792476.jpeg?cs=srgb&dl=pexels-n-voitkevich-5792476.jpg&fm=jpg&_gl=1*y3ikcq*_ga*MTM4MzkzMzc4NS4xNzcyNzEzMzk4*_ga_8JE65Q40S6*czE3ODA0NjkzMjMkbzMkZzEkdDE3ODA0NzMxMzgkajU5JGwwJGgw') center/cover;
+  transition:0.4s;
+}
+/* dark overlay on each tab */
+.tab-btn::after{
+  content:'';position:absolute;inset:0;
+  background:rgba(0,0,0,0.52);
+  transition:background 0.4s;
+}
+.tab-btn.active::after{background:rgba(0,0,0,0.18);}
+.tab-btn:hover::after{background:rgba(0,0,0,0.28);}
+
+/* active red */
+.tab-btn.red-tab.active::before{filter:none;}
+.tab-btn.red-tab::before{filter:brightness(0.6) saturate(0.7);}
+
+/* active green */
+.tab-btn.green-tab.active::before{filter:none;}
+.tab-btn.green-tab::before{filter:brightness(0.6) saturate(0.7);}
+
+.tab-label{
+  position:relative;z-index:2;
+  display:flex;flex-direction:column;align-items:center;gap:5px;
+}
+.tab-label span.title{font-size:19px;font-weight:700;text-shadow:0 2px 10px rgba(0,0,0,0.7);}
+.tab-label span.sub{font-size:13px;opacity:0.85;font-weight:400;}
+
+/* active bar */
+.tab-btn.red-tab.active .tab-label::after{
+  content:'';display:block;width:40px;height:3px;
+  background:var(--gold);border-radius:2px;margin-top:6px;
+}
+.tab-btn.green-tab.active .tab-label::after{
+  content:'';display:block;width:40px;height:3px;
+  background:#7ddf9b;border-radius:2px;margin-top:6px;
+}
+
+/* ── SECTION TITLE ── */
+.section-title-bar{
+  padding:55px 40px 10px;text-align:center;
+}
+.section-title-bar h2{
+  font-family:'Playfair Display',serif;font-size:40px;margin-bottom:10px;
+}
+.section-title-bar.red h2{color:var(--red);}
+.section-title-bar.green h2{color:var(--green);}
+.section-title-bar p{color:#666;font-size:15px;max-width:680px;margin:auto;line-height:1.7;}
+.divider{
+  width:60px;height:3px;margin:18px auto 0;border-radius:2px;
+}
+.divider.red{background:var(--red);}
+.divider.green{background:var(--green);}
+
+/* ── TAB CONTENT ── */
+.tab-content{display:none;}
+.tab-content.active{display:block;}
+
+/* ── VARIETY CARDS ── */
+.container{max-width:1200px;margin:auto;padding:40px 30px 80px;}
+
+.variety-card{
+  background:white;
+  border-radius:16px;
+  box-shadow:0 6px 28px rgba(0,0,0,0.08);
+  margin-bottom:50px;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+}
+.variety-card.reverse{grid-template-columns:1fr 1fr;}
+
+/* info side */
+.card-info{padding:40px 44px;display:flex;flex-direction:column;justify-content:center;}
+.variety-num{
+  font-size:12px;font-weight:700;letter-spacing:3px;
+  text-transform:uppercase;margin-bottom:8px;opacity:0.45;
+}
+.variety-name{
+  font-family:'Playfair Display',serif;
+  font-size:28px;color:var(--navy);margin-bottom:14px;line-height:1.3;
+}
+.variety-desc{color:#666;line-height:1.85;margin-bottom:22px;font-size:15px;}
+
+.specs-list{
+  list-style:none;margin-bottom:24px;
+  display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;
+}
+.specs-list li{font-size:14px;color:#444;}
+.specs-list li strong{
+  display:block;font-size:11px;text-transform:uppercase;
+  letter-spacing:0.7px;margin-bottom:2px;
+}
+.red-tab-content .specs-list li strong{color:var(--red);}
+.green-tab-content .specs-list li strong{color:var(--green);}
+
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:24px;}
+.tag{
+  display:inline-block;padding:5px 13px;
+  border-radius:20px;font-size:12px;font-weight:600;
+}
+.tag-red{background:#fff0ee;color:var(--red);border:1px solid #f5c0bb;}
+.tag-green{background:#edfdf2;color:var(--green);border:1px solid #b5e8c3;}
+.tag-navy{background:#eef1f9;color:var(--navy);border:1px solid #c4cfea;}
+
+.quote-btn{
+  display:inline-block;text-decoration:none;
+  font-weight:700;font-size:14px;letter-spacing:0.3px;
+  padding:13px 26px;border-radius:7px;transition:0.3s;width:fit-content;
+}
+.quote-btn-red{background:var(--red);color:white;}
+.quote-btn-red:hover{background:#8c1f15;}
+.quote-btn-green{background:var(--green);color:white;}
+.quote-btn-green:hover{background:#155120;}
+
+/* photo side — single image */
+.card-photos{
+  min-height:340px;
+  overflow:hidden;
+}
+.card-photos img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform 0.5s;
+}
+.card-photos img:not(:first-child){display:none;}
+.card-photos img:hover{transform:scale(1.05);}
+/* overflow clip on corners */
+.variety-card:not(.reverse) .card-photos{border-radius:0 16px 16px 0;}
+.variety-card.reverse .card-photos{border-radius:16px 0 0 16px;}
+.variety-card.reverse .card-photos{order:-1;}
+
+/* ── FOOTER ── */
+.footer{
+  background:#060f1c;color:rgba(255,255,255,0.75);
+  text-align:center;padding:30px;font-size:13px;
+}
+
+/* ── MOBILE ── */
+@media(max-width:850px){
+  .variety-card,
+  .variety-card.reverse{grid-template-columns:1fr;}
+  .card-photos,
+  .variety-card.reverse .card-photos{
+    order:0;border-radius:0;min-height:240px;
+    grid-template-columns:1fr 1fr;grid-template-rows:120px 120px;
+  }
+  .card-info{padding:28px 22px;}
+  .specs-list{grid-template-columns:1fr 1fr;}
+  .hero-content h1{font-size:40px;}
+  .tab-btn{font-size:15px;}
+  .tab-switcher{height:100px;}
+  .header{padding:16px 18px;}
+  .container{padding:20px 14px 60px;}
+  .section-title-bar{padding:40px 20px 8px;}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo">FOREIGN BRIDGE</div>
+  <a href="index.html" class="back-btn">← Back Home</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Chilli Export</h1>
+    <p>Premium Red &amp; Green Chilli sourced from India's finest farms — exported worldwide with certified quality.</p>
+  </div>
+</div>
+
+<!-- TAB SWITCHER WITH BACKGROUND IMAGES -->
+<div class="tab-switcher">
+  <button class="tab-btn red-tab active" onclick="switchTab('red')">
+    <div class="tab-label">
+      <span class="title">Red Chilli</span>
+    </div>
+  </button>
+  <button class="tab-btn green-tab" onclick="switchTab('green')">
+    <div class="tab-label">
+      <span class="title">Green Chilli</span>
+    </div>
+  </button>
+</div>
+
+
+<!-- ══════════════ RED CHILLI ══════════════ -->
+<div class="tab-content red-tab-content active" id="tab-red">
+
+  <div class="section-title-bar red">
+    <h2>Red Chilli Varieties</h2>
+    <p>We export premium red chilli varieties, hand-picked from India's finest growing regions in Andhra Pradesh, Telangana, Rajasthan &amp; Karnataka.</p>
+    <div class="divider red"></div>
+  </div>
+
+  <div class="container">
+
+    <!-- 1 -->
+    <div class="variety-card">
+      <div class="card-info">
+        <div class="variety-num">Variety 01</div>
+        <div class="variety-name">Teja S17 — Guntur Teja</div>
+        <p class="variety-desc">India's most exported red chilli. Teja S17 is prized for its sharp pungency, deep red colour, and consistent yield. Grown in Guntur, Andhra Pradesh — it dominates global spice markets.</p>
+        <ul class="specs-list">
+          <li><strong>Scoville (SHU)</strong>50,000 – 85,000</li>
+          <li><strong>ASTA Colour</strong>80 – 120</li>
+          <li><strong>Moisture</strong>Max 12%</li>
+          <li><strong>Packaging</strong>25 kg / 50 kg Jute</li>
+          <li><strong>Origin</strong>Guntur, Andhra Pradesh</li>
+          <li><strong>Export Markets</strong>USA, China, UAE</li>
+        </ul>
+        <div class="tags">
+          <span class="tag tag-red">Whole Dry</span>
+          <span class="tag tag-red">Stemless</span>
+          <span class="tag tag-navy">APEDA</span>
+          <span class="tag tag-navy">FSSAI</span>
+        </div>
+        <a href="contact.html" class="quote-btn quote-btn-red">Get Export Quote →</a>
+      </div>
+      <div class="card-photos">
+        <img src="https://images.unsplash.com/photo-1583119022894-919a68a3d0e3?w=800&q=90" alt="Teja S17 red chilli">
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="variety-card reverse">
+      <div class="card-info">
+        <div class="variety-num">Variety 02</div>
+        <div class="variety-name">Byadgi — Kaddi &amp; Dabbi</div>
+        <p class="variety-desc">Famous for its deep blood-red colour and mild heat, Byadgi is prized by the food processing industry for its rich natural pigments. Grown in Karnataka's Haveri &amp; Dharwad regions.</p>
+        <ul class="specs-list">
+          <li><strong>Scoville (SHU)</strong>10,000 – 15,000</li>
+          <li><strong>ASTA Colour</strong>150 – 200+</li>
+          <li><strong>Moisture</strong>Max 10%</li>
+          <li><strong>Packaging</strong>25 kg PP Bags</li>
+          <li><strong>Origin</strong>Byadgi, Karnataka</li>
+          <li><strong>Export Markets</strong>Europe, Japan, Korea</li>
+        </ul>
+        <div class="tags">
+          <span class="tag tag-red">High Colour</span>
+          <span class="tag tag-red">Wrinkled Skin</span>
+          <span class="tag tag-navy">APEDA</span>
+        </div>
+        <a href="contact.html" class="quote-btn quote-btn-red">Get Export Quote →</a>
+      </div>
+      <div class="card-photos">
+        <img src="https://images.pexels.com/photos/33440718/pexels-photo-33440718.jpeg?cs=srgb&dl=pexels-bonaventure-fernandez-744363-33440718.jpg&fm=jpg&_gl=1*1wkh4f4*_ga*MTM4MzkzMzc4NS4xNzcyNzEzMzk4*_ga_8JE65Q40S6*czE3ODA0NjkzMjMkbzMkZzEkdDE3ODA0Njk0OTMkajQ1JGwwJGgw">
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="variety-card">
+      <div class="card-info">
+        <div class="variety-num">Variety 03</div>
+        <div class="variety-name">Guntur Sannam S4</div>
+        <p class="variety-desc">S4 Sannam offers balanced heat and colour — perfect for chilli powder and oleoresin extraction. A top choice for food manufacturers globally due to its consistency and availability.</p>
+        <ul class="specs-list">
+          <li><strong>Scoville (SHU)</strong>35,000 – 55,000</li>
+          <li><strong>ASTA Colour</strong>70 – 100</li>
+          <li><strong>Moisture</strong>Max 12%</li>
+          <li><strong>Packaging</strong>25 kg / 50 kg</li>
+          <li><strong>Origin</strong>Guntur, Andhra Pradesh</li>
+          <li><strong>Export Markets</strong>Bangladesh, Malaysia</li>
+        </ul>
+        <div class="tags">
+          <span class="tag tag-red">Powder Grade</span>
+          <span class="tag tag-red">Oleoresin</span>
+          <span class="tag tag-navy">FSSAI</span>
+        </div>
+        <a href="contact.html" class="quote-btn quote-btn-red">Get Export Quote →</a>
+      </div>
+      <div class="card-photos">
+        <img src="https://images.pexels.com/photos/1629908/pexels-photo-1629908.jpeg?cs=srgb&dl=pexels-murali-dharan-384677-1629908.jpg&fm=jpg&_gl=1*2dcwh6*_ga*MTM4MzkzMzc4NS4xNzcyNzEzMzk4*_ga_8JE65Q40S6*czE3ODA0NjkzMjMkbzMkZzEkdDE3ODA0Njk2ODEkajExJGwwJGgw">
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="variety-card reverse">
+      <div class="card-info">
+        <div class="variety-num">Variety 04</div>
+        <div class="variety-name">Jwala — Finger Chilli</div>
+        <p class="variety-desc">Jwala ("flame") is a thin, fiery chilli from Gujarat with sharp aroma. Popular in Indian diaspora markets and Asian restaurant supply chains worldwide.</p>
+        <ul class="specs-list">
+          <li><strong>Scoville (SHU)</strong>60,000 – 100,000</li>
+          <li><strong>ASTA Colour</strong>60 – 80</li>
+          <li><strong>Moisture</strong>Max 12%</li>
+          <li><strong>Packaging</strong>10 kg / 25 kg Boxes</li>
+          <li><strong>Origin</strong>Gujarat, India</li>
+          <li><strong>Export Markets</strong>UK, Canada, Singapore</li>
+        </ul>
+        <div class="tags">
+          <span class="tag tag-red">Very Hot</span>
+          <span class="tag tag-red">Thin Skin</span>
+          <span class="tag tag-navy">APEDA</span>
+        </div>
+        <a href="contact.html" class="quote-btn quote-btn-red">Get Export Quote →</a>
+      </div>
+      <div class="card-photos">
+        <img src="https://images.pexels.com/photos/6359388/pexels-photo-6359388.jpeg?cs=srgb&dl=pexels-pinkspicks-6359388.jpg&fm=jpg&_gl=1*u85lro*_ga*MTM4MzkzMzc4NS4xNzcyNzEzMzk4*_ga_8JE65Q40S6*czE3ODA0NjkzMjMkbzMkZzEkdDE3ODA0Njk4NTYkajE0JGwwJGgw" alt="Jwala finger chilli">
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="variety-card">
+      <div class="card-info">
+        <div class="variety-num">Variety 05</div>
+        <div class="variety-name">Kashmiri Mirch — Lal Mirch</div>
+        <p class="variety-desc">Kashmiri chilli is mild, fragrant, and intensely coloured — the gold standard for natural food colouring. Highly demanded in Middle Eastern and European markets.</p>
+        <ul class="specs-list">
+          <li><strong>Scoville (SHU)</strong>1,000 – 2,000</li>
+          <li><strong>ASTA Colour</strong>180 – 250+</li>
+          <li><strong>Moisture</strong>Max 10%</li>
+          <li><strong>Packaging</strong>5 kg / 25 kg Pouches</li>
+          <li><strong>Origin</strong>Jammu &amp; Kashmir</li>
+          <li><strong>Export Markets</strong>UAE, Saudi Arabia, France</li>
+        </ul>
+        <div class="tags">
+          <span class="tag tag-red">Mild</span>
+          <span class="tag tag-red">Premium Colour</span>
+          <span class="tag tag-navy">GI Tagged</span>
+          <span class="tag tag-navy">APEDA</span>
+        </div>
+        <a href="contact.html" class="quote-btn quote-btn-red">Get Export Quote →</a>
+      </div>
+      <div class="card-photos">
+        <img src="https://images.pexels.com/photos/5107129/pexels-photo-5107129.jpeg?cs=srgb&dl=pexels-taryn-elliott-5107129.jpg&fm=jpg&_gl=1*6nuo41*_ga*MTM4MzkzMzc4NS4xNzcyNzEzMzk4*_ga_8JE65Q40S6*czE3ODA0NjkzMjMkbzMkZzEkdDE3ODA0Njk5MzUkajQwJGwwJGgw" alt="Kashmiri Mirch red chilli">
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="variety-card reverse">
+      <div class="card-info">
+        <div class="variety-num">Variety 06</div>
+        <div class="variety-name">Wonder Hot 334</div>
+        <p class="variety-desc">A hybrid from Telangana with high yield, uniform size, and excellent pungency — ideal for large-scale industrial spice processing and bulk export contracts.</p>
+        <ul class="specs-list">
+          <li><strong>Scoville (SHU)</strong>40,000 – 70,000</li>
+          <li><strong>ASTA Colour</strong>75 – 95</li>
+          <li><strong>Moisture</strong>Max 12%</li>
+          <li><strong>Packaging</strong>50 kg Bags</li>
+          <li><strong>Origin</strong>Telangana</li>
+          <li><strong>Export Markets</strong>China, Vietnam, Indonesia</li>
+        </ul>
+        <div class="tags">
+          <span class="tag tag-red">Hybrid</span>
+          <span class="tag tag-red">Industrial Grade</span>
+          <span class="tag tag-navy">FSSAI</span>
+        </div>
+        <a href="contact.html" class="quote-btn quote-btn-red">Get Export Quote →</a>
+      </div>
+      <div class="card-photos">
+        <img src="https://images.pexels.com/photos/39390/chili-pepper-red-spicy-drying-39390.jpeg?cs=srgb&dl=pexels-pixabay-39390.jpg&fm=jpg&_gl=1*1s2ebbb*_ga*MTM4MzkzMzc4NS4xNzcyNzEzMzk4*_ga_8JE65Q40S6*czE3ODA0NjkzMjMkbzMkZzEkdDE3ODA0NzAwMTAkajI5JGwwJGgw" alt="Wonder Hot 334 chilli">
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="variety-card">
+      <div class="card-info">
+        <div class="variety-num">Variety 07</div>
+        <div class="variety-name">Kanthare — Bird's Eye Chilli</div>
+        <p class="variety-desc">Small, round, and extremely hot — Bird's Eye chilli is a staple in Southeast Asian cuisines. Exported primarily to Thailand, Malaysia, and Singapore for culinary and sauce industries.</p>
+        <ul class="specs-list">
+          <li><strong>Scoville (SHU)</strong>100,000 – 225,000</li>
+          <li><strong>ASTA Colour</strong>50 – 70</li>
+          <li><strong>Moisture</strong>Max 10%</li>
+          <li><strong>Packaging</strong>10 kg / 15 kg Cartons</li>
+          <li><strong>Origin</strong>Tamil Nadu &amp; Kerala</li>
+          <li><strong>Export Markets</strong>Thailand, Malaysia, Singapore</li>
+        </ul>
+        <div class="tags">
+          <span class="tag tag-red">Extra Hot</span>
+          <span class="tag tag-red">Small Size</span>
+          <span class="tag tag-navy">APEDA</span>
+        </div>
+        <a href="contact.html" class="quote-btn quote-btn-red">Get Export Quote →</a>
+      </div>
+      <div class="card-photos">
+        <img src="https://images.pexels.com/photos/325054/pexels-photo-325054.jpeg?cs=srgb&dl=pexels-lum3n-44775-325054.jpg&fm=jpg&_gl=1*ru3d1i*_ga*MTM4MzkzMzc4NS4xNzcyNzEzMzk4*_ga_8JE65Q40S6*czE3ODA0NjkzMjMkbzMkZzEkdDE3ODA0NzAwNzQkajM4JGwwJGgw" alt="Bird's Eye chilli">
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="variety-card reverse">
+      <div class="card-info">
+        <div class="variety-num">Variety 08</div>
+        <div class="variety-name">Mathania — Rajasthani Red</div>
+        <p class="variety-desc">GI-tagged from Mathania village in Rajasthan. Distinctive smoky aroma and medium pungency — the soul ingredient of authentic Rajasthani cuisine and lal maas.</p>
+        <ul class="specs-list">
+          <li><strong>Scoville (SHU)</strong>20,000 – 40,000</li>
+          <li><strong>ASTA Colour</strong>100 – 140</li>
+          <li><strong>Moisture</strong>Max 12%</li>
+          <li><strong>Packaging</strong>25 kg Jute Bags</li>
+          <li><strong>Origin</strong>Mathania, Rajasthan</li>
+          <li><strong>Export Markets</strong>USA, UK, Australia</li>
+        </ul>
+        <div class="tags">
+          <span class="tag tag-red">GI Tagged</span>
+          <span class="tag tag-red">Smoky Aroma</span>
+          <span class="tag tag-navy">APEDA</span>
+        </div>
+        <a href="contact.html" class="quote-btn quote-btn-red">Get Export Quote →</a>
+      </div>
+      <div class="card-photos">
+        <img src="https://images.pexels.com/photos/7094360/pexels-photo-7094360.jpeg?cs=srgb&dl=pexels-abhijeetmore-7094360.jpg&fm=jpg&_gl=1*1i7e99x*_ga*MTM4MzkzMzc4NS4xNzcyNzEzMzk4*_ga_8JE65Q40S6*czE3ODA0NjkzMjMkbzMkZzEkdDE3ODA0NzAxNjUkajEyJGwwJGgw" alt="Mathania Rajasthani red chilli">
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="variety-card">
+      <div class="card-info">
+        <div class="variety-num">Variety 09</div>
+        <div class="variety-name">Reshampatti — Silk Chilli</div>
+        <p class="variety-desc">From Maharashtra, Reshampatti has a silky red surface, medium heat, and earthy fragrance. A preferred ingredient in West Indian spice blends and masala mixes exported worldwide.</p>
+        <ul class="specs-list">
+          <li><strong>Scoville (SHU)</strong>30,000 – 50,000</li>
+          <li><strong>ASTA Colour</strong>90 – 110</li>
+          <li><strong>Moisture</strong>Max 12%</li>
+          <li><strong>Packaging</strong>25 kg / 50 kg</li>
+          <li><strong>Origin</strong>Maharashtra</li>
+          <li><strong>Export Markets</strong>UAE, South Africa, USA</li>
+        </ul>
+        <div class="tags">
+          <span class="tag tag-red">Silky Skin</span>
+          <span class="tag tag-red">Medium Hot</span>
+          <span class="tag tag-navy">FSSAI</span>
+        </div>
+        <a href="contact.html" class="quote-btn quote-btn-red">Get Export Quote →</a>
+      </div>
+      <div class="card-photos">
+        <img src="https://images.pexels.com/photos/6902055/pexels-photo-6902055.jpeg?cs=srgb&dl=pexels-sithumrulzs-6902055.jpg&fm=jpg&_gl=1*f3y3v4*_ga*MTM4MzkzMzc4NS4xNzcyNzEzMzk4*_ga_8JE65Q40S6*czE3ODA0NjkzMjMkbzMkZzEkdDE3ODA0NzAyNjgkajE5JGwwJGgw" alt="Reshampatti silk chilli">
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="variety-card reverse">
+      <div class="card-info">
+        <div class="variety-num">Variety 10</div>
+        <div class="variety-name">Warangal Chapatta — Indian Paprika</div>
+        <p class="variety-desc">A broad, flat chilli from Warangal, Telangana. Extremely high in natural pigments — exported for colour extraction and oleoresin production for food and cosmetic industries worldwide.</p>
+        <ul class="specs-list">
+          <li><strong>Scoville (SHU)</strong>500 – 5,000</li>
+          <li><strong>ASTA Colour</strong>200 – 280+</li>
+          <li><strong>Moisture</strong>Max 10%</li>
+          <li><strong>Packaging</strong>25 kg PP Bags</li>
+          <li><strong>Origin</strong>Warangal, Telangana</li>
+          <li><strong>Export Markets</strong>Spain, Germany, Japan</li>
+        </ul>
+        <div class="tags">
+          <span class="tag tag-red">Very Mild</span>
+          <span class="tag tag-red">Ultra High Colour</span>
+          <span class="tag tag-navy">APEDA</span>
+        </div>
+        <a href="contact.html" class="quote-btn quote-btn-red">Get Export Quote →</a>
+      </div>
+      <div class="card-photos">
+        <img src="https://images.pexels.com/photos/33440711/pexels-photo-33440711.jpeg?cs=srgb&dl=pexels-bonaventure-fernandez-744363-33440711.jpg&fm=jpg" alt="Warangal Chapatta Indian Paprika">
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════ GREEN CHILLI ══════════════ -->
+<div class="tab-content green-tab-content" id="tab-green">
+
+  <div class="section-title-bar green">
+    <h2>Green Chilli Varieties</h2>
+    <p>We export 5 premium fresh green chilli varieties, farm-harvested from Tamil Nadu &amp; Andhra Pradesh and shipped in export-grade cold-chain packaging.</p>
+    <div class="divider green"></div>
+  </div>
+
+  <div class="container">
+
+    <!-- G1 -->
+    <div class="variety-card">
+      <div class="card-info">
+        <div class="variety-num">Variety 01</div>
+        <div class="variety-name">G4 Green Chilli</div>
+        <p class="variety-desc">India's most popular hybrid green chilli. Uniform size, bright colour, and moderate heat make G4 ideal for fresh export to Gulf and Asian markets. Long shelf life due to thick skin.</p>
+        <ul class="specs-list">
+          <li><strong>Pungency</strong>Moderately Hot</li>
+          <li><strong>Length</strong>10 – 14 cm</li>
+          <li><strong>Shelf Life</strong>12 – 15 Days</li>
+          <li><strong>Packaging</strong>5 kg / 10 kg Cartons</li>
+          <li><strong>Origin</strong>Andhra Pradesh</li>
+          <li><strong>Export Markets</strong>UAE, Saudi Arabia, Qatar</li>
+        </ul>
+        <div class="tags">
+          <span class="tag tag-green">Fresh</span>
+          <span class="tag tag-green">Hybrid</span>
+          <span class="tag tag-navy">APEDA</span>
+          <span class="tag tag-navy">FSSAI</span>
+        </div>
+        <a href="contact.html" class="quote-btn quote-btn-green">Get Export Quote →</a>
+      </div>
+      <div class="card-photos">
+        <img src="https://images.pexels.com/photos/13422250/pexels-photo-13422250.jpeg?cs=srgb&dl=pexels-ivan-drazic-20457695-13422250.jpg&fm=jpg&_gl=1*1szy2h1*_ga*MTM4MzkzMzc4NS4xNzcyNzEzMzk4*_ga_8JE65Q40S6*czE3ODA0NjkzMjMkbzMkZzEkdDE3ODA0NzA0MjkkajMwJGwwJGgw" alt="G4 green chilli fresh">
+      </div>
+    </div>
+
+    <!-- G2 -->
+    <div class="variety-card reverse">
+      <div class="card-info">
+        <div class="variety-num">Variety 02</div>
+        <div class="variety-name">Bullet Green Chilli</div>
+        <p class="variety-desc">Short, stout, and fiery hot — the Bullet chilli is named for its rounded shape. Widely used in pickles, hot sauces, and spice-forward curries. Popular in Southeast Asia and Indian diaspora markets.</p>
+        <ul class="specs-list">
+          <li><strong>Pungency</strong>Very Hot</li>
+          <li><strong>Length</strong>5 – 8 cm</li>
+          <li><strong>Shelf Life</strong>10 – 14 Days</li>
+          <li><strong>Packaging</strong>5 kg Carton / Crate</li>
+          <li><strong>Origin</strong>Tamil Nadu</li>
+          <li><strong>Export Markets</strong>Singapore, Malaysia, UK</li>
+        </ul>
+        <div class="tags">
+          <span class="tag tag-green">Very Hot</span>
+          <span class="tag tag-green">Pickle Grade</span>
+          <span class="tag tag-navy">FSSAI</span>
+        </div>
+        <a href="contact.html" class="quote-btn quote-btn-green">Get Export Quote →</a>
+      </div>
+      <div class="card-photos">
+        <img src="https://images.pexels.com/photos/12955689/pexels-photo-12955689.jpeg?cs=srgb&dl=pexels-freestockpro-12955689.jpg&fm=jpg&_gl=1*1dygq7u*_ga*MTM4MzkzMzc4NS4xNzcyNzEzMzk4*_ga_8JE65Q40S6*czE3ODA0NjkzMjMkbzMkZzEkdDE3ODA0NzE0MzYkajUyJGwwJGgw" alt="Bullet green chilli fresh">
+       
+      </div>
+    </div>
+
+    <!-- G3 -->
+    <div class="variety-card">
+      <div class="card-info">
+        <div class="variety-num">Variety 03</div>
+        <div class="variety-name">Long Green Chilli</div>
+        <p class="variety-desc">Long green chillies (15–20 cm) have mild to medium heat and are used in salads, stuffed chilli dishes, and stir-fries. Their elegant form makes them a premium choice in retail supermarkets across Europe and the Gulf.</p>
+        <ul class="specs-list">
+          <li><strong>Pungency</strong>Mild to Medium</li>
+          <li><strong>Length</strong>15 – 20 cm</li>
+          <li><strong>Shelf Life</strong>12 – 18 Days</li>
+          <li><strong>Packaging</strong>5 kg / 10 kg Cartons</li>
+          <li><strong>Origin</strong>Tamil Nadu &amp; AP</li>
+          <li><strong>Export Markets</strong>Netherlands, Germany, UAE</li>
+        </ul>
+        <div class="tags">
+          <span class="tag tag-green">Mild</span>
+          <span class="tag tag-green">Retail Grade</span>
+          <span class="tag tag-navy">APEDA</span>
+        </div>
+        <a href="contact.html" class="quote-btn quote-btn-green">Get Export Quote →</a>
+      </div>
+      <div class="card-photos">
+        <img src="https://images.pexels.com/photos/10899475/pexels-photo-10899475.jpeg?cs=srgb&dl=pexels-enginakyurt-10899475.jpg&fm=jpg&_gl=1*qxlduh*_ga*MTM4MzkzMzc4NS4xNzcyNzEzMzk4*_ga_8JE65Q40S6*czE3ODA0NjkzMjMkbzMkZzEkdDE3ODA0NzE1MTEkajQ0JGwwJGgw" alt="Long green chilli fresh">
+        
+      </div>
+    </div>
+
+    <!-- G4 -->
+    <div class="variety-card reverse">
+      <div class="card-info">
+        <div class="variety-num">Variety 04</div>
+        <div class="variety-name">Jwala Fresh — Gujarat Green</div>
+        <p class="variety-desc">Fresh Jwala chilli from Gujarat harvested before ripening — thin-skinned, fiery, and aromatic. A staple in Indian and South Asian cooking, commanding premium prices in the diaspora export segment.</p>
+        <ul class="specs-list">
+          <li><strong>Pungency</strong>Very Hot</li>
+          <li><strong>Length</strong>6 – 10 cm</li>
+          <li><strong>Shelf Life</strong>10 – 12 Days</li>
+          <li><strong>Packaging</strong>5 kg Cartons / Trays</li>
+          <li><strong>Origin</strong>Gujarat</li>
+          <li><strong>Export Markets</strong>USA, Canada, Australia</li>
+        </ul>
+        <div class="tags">
+          <span class="tag tag-green">Thin Skin</span>
+          <span class="tag tag-green">Aromatic</span>
+          <span class="tag tag-navy">FSSAI</span>
+        </div>
+        <a href="contact.html" class="quote-btn quote-btn-green">Get Export Quote →</a>
+      </div>
+      <div class="card-photos">
+        <img src="https://images.pexels.com/photos/34111554/pexels-photo-34111554.jpeg?cs=srgb&dl=pexels-youtuber-25128702-34111554.jpg&fm=jpg&_gl=1*1plgtrj*_ga*MTM4MzkzMzc4NS4xNzcyNzEzMzk4*_ga_8JE65Q40S6*czE3ODA0NjkzMjMkbzMkZzEkdDE3ODA0NzE2MzQkajU5JGwwJGgw" alt="Jwala green Gujarat">
+       
+      </div>
+    </div>
+
+    <!-- G5 -->
+    <div class="variety-card">
+      <div class="card-info">
+        <div class="variety-num">Variety 05</div>
+        <div class="variety-name">Banana Pepper — Sweet Green</div>
+        <p class="variety-desc">A mild, sweet green pepper with a banana-like shape. Increasingly exported to European supermarkets for salads, sandwiches, and Mediterranean cooking. Low heat, high market value.</p>
+        <ul class="specs-list">
+          <li><strong>Pungency</strong>Very Mild / Sweet</li>
+          <li><strong>Length</strong>12 – 18 cm</li>
+          <li><strong>Shelf Life</strong>14 – 20 Days</li>
+          <li><strong>Packaging</strong>5 kg Retail Trays</li>
+          <li><strong>Origin</strong>Tamil Nadu</li>
+          <li><strong>Export Markets</strong>UK, Germany, France, Italy</li>
+        </ul>
+        <div class="tags">
+          <span class="tag tag-green">Sweet</span>
+          <span class="tag tag-green">Salad Grade</span>
+          <span class="tag tag-navy">APEDA</span>
+          <span class="tag tag-navy">FSSAI</span>
+        </div>
+        <a href="contact.html" class="quote-btn quote-btn-green">Get Export Quote →</a>
+      </div>
+      <div class="card-photos">
+        <img src="https://images.pexels.com/photos/10682991/pexels-photo-10682991.jpeg?cs=srgb&dl=pexels-panduru-10682991.jpg&fm=jpg&_gl=1*1r7ii11*_ga*MTM4MzkzMzc4NS4xNzcyNzEzMzk4*_ga_8JE65Q40S6*czE3ODA0NjkzMjMkbzMkZzEkdDE3ODA0NzE3NDYkajMzJGwwJGgw" alt="Banana pepper sweet green">
+       
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="footer">
+  © 2025 Foreign Bridge Export &amp; Import Corp. All Rights Reserved.
+</div>
+
+<script>
+function switchTab(type){
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + type).classList.add('active');
+  document.querySelector('.' + type + '-tab').classList.add('active');
+  window.scrollTo({top: document.querySelector('.tab-switcher').offsetTop - 70, behavior:'smooth'});
+}
+</script>
+</body>
+</html>
