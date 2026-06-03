@@ -42,24 +42,24 @@
     /* Animated Hamburger Icon */
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;z-index:2001;}
     .hamburger span{display:block;width:24px;height:2px;background:var(--navy);transition:all 0.3s cubic-bezier(0.16, 1, 0.3, 1);}
-    .hamburger.active span:nth-child(1) {transform: translateY(7px) rotate(45deg); background: var(--gold);}
+    .hamburger.active span:nth-child(1) {transform: translateY(7px) rotate(45deg); background: var(--navy);}
     .hamburger.active span:nth-child(2) {opacity: 0;}
-    .hamburger.active span:nth-child(3) {transform: translateY(-7px) rotate(-45deg); background: var(--gold);}
+    .hamburger.active span:nth-child(3) {transform: translateY(-7px) rotate(-45deg); background: var(--navy);}
     
-    /* ── MOBILE MENU UPDATES (RIGHT-TO-LEFT DRAWER) ── */
+    /* ── MOBILE MENU UPDATES (LEFT SLIDE-OUT WITH DEEP BLUR) ── */
     .mobile-menu-overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100vh;
-      background: rgba(11, 30, 61, 0.4);
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
+      background: rgba(11, 30, 61, 0.3);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       z-index: 1998;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.4s ease;
+      transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .mobile-menu-overlay.open {
       opacity: 1;
@@ -70,18 +70,55 @@
       display:flex;
       position:fixed;
       top:0;
-      right:-100%;
+      left:-100%;
       width:85%;
-      max-width:360px;
+      max-width:320px;
       height:100vh;
-      background:var(--white);
+      background: var(--white);
       z-index:1999;
       flex-direction:column;
-      box-shadow: -10px 0 30px rgba(11,30,61,0.15);
-      transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 15px 0 40px rgba(11,30,61,0.08);
+      transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      border-radius: 0 30px 30px 0; /* Rounded panel framing like the image reference */
     }
-    .mobile-menu.open{right:0;}
-    .mobile-menu-header{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1.5rem;border-bottom:1px solid var(--border);width:100%;}
+    .mobile-menu.open{left:0;}
+    
+    /* Custom User/Brand Section Matching Image Block */
+    .mobile-menu-profile {
+      padding: 2.5rem 2rem 1.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .mobile-profile-img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(200,146,42,0.2);
+    }
+    .mobile-profile-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+    .mobile-profile-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+    }
+    .mobile-profile-title {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+    .mobile-profile-divider {
+      height: 1px;
+      background-color: rgba(0, 0, 0, 0.06);
+      width: 100%;
+      margin-top: 0.5rem;
+    }
     
     .mobile-menu-links{
       display:flex;
@@ -89,58 +126,76 @@
       align-items:flex-start;
       justify-content:flex-start;
       flex-grow:1;
-      gap:1.4rem;
-      padding:2.5rem 2rem;
-    }
-    .mobile-menu a{
-      text-decoration:none;
-      color:var(--navy);
-      font-family:'Outfit', sans-serif;
-      font-size:1.1rem;
-      font-weight:500;
-      letter-spacing:0.06em;
-      text-transform:uppercase;
-      width:100%;
-      padding-bottom:0.6rem;
-      border-bottom:1px solid rgba(229, 224, 216, 0.4);
-      opacity:0;
-      transform:translateX(25px);
-      transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease, padding 0.3s ease;
+      gap:0.4rem;
+      padding:1rem 1.2rem;
     }
     
-    /* Cascading Links Animation when drawer opens */
+    /* Link styling with layout built after the reference graphic */
+    .mobile-menu a{
+      text-decoration:none;
+      color: var(--text-dark);
+      font-family:'Outfit', sans-serif;
+      font-size:0.95rem;
+      font-weight:500;
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      width:100%;
+      padding: 0.8rem 1rem;
+      border-radius: 100px; /* Pill shape highlight style */
+      opacity:0;
+      transform:translateX(-20px);
+      transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease, background-color 0.2s ease;
+    }
+    
+    .mobile-menu a i {
+      font-size: 1.1rem;
+      width: 20px;
+      text-align: center;
+      color: var(--text-mid);
+      transition: color 0.2s ease;
+    }
+    
+    /* Cascading Links Animation when drawer opens from left */
     .mobile-menu.open a {
       opacity:1;
       transform:translateX(0);
     }
-    .mobile-menu.open a:nth-child(1) { transition-delay: 0.10s; }
-    .mobile-menu.open a:nth-child(2) { transition-delay: 0.15s; }
-    .mobile-menu.open a:nth-child(3) { transition-delay: 0.20s; }
-    .mobile-menu.open a:nth-child(4) { transition-delay: 0.25s; }
-    .mobile-menu.open a:nth-child(5) { transition-delay: 0.30s; }
-    .mobile-menu.open a:nth-child(6) { transition-delay: 0.35s; }
+    .mobile-menu.open a:nth-child(1) { transition-delay: 0.08s; }
+    .mobile-menu.open a:nth-child(2) { transition-delay: 0.12s; }
+    .mobile-menu.open a:nth-child(3) { transition-delay: 0.16s; }
+    .mobile-menu.open a:nth-child(4) { transition-delay: 0.20s; }
+    .mobile-menu.open a:nth-child(5) { transition-delay: 0.24s; }
+    .mobile-menu.open a:nth-child(6) { transition-delay: 0.28s; }
 
-    .mobile-menu a:hover {
-      color:var(--gold);
-      padding-left: 6px;
-      border-bottom-color: var(--gold);
+    /* Gray pill backdrop highlight matching 'Topics' item from reference graphic */
+    .mobile-menu a:hover, .mobile-menu a.active-page {
+      color: var(--navy);
+      background-color: #f0f2f5;
     }
+    .mobile-menu a:hover i, .mobile-menu a.active-page i {
+      color: var(--gold);
+    }
+    
+    /* Custom spacing rule for CTA alternative bottom layout */
     .mobile-menu a.mobile-cta {
-      margin-top: 1rem;
+      margin-top: 1.5rem;
       background: var(--navy);
       color: var(--white);
-      text-align: center;
-      padding: 0.8rem 1rem;
-      border-radius: 4px;
-      border-bottom: none;
+      justify-content: center;
+      padding: 0.85rem 1rem;
+      box-shadow: 0 4px 15px rgba(11,30,61,0.2);
+    }
+    .mobile-menu a.mobile-cta i {
+      color: var(--white);
     }
     .mobile-menu a.mobile-cta:hover {
       background: var(--gold);
       color: var(--navy);
-      padding-left: 0;
     }
-    .mobile-close{background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--navy);padding:4px;display:flex;align-items:center;justify-content:center;transition: transform 0.3s ease;}
-    .mobile-close:hover{transform: rotate(90deg); color: var(--gold);}
+    .mobile-menu a.mobile-cta:hover i {
+      color: var(--navy);
+    }
 
     /* ── HERO ── */
     .hero{position:relative;overflow:hidden;min-height:100vh;display:flex;flex-direction:column;}
@@ -330,28 +385,29 @@
   <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
-<!-- Backdrop Blur Overlay -->
+<!-- Deep Backdrop Blur Overlay Container -->
 <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
 
-<!-- Left-sliding Mobile Menu Drawer Container -->
+<!-- Left-sliding Mobile Menu Drawer Layout (Direct layout replica from WhatsApp Image 2026-06-03 at 2.50.58 PM.jpeg) -->
 <div class="mobile-menu" id="mobileMenu">
-  <div class="mobile-menu-header">
-    <a href="index.html" class="nav-logo">
-      <img class="nav-logo-img" src="foreign bridge logo.png">
-      <div class="nav-logo-text">
-        <span class="nav-logo-main">FOREIGN BRIDGE</span>
-        <span class="nav-logo-sub">Export &amp; Import Corp</span>
-      </div>
-    </a>
-    <button class="mobile-close" id="mobileClose">✕</button>
+  <!-- Profile Layout Block matching image metadata header -->
+  <div class="mobile-menu-profile">
+    <img class="mobile-profile-img" src="foreign bridge logo.png" alt="Company Logo">
+    <div class="mobile-profile-meta">
+      <span class="mobile-profile-name">Foreign Bridge Corp</span>
+      <span class="mobile-profile-title">Global Export Ecosystem</span>
+    </div>
+    <div class="mobile-profile-divider"></div>
   </div>
+  
+  <!-- Icon Navigation mapping exactly to referenced panel image -->
   <div class="mobile-menu-links">
-    <a href="index.html" class="mobile-link">Home</a>
-    <a href="about.html" class="mobile-link">About</a>
-    <a href="products.html" class="mobile-link">Products</a>
-    <a href="services.html" class="mobile-link">Services</a>
-    <a href="why-us.html" class="mobile-link">Why Us</a>
-    <a href="contact.html" class="mobile-link mobile-cta">Contact Us</a>
+    <a href="index.html" class="mobile-link active-page"><i class="fa-solid fa-house"></i> Home</a>
+    <a href="about.html" class="mobile-link"><i class="fa-solid fa-circle-info"></i> About Us</a>
+    <a href="products.html" class="mobile-link"><i class="fa-solid fa-leaf"></i> Our Products</a>
+    <a href="services.html" class="mobile-link"><i class="fa-solid fa-truck-fast"></i> Core Services</a>
+    <a href="why-us.html" class="mobile-link"><i class="fa-solid fa-award"></i> Why Choose Us</a>
+    <a href="contact.html" class="mobile-link mobile-cta"><i class="fa-solid fa-paper-plane"></i> Get Quote</a>
   </div>
 </div>
 
@@ -703,7 +759,7 @@
   // Close on ESC
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-  // ── NAV & PROFESSIONAL MOBILE DRAWER INTERACTION ──
+  // ── NAV & MOBILE DRAWER INTERACTIONS ──
   window.addEventListener('scroll', () => {
     document.getElementById('btt').classList.toggle('visible', window.scrollY > 400);
   });
@@ -711,17 +767,20 @@
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
   const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-  const mobileClose = document.getElementById('mobileClose');
 
-  // Trigger Open Transition
+  // Open Drawer (Left Slide-In)
   hamburger.addEventListener('click', () => {
-    hamburger.classList.add('active');
-    mobileMenu.classList.add('open');
-    mobileMenuOverlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
+    hamburger.classList.toggle('active');
+    if (hamburger.classList.contains('active')) {
+      mobileMenu.classList.add('open');
+      mobileMenuOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    } else {
+      closeMenu();
+    }
   });
 
-  // Trigger Close Transition
+  // Close Drawer
   function closeMenu() {
     hamburger.classList.remove('active');
     mobileMenu.classList.remove('open');
@@ -729,7 +788,6 @@
     document.body.style.overflow = '';
   }
 
-  mobileClose.addEventListener('click', closeMenu);
   mobileMenuOverlay.addEventListener('click', closeMenu);
   document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', closeMenu));
 </script>
