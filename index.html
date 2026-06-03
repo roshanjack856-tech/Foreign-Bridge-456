@@ -24,7 +24,6 @@
     /* ── NAV ── */
     nav{position:sticky;top:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0.9rem 4rem;background:var(--white);border-bottom:1px solid var(--border);box-shadow:0 2px 20px rgba(11,30,61,0.06);}
     .nav-logo{display:flex;align-items:center;gap:0.5rem;text-decoration:none;max-width: 100%;}
-    .nav-logo-hex{display:none;}
     .nav-logo-img{width:54px;height:54px;min-width:54px;object-fit:contain;border-radius:50%;filter:drop-shadow(0 0 6px rgba(200,146,42,0.5));}
     .nav-logo-text{display:flex;flex-direction:column;line-height:1.1;}
     .nav-logo-main{font-family:'Teko',sans-serif;font-size:1.1rem;letter-spacing:0.08em;color:var(--navy);font-weight:600;}
@@ -41,14 +40,133 @@
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
     .hamburger span{display:block;width:24px;height:2px;background:var(--navy);}
     
-    /* ── MOBILE MENU UPDATES ── */
-    .mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--white);z-index:1999;flex-direction:column;}
-    .mobile-menu.open{display:flex;}
-    .mobile-menu-header{display:flex;align-items:center;justify-content:space-between;padding:0.9rem 1.5rem;border-bottom:1px solid var(--border);width:100%;}
-    .mobile-menu-links{display:flex;flex-direction:column;align-items:center;justify-content:center;flex-grow:1;gap:2rem;padding-bottom:5rem;}
-    .mobile-menu a{text-decoration:none;color:var(--navy);font-family:'Teko',sans-serif;font-size:2rem;letter-spacing:0.08em;}
-    .mobile-menu a:hover{color:var(--gold);}
-    .mobile-close{background:none;border:none;font-size:1.8rem;cursor:pointer;color:var(--navy);padding:4px;display:flex;align-items:center;justify-content:center;}
+    /* ── NEW SIDEBAR MOBILE MENU (Matching WhatsApp Image 2026-06-03 at 3.25.56 PM.jpeg) ── */
+    .mobile-menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 1999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .mobile-menu-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .mobile-menu-sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 290px;
+      max-width: 85%;
+      background: linear-gradient(145deg, rgba(15, 28, 54, 0.98), rgba(6, 15, 28, 0.98));
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      z-index: 2000;
+      transform: translateX(-100%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      padding: 2.2rem 1.5rem;
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .mobile-menu-overlay.open .mobile-menu-sidebar {
+      transform: translateX(0);
+    }
+    .mobile-brand-block {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+    .mobile-menu-logo {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      object-fit: contain;
+      filter: drop-shadow(0 0 10px rgba(200, 146, 42, 0.4));
+      border: 1px solid rgba(200, 146, 42, 0.2);
+      margin-bottom: 0.9rem;
+    }
+    .mobile-brand-name {
+      color: var(--white);
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .mobile-brand-sub {
+      color: rgba(255, 255, 255, 0.45);
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      margin-top: 0.15rem;
+    }
+    .mobile-menu-divider {
+      height: 1px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.08), transparent);
+      width: 100%;
+      margin-bottom: 1.8rem;
+    }
+    .mobile-nav-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      list-style: none;
+    }
+    .mobile-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.92rem;
+      font-weight: 500;
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+    .mobile-nav-item i {
+      width: 20px;
+      font-size: 1rem;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.4);
+      transition: color 0.2s ease;
+    }
+    /* Active Link Styling matching screenshot */
+    .mobile-nav-item.active {
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--white);
+      font-weight: 600;
+    }
+    .mobile-nav-item.active i {
+      color: var(--gold-light);
+    }
+    .mobile-nav-item:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--white);
+    }
+    .mobile-menu-cta {
+      margin-top: auto;
+      background: var(--gold);
+      color: var(--navy);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.85rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+      box-shadow: 0 4px 15px rgba(200, 146, 42, 0.2);
+    }
+    .mobile-menu-cta:hover {
+      background: var(--gold-light);
+    }
 
     /* ── HERO ── */
     .hero{position:relative;overflow:hidden;min-height:100vh;display:flex;flex-direction:column;}
@@ -210,7 +328,7 @@
       .prod-modal-img-wrap{border-radius:16px 16px 0 0;min-height:220px;}
       .prod-modal-info{padding:1.5rem 1.2rem;}
       .prod-modal-title{font-size:1.5rem;}
-      .prod-modal-specs{grid-template-columns:1fr;} /* Fall back to single column to avoid content compression */
+      .prod-modal-specs{grid-template-columns:1fr;}
     }
 
     @media(max-width:480px){
@@ -240,24 +358,26 @@
   <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
-<div class="mobile-menu" id="mobileMenu">
-  <div class="mobile-menu-header">
-    <a href="index.html" class="nav-logo">
-      <img class="nav-logo-img" src="foreign bridge logo.png">
-      <div class="nav-logo-text">
-        <span class="nav-logo-main">FOREIGN BRIDGE</span>
-        <span class="nav-logo-sub">Export &amp; Import Corp</span>
-      </div>
-    </a>
-    <button class="mobile-close" id="mobileClose">✕</button>
-  </div>
-  <div class="mobile-menu-links">
-    <a href="index.html" class="mobile-link">Home</a>
-    <a href="about.html" class="mobile-link">About</a>
-    <a href="products.html" class="mobile-link">Products</a>
-    <a href="services.html" class="mobile-link">Services</a>
-    <a href="why-us.html" class="mobile-link">Why Us</a>
-    <a href="contact.html" class="mobile-link">Contact Us</a>
+<!-- ── RE-ENGINEERED MOBILE DRAWERS OVERLAY ── -->
+<div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="handleOverlayClose(event)">
+  <div class="mobile-menu-sidebar">
+    <div class="mobile-brand-block">
+      <img class="mobile-menu-logo" src="foreign bridge logo.png" alt="Logo">
+      <span class="mobile-brand-name">Foreign Bridge Corp</span>
+      <span class="mobile-brand-sub">Global Export Ecosystem</span>
+    </div>
+    
+    <div class="mobile-menu-divider"></div>
+    
+    <div class="mobile-nav-list">
+      <a href="index.html" class="mobile-nav-item active"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="about.html" class="mobile-nav-item"><i class="fa-solid fa-circle-info"></i> About Us</a>
+      <a href="products.html" class="mobile-nav-item"><i class="fa-solid fa-leaf"></i> Our Products</a>
+      <a href="services.html" class="mobile-nav-item"><i class="fa-solid fa-truck-fast"></i> Core Services</a>
+      <a href="why-us.html" class="mobile-nav-item"><i class="fa-solid fa-award"></i> Why Choose Us</a>
+    </div>
+    
+    <a href="contact.html" class="mobile-menu-cta"><i class="fa-solid fa-paper-plane"></i> Get Quote</a>
   </div>
 </div>
 
@@ -418,9 +538,7 @@
   // ── PRODUCT DATA ──
   const products = {
     chilli: {
-      category: 'Spices',
-      badge: 'Best Seller',
-      title: 'Red & Green Chilli',
+      category: 'Spices', badge: 'Best Seller', title: 'Red & Green Chilli',
       img: 'https://images.unsplash.com/photo-1588252303782-cb80119abd6d?w=900&q=90',
       desc: 'Our premium Red & Green Chillies are sourced from the finest growing regions of Andhra Pradesh and Telangana. Available in 14+ varieties including Teja S17, Byadagi, Guntur Sannam, and more — with precise SHU and ASTA colour value grading for global buyers.',
       specs: [
@@ -435,9 +553,7 @@
       link: 'products.html#chilli'
     },
     banana: {
-      category: 'Fresh Fruits',
-      badge: 'Premium Export',
-      title: 'Robusta Banana',
+      category: 'Fresh Fruits', badge: 'Premium Export', title: 'Robusta Banana',
       img: 'https://images.unsplash.com/photo-1528825871115-3581a5387919?w=900&q=90',
       desc: 'Robusta Bananas from Tamil Nadu and Kerala — thick-peeled, firm, and sweet with a long shelf life ideal for long-distance export. Harvested at precise ripeness stages and packed with ethylene control for freshness on arrival.',
       specs: [
@@ -452,9 +568,7 @@
       link: 'products.html#banana'
     },
     turmeric: {
-      category: 'Spices',
-      badge: 'High Curcumin',
-      title: 'Turmeric',
+      category: 'Spices', badge: 'High Curcumin', title: 'Turmeric',
       img: 'https://images.illustrationx.com/images_artists/22022/153171/612/turmeric-root-and-powder-botanical-illustration.jpg?w=900&q=90',
       desc: 'Sourced from Erode — the "Turmeric City" of India — our turmeric boasts high curcumin content (3–7%), vibrant golden colour, and consistent quality. Available as whole finger, polished bulb, or powder in custom micron grades.',
       specs: [
@@ -469,9 +583,7 @@
       link: 'products.html#turmeric'
     },
     cashew: {
-      category: 'Nuts & Dry Fruits',
-      badge: 'W240 · W320 · W450',
-      title: 'Cashew Nuts',
+      category: 'Nuts & Dry Fruits', badge: 'W240 · W320 · W450', title: 'Cashew Nuts',
       img: 'https://images.pexels.com/photos/36285399/pexels-photo-36285399.jpeg?w=900&q=90',
       desc: 'Premium grade Indian cashews — ivory white, crisp, and full-flavoured. We export W180, W240, W320, W450 grades and splits/pieces for industrial buyers. Processed in certified units with metal-detection and moisture-controlled packaging.',
       specs: [
@@ -486,9 +598,7 @@
       link: 'products.html#cashew'
     },
     cardamom: {
-      category: 'Spices',
-      badge: 'Bold Aroma',
-      title: 'Green Cardamom',
+      category: 'Spices', badge: 'Bold Aroma', title: 'Green Cardamom',
       img: 'https://images.pexels.com/photos/10487768/pexels-photo-10487768.jpeg?w=900&q=90',
       desc: 'Hand-picked green cardamom from the misty hills of Idukki, Kerala. Rich essential oil content (5–8%), bold camphor-sweet aroma, and bright green colour make our cardamom the preferred choice for Middle Eastern and European buyers.',
       specs: [
@@ -503,9 +613,7 @@
       link: 'products.html#cardamom'
     },
     rice: {
-      category: 'Grains & Rice',
-      badge: 'FSSAI & APEDA',
-      title: 'Basmati Rice',
+      category: 'Grains & Rice', badge: 'FSSAI & APEDA', title: 'Basmati Rice',
       img: 'https://images.pexels.com/photos/7421204/pexels-photo-7421204.jpeg?w=900&q=90',
       desc: 'Long-grain, aged Basmati rice with signature aromatic fragrance, non-sticky texture, and 2x elongation on cooking. We supply 1121 Extra Long, Traditional Basmati, and Pusa varieties — aged 12–24 months for maximum aroma and texture.',
       specs: [
@@ -520,9 +628,7 @@
       link: 'products.html#rice'
     },
     pepper: {
-      category: 'Spices',
-      badge: 'High Piperine',
-      title: 'Black Pepper',
+      category: 'Spices', badge: 'High Piperine', title: 'Black Pepper',
       img: 'https://images.pexels.com/photos/7925714/pexels-photo-7925714.jpeg?w=900&q=90',
       desc: 'Bold, pungent Indian Black Pepper from the Wayanad and Coorg estates. Available as whole berry (500–600 g/L bulk density), ground pepper, or cracked — with piperine content tested per batch. A favourite among European spice importers.',
       specs: [
@@ -537,10 +643,8 @@
       link: 'products.html#pepper'
     },
     fertilizer: {
-      category: 'Organic Inputs',
-      badge: '100% Organic',
-      title: 'Organic Fertilizers',
-      img: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=900&q=90',
+      category: 'Organic Inputs', badge: '100% Organic', title: 'Organic Fertilizers',
+      img: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=900&q=80',
       desc: 'Our certified organic fertilizers — including vermicompost, neem cake, and bio-compost — are exported to organic farming markets across Europe, Japan, and South Korea. Rich in NPK and soil microbiota, ideal for sustainable agriculture.',
       specs: [
         { label: 'Types', value: 'Vermicompost, Neem Cake, Bio-compost' },
@@ -566,33 +670,24 @@
     document.getElementById('modalTitle').textContent = p.title;
     document.getElementById('modalDesc').textContent = p.desc;
 
-    // Specs
     const specsEl = document.getElementById('modalSpecs');
     specsEl.innerHTML = p.specs.map(s =>
       `<div class="prod-spec-item"><div class="prod-spec-label">${s.label}</div><div class="prod-spec-value">${s.value}</div></div>`
     ).join('');
 
-    // Tags
     const tagsEl = document.getElementById('modalTags');
     tagsEl.innerHTML = p.tags.map(t => `<span class="prod-tag">${t}</span>`).join('');
 
-   // Product page links
-   const productPages = {
-     chilli: 'green-chillie.html',
-     banana: 'banana.html',
-     turmeric: 'turmeric.html',
-     cashew: 'cashew.html',
-     cardamom: 'cardamom.html',
-     rice: 'basmati.html',
-     pepper: 'black-pepper.html',
-     fertilizer: 'organic-fertilizer.html'
-   };
+    const productPages = {
+      chilli: 'green-chillie.html', banana: 'banana.html', turmeric: 'turmeric.html',
+      cashew: 'cashew.html', cardamom: 'cardamom.html', rice: 'basmati.html',
+      pepper: 'black-pepper.html', fertilizer: 'organic-fertilizer.html'
+    };
 
-    // View Product Button
     const viewBtn = document.getElementById('modalViewProduct');
     viewBtn.href = productPages[key] || 'products.html';
     viewBtn.textContent = 'View ' + p.title + ' →';
-    // Open
+
     document.getElementById('prodModalOverlay').classList.add('active');
     document.body.style.overflow = 'hidden';
   }
@@ -606,23 +701,37 @@
     if (e.target === document.getElementById('prodModalOverlay')) closeModal();
   }
 
-  // Close on ESC
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-  // ── NAV ──
+  // ── NAV & SIDEBAR OPERATIONS ──
   window.addEventListener('scroll', () => {
     document.getElementById('btt').classList.toggle('visible', window.scrollY > 400);
   });
-  document.getElementById('hamburger').addEventListener('click', () => {
-    document.getElementById('mobileMenu').classList.add('open');
+
+  const burgerBtn = document.getElementById('hamburger');
+  const menuOverlay = document.getElementById('mobileMenuOverlay');
+
+  burgerBtn.addEventListener('click', () => {
+    menuOverlay.classList.add('open');
     document.body.style.overflow = 'hidden';
   });
-  document.getElementById('mobileClose').addEventListener('click', closeMenu);
-  document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', closeMenu));
+
   function closeMenu() {
-    document.getElementById('mobileMenu').classList.remove('open');
+    menuOverlay.classList.remove('open');
     document.body.style.overflow = '';
   }
+
+  function handleOverlayClose(e) {
+    // If clicking outside the sidebar block area container, dismiss menu
+    if (e.target === menuOverlay) {
+      closeMenu();
+    }
+  }
+
+  // Attach listener to individual links inside mobile sidebar
+  document.querySelectorAll('.mobile-nav-item, .mobile-menu-cta').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
 </script>
 
 </body>
