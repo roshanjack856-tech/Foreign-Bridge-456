@@ -2,257 +2,485 @@
 <html lang="en">
 <head>
   <title>Foreign Bridge Export & Import Corp | Chennai, India</title>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Outfit:wght@300;400;500;600;700&family=Teko:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    :root {
-      --navy:#0b1e3d; --gold:#c8922a; --gold-light:#e8b04a; --gold-pale:#fdf3e0;
-      --cream:#faf8f5; --cream-dark:#f0ece4; --white:#ffffff;
-      --text-dark:#18293f; --text-mid:#4a5f78; --text-light:#8a9ab0; --border:#e5e0d8;
-    }
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-    html{scroll-behavior:smooth;}
-    body{font-family:'Outfit',sans-serif;background:var(--white);color:var(--text-dark);overflow-x:hidden;}
-    ::-webkit-scrollbar{width:5px;}
-    ::-webkit-scrollbar-track{background:var(--cream);}
-    ::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px;}
 
-    /* ── NAV ── */
-    nav{position:sticky;top:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0.9rem 4rem;background:var(--white);border-bottom:1px solid var(--border);box-shadow:0 2px 20px rgba(11,30,61,0.06);}
-    .nav-logo{display:flex;align-items:center;gap:0.5rem;text-decoration:none;}
-    .nav-logo-hex{display:none;}
-    .nav-logo-img{width:54px;height:54px;object-fit:contain;border-radius:50%;filter:drop-shadow(0 0 6px rgba(200,146,42,0.5));}
-    .nav-logo-text{display:flex;flex-direction:column;line-height:1.1;}
-    .nav-logo-main{font-family:'Teko',sans-serif;font-size:1.1rem;letter-spacing:0.08em;color:var(--navy);font-weight:600;}
-    .nav-logo-sub{font-size:0.56rem;letter-spacing:0.18em;color:var(--gold);text-transform:uppercase;}
-    .footer-logo-img{width:60px;height:60px;object-fit:contain;border-radius:50%;filter:drop-shadow(0 0 8px rgba(200,146,42,0.4));}
-    .nav-links{display:flex;align-items:center;gap:2.2rem;list-style:none;}
-    .nav-links a{text-decoration:none;color:var(--text-mid);font-size:0.79rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;transition:color 0.25s;position:relative;}
-    .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--gold);transition:width 0.25s;}
-    .nav-links a:hover{color:var(--navy);}
-    .nav-links a:hover::after{width:100%;}
-    .nav-cta{background:var(--navy)!important;color:var(--white)!important;padding:0.5rem 1.4rem;border-radius:4px;font-weight:600!important;}
-    .nav-cta:hover{background:var(--gold)!important;color:var(--navy)!important;}
-    .nav-cta::after{display:none!important;}
-    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
-    .hamburger span{display:block;width:24px;height:2px;background:var(--navy);}
-    .mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--white);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:2rem;}
-    .mobile-menu.open{display:flex;}
-    .mobile-menu a{text-decoration:none;color:var(--navy);font-family:'Teko',sans-serif;font-size:2rem;letter-spacing:0.08em;}
-    .mobile-menu a:hover{color:var(--gold);}
-    .mobile-close{position:absolute;top:1.5rem;right:2rem;background:none;border:none;font-size:2rem;cursor:pointer;color:var(--navy);}
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Outfit:wght@300;400;500;600;700&family=Teko:wght@400;500;600&display=swap" rel="stylesheet" />
 
-    /* ── HERO ── */
-    .hero{position:relative;overflow:hidden;min-height:100vh;display:flex;flex-direction:column;}
-    .hero-video-bg{position:absolute;inset:0;z-index:0;}
-    .hero-video-bg video{width:100%;height:100%;object-fit:cover;display:block;}
-    .hero-overlay{position:absolute;inset:0;background:rgba(5,15,40,0.62);}
-    .hero-content{position:relative;z-index:1;padding:5rem 2rem 4rem;text-align:center;}
-    .hero-bg-dots{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(200,146,42,0.07) 1.5px,transparent 1.5px);background-size:28px 28px;pointer-events:none;z-index:0;}
+  <!-- Icons -->
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+<style>
 
-    .hero-badge{position:relative;z-index:1;display:inline-flex;align-items:center;gap:0.5rem;background:rgba(200,146,42,0.22);border:1px solid rgba(200,146,42,0.5);color:var(--gold-light);padding:0.38rem 1rem;border-radius:100px;font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1.6rem;animation:fadeUp 0.8s ease both;}
-    .hero-title{position:relative;z-index:1;font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,4.4rem);font-weight:900;line-height:1.1;color:var(--white);margin-bottom:1.2rem;max-width:780px;margin-left:auto;margin-right:auto;animation:fadeUp 0.8s 0.1s ease both;}
-    .hero-title .accent{color:var(--gold-light);font-style:italic;}
-    .hero-sub{position:relative;z-index:1;font-size:clamp(0.9rem,1.7vw,1.1rem);color:rgba(255,255,255,0.82);max-width:590px;margin:0 auto 2rem;line-height:1.8;animation:fadeUp 0.8s 0.2s ease both;}
-    .hero-sub strong{color:var(--white);font-weight:600;}
-    .hero-actions{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;animation:fadeUp 0.8s 0.3s ease both;margin-bottom:0.7rem;}
-    .btn-primary{background:var(--gold);color:var(--navy);text-decoration:none;padding:0.82rem 1.9rem;font-weight:700;font-size:0.86rem;border-radius:5px;transition:all 0.25s;border:2px solid var(--gold);cursor:pointer;font-family:'Outfit',sans-serif;display:inline-flex;align-items:center;gap:0.4rem;}
-    .btn-primary:hover{background:var(--white);border-color:var(--white);color:var(--navy);transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,0.25);}
-    .btn-outline{background:transparent;color:var(--white);text-decoration:none;padding:0.82rem 1.9rem;font-weight:600;font-size:0.86rem;border-radius:5px;border:2px solid rgba(255,255,255,0.5);transition:all 0.25s;display:inline-flex;align-items:center;gap:0.4rem;}
-    .btn-outline:hover{border-color:var(--white);background:rgba(255,255,255,0.1);}
-    .hero-note{position:relative;z-index:1;font-size:0.75rem;color:rgba(255,255,255,0.6);animation:fadeUp 0.8s 0.4s ease both;}
-    .hero-note a{color:var(--gold-light);text-decoration:none;}
-    .hero-note a:hover{color:var(--white);}
+:root{
+  --navy:#0b1e3d;
+  --gold:#c8922a;
+  --white:#ffffff;
+  --border:#e8e8e8;
+}
 
-    /* Stats bar */
-    .hero-stats-bar{position:relative;z-index:1;display:flex;align-items:stretch;justify-content:center;flex-wrap:wrap;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:12px;max-width:660px;margin:2.3rem auto 0;overflow:hidden;animation:fadeUp 0.8s 0.5s ease both;}
-    .h-stat{flex:1;min-width:120px;padding:1.3rem 0.9rem;text-align:center;border-right:1px solid rgba(255,255,255,0.12);}
-    .h-stat:last-child{border-right:none;}
-    .h-stat-num{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--white);line-height:1;}
-    .h-stat-num span{color:var(--gold-light);}
-    .h-stat-label{font-size:0.65rem;color:rgba(255,255,255,0.55);letter-spacing:0.15em;text-transform:uppercase;margin-top:0.25rem;}
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    /* Product category bar */
-    .prod-bar{position:relative;z-index:2;background:rgba(6,15,28,0.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid rgba(200,146,42,0.25);animation:fadeUp 0.8s 0.6s ease both;}
-    .prod-bar-inner{display:flex;align-items:stretch;justify-content:center;flex-wrap:wrap;max-width:1100px;margin:0 auto;}
-    .prod-cat{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.55rem;padding:1.1rem 1.4rem;text-decoration:none;border-right:1px solid rgba(255,255,255,0.06);transition:background 0.25s;flex:1;min-width:100px;cursor:pointer;}
-    .prod-cat:last-child{border-right:none;}
-    .prod-cat:hover{background:rgba(200,146,42,0.15);}
-    .prod-cat-img{width:52px;height:52px;object-fit:cover;border-radius:50%;border:2px solid rgba(200,146,42,0.4);transition:border-color 0.25s,transform 0.25s;}
-    .prod-cat:hover .prod-cat-img{border-color:var(--gold-light);transform:scale(1.08);}
-    .prod-cat-name{font-size:0.62rem;color:rgba(255,255,255,0.7);letter-spacing:0.14em;text-transform:uppercase;text-align:center;font-weight:500;transition:color 0.25s;}
-    .prod-cat:hover .prod-cat-name{color:var(--gold-light);}
-    @media(max-width:768px){.prod-cat{min-width:80px;padding:0.9rem 0.7rem;}.prod-cat-img{width:42px;height:42px;}.prod-cat-name{font-size:0.55rem;}}
-    @media(max-width:480px){.prod-cat{min-width:70px;padding:0.7rem 0.4rem;}}
+body{
+  font-family:'Outfit',sans-serif;
+  overflow-x:hidden;
+  background:#fff;
+}
 
-    /* ── PRODUCT MODAL ── */
-    .prod-modal-overlay{
-      position:fixed;inset:0;z-index:2000;
-      background:rgba(5,12,30,0.88);
-      backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
-      display:flex;align-items:center;justify-content:center;
-      padding:1.5rem;
-      opacity:0;pointer-events:none;
-      transition:opacity 0.3s ease;
-    }
-    .prod-modal-overlay.active{opacity:1;pointer-events:all;}
+/* ───────── NAVBAR ───────── */
 
-    .prod-modal{
-      background:var(--white);
-      border-radius:16px;
-      max-width:860px;width:100%;
-      max-height:90vh;overflow-y:auto;
-      display:grid;grid-template-columns:1fr 1fr;
-      box-shadow:0 32px 80px rgba(0,0,0,0.4);
-      transform:translateY(24px) scale(0.97);
-      transition:transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
-    }
-    .prod-modal-overlay.active .prod-modal{transform:translateY(0) scale(1);}
+nav{
+  position:sticky;
+  top:0;
+  z-index:1000;
 
-    .prod-modal-img-wrap{
-      position:relative;overflow:hidden;border-radius:16px 0 0 16px;
-      min-height:320px;
-    }
-    .prod-modal-img-wrap img{
-      width:100%;height:100%;object-fit:cover;display:block;
-      transition:transform 0.5s ease;
-    }
-    .prod-modal-img-wrap:hover img{transform:scale(1.04);}
-    .prod-modal-img-badge{
-      position:absolute;top:1rem;left:1rem;
-      background:var(--gold);color:var(--navy);
-      font-size:0.62rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
-      padding:0.28rem 0.72rem;border-radius:100px;
-    }
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 
-    .prod-modal-info{padding:2.2rem 2rem;display:flex;flex-direction:column;gap:1rem;}
-    .prod-modal-category{font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:700;}
-    .prod-modal-title{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:900;color:var(--navy);line-height:1.15;}
-    .prod-modal-desc{font-size:0.875rem;color:var(--text-mid);line-height:1.75;}
+  padding:14px 22px;
 
-    .prod-modal-specs{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;}
-    .prod-spec-item{background:var(--cream);border-radius:8px;padding:0.6rem 0.85rem;}
-    .prod-spec-label{font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-light);font-weight:600;}
-    .prod-spec-value{font-size:0.82rem;color:var(--navy);font-weight:600;margin-top:0.18rem;}
+  background:rgba(255,255,255,0.82);
 
-    .prod-modal-tags{display:flex;flex-wrap:wrap;gap:0.4rem;}
-    .prod-tag{background:rgba(200,146,42,0.12);border:1px solid rgba(200,146,42,0.3);color:var(--gold);font-size:0.68rem;padding:0.22rem 0.7rem;border-radius:100px;font-weight:500;}
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
 
-    .prod-modal-actions{display:flex;gap:0.7rem;flex-wrap:wrap;margin-top:auto;}
-    .prod-modal-actions .btn-primary{font-size:0.8rem;padding:0.7rem 1.4rem;}
-    .prod-modal-actions .btn-outline-navy{
-      background:transparent;color:var(--navy);
-      border:2px solid var(--border);
-      text-decoration:none;padding:0.7rem 1.4rem;
-      font-weight:600;font-size:0.8rem;border-radius:5px;
-      display:inline-flex;align-items:center;gap:0.4rem;
-      transition:all 0.25s;cursor:pointer;font-family:'Outfit',sans-serif;
-    }
-    .prod-modal-actions .btn-outline-navy:hover{border-color:var(--navy);background:var(--navy);color:var(--white);}
+  border-bottom:1px solid rgba(255,255,255,0.2);
 
-    .prod-modal-close{
-      position:absolute;top:1rem;right:1rem;
-      width:36px;height:36px;border-radius:50%;
-      background:rgba(255,255,255,0.95);border:none;cursor:pointer;
-      display:flex;align-items:center;justify-content:center;
-      font-size:1.1rem;color:var(--navy);
-      box-shadow:0 4px 12px rgba(0,0,0,0.15);
-      transition:background 0.2s,transform 0.2s;
-      z-index:10;
-    }
-    .prod-modal-close:hover{background:var(--gold);color:var(--white);transform:scale(1.1);}
+  box-shadow:
+    0 8px 32px rgba(0,0,0,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.4);
+}
 
-    .prod-modal-wrapper{position:relative;}
+/* LOGO */
 
-    @media(max-width:640px){
-      .prod-modal{grid-template-columns:1fr;}
-      .prod-modal-img-wrap{border-radius:16px 16px 0 0;min-height:220px;}
-      .prod-modal-info{padding:1.5rem 1.2rem;}
-      .prod-modal-title{font-size:1.5rem;}
-      .prod-modal-specs{grid-template-columns:1fr 1fr;}
-    }
+.nav-logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+}
 
-    /* ── FOOTER ── */
-    footer{background:#060f1c;color:rgba(255,255,255,0.55);padding:3.5rem 4rem 2rem;}
-    .footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,0.06);}
-    .footer-desc{font-size:0.79rem;line-height:1.8;max-width:240px;color:rgba(255,255,255,0.38);margin:0.85rem 0 1rem;}
-    .footer-social{display:flex;gap:0.52rem;}
-    .social-btn{width:32px;height:32px;border:1px solid rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.45);text-decoration:none;font-size:0.76rem;transition:all 0.25s;}
-    .social-btn:hover{background:var(--gold);border-color:var(--gold);color:var(--navy);}
-    .footer-col-title{font-size:0.63rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:0.95rem;}
-    .footer-links{list-style:none;display:flex;flex-direction:column;gap:0.58rem;}
-    .footer-links a{text-decoration:none;color:rgba(255,255,255,0.38);font-size:0.79rem;transition:color 0.25s;}
-    .footer-links a:hover{color:var(--gold-light);}
-    .footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:0.69rem;color:rgba(255,255,255,0.22);}
-    .footer-bottom a{color:var(--gold);text-decoration:none;}
-    .footer-badge{display:inline-flex;align-items:center;gap:0.38rem;background:rgba(200,146,42,0.1);border:1px solid rgba(200,146,42,0.2);padding:0.26rem 0.7rem;border-radius:100px;color:var(--gold-light);font-size:0.64rem;}
+.nav-logo img{
+  width:58px;
+  height:58px;
+  object-fit:cover;
+  border-radius:50%;
+}
 
-    /* BTT */
-    #btt{position:fixed;bottom:2rem;right:2rem;z-index:999;width:40px;height:40px;background:var(--navy);border:none;border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:1rem;cursor:pointer;opacity:0;transform:translateY(10px);transition:all 0.3s;pointer-events:none;box-shadow:0 4px 16px rgba(11,30,61,0.25);}
-    #btt.visible{opacity:1;transform:translateY(0);pointer-events:all;}
-    #btt:hover{background:var(--gold);}
+.nav-logo-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1;
+}
 
-    /* ── RESPONSIVE ── */
-    @media(max-width:768px){
-      nav{padding:0.82rem 1.5rem;}
-      .nav-links{display:none;}
-      .hamburger{display:flex;}
-      .footer-top{grid-template-columns:1fr 1fr;}
-      .footer-bottom{flex-direction:column;align-items:flex-start;}
-      .hero-content{padding:3.5rem 1.2rem 3rem;}
-      footer{padding:2.5rem 1.5rem 1.5rem;}
-    }
-    @media(max-width:480px){
-      .h-stat{min-width:100px;}
-      .footer-top{grid-template-columns:1fr;}
-    }
-  </style>
+.nav-logo-main{
+  font-family:'Teko',sans-serif;
+  font-size:1.4rem;
+  color:var(--navy);
+  letter-spacing:0.08em;
+}
+
+.nav-logo-sub{
+  font-size:0.7rem;
+  letter-spacing:0.2em;
+  color:var(--gold);
+}
+
+/* DESKTOP LINKS */
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:2rem;
+  list-style:none;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:var(--navy);
+  font-size:0.82rem;
+  text-transform:uppercase;
+  letter-spacing:0.12em;
+  position:relative;
+}
+
+.nav-links a::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-5px;
+
+  width:0%;
+  height:2px;
+  background:var(--gold);
+
+  transition:0.3s;
+}
+
+.nav-links a:hover::after{
+  width:100%;
+}
+
+.nav-cta{
+  background:var(--navy);
+  color:white !important;
+
+  padding:10px 18px;
+  border-radius:6px;
+}
+
+/* HAMBURGER */
+
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+
+  background:none;
+  border:none;
+
+  cursor:pointer;
+}
+
+.hamburger span{
+  width:28px;
+  height:2px;
+  background:var(--navy);
+  border-radius:10px;
+}
+
+/* ───────── PREMIUM MOBILE MENU ───────── */
+
+.mobile-menu{
+  position:fixed;
+  inset:0;
+
+  z-index:999;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  gap:2rem;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.72),
+      rgba(255,255,255,0.52)
+    );
+
+  backdrop-filter:blur(28px);
+  -webkit-backdrop-filter:blur(28px);
+
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+
+  transition:0.35s ease;
+}
+
+.mobile-menu.open{
+  opacity:1;
+  visibility:visible;
+  pointer-events:all;
+}
+
+/* MOBILE LINKS */
+
+.mobile-menu a{
+  text-decoration:none;
+
+  color:var(--navy);
+
+  font-family:'Teko',sans-serif;
+  font-size:2.3rem;
+
+  letter-spacing:0.08em;
+
+  transition:0.3s;
+}
+
+.mobile-menu a:hover{
+  color:var(--gold);
+  transform:translateX(8px);
+}
+
+/* CLOSE BUTTON */
+
+.mobile-close{
+  position:absolute;
+  top:18px;
+  right:20px;
+
+  width:54px;
+  height:54px;
+
+  border:none;
+  border-radius:18px;
+
+  background:rgba(255,255,255,0.12);
+
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+
+  border:1px solid rgba(255,255,255,0.25);
+
+  box-shadow:
+    0 8px 32px rgba(0,0,0,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.25);
+
+  cursor:pointer;
+
+  transition:0.25s ease;
+}
+
+/* X ICON */
+
+.mobile-close::before,
+.mobile-close::after{
+  content:'';
+
+  position:absolute;
+
+  width:24px;
+  height:2.5px;
+
+  background:var(--navy);
+
+  border-radius:10px;
+}
+
+.mobile-close::before{
+  transform:rotate(45deg);
+}
+
+.mobile-close::after{
+  transform:rotate(-45deg);
+}
+
+.mobile-close:hover{
+  transform:scale(1.08) rotate(90deg);
+}
+
+/* HERO */
+
+.hero{
+  position:relative;
+  min-height:100vh;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  overflow:hidden;
+}
+
+.hero video{
+  position:absolute;
+  inset:0;
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+}
+
+.hero-overlay{
+  position:absolute;
+  inset:0;
+
+  background:rgba(0,0,0,0.55);
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+
+  text-align:center;
+  color:white;
+
+  padding:2rem;
+}
+
+.hero-badge{
+  display:inline-block;
+
+  padding:10px 18px;
+
+  border-radius:100px;
+
+  background:rgba(255,255,255,0.1);
+
+  border:1px solid rgba(255,255,255,0.2);
+
+  backdrop-filter:blur(14px);
+
+  margin-bottom:1.5rem;
+
+  font-size:0.8rem;
+  letter-spacing:0.12em;
+}
+
+.hero-title{
+  font-family:'Playfair Display',serif;
+
+  font-size:clamp(2.4rem,6vw,5rem);
+
+  line-height:1.1;
+
+  margin-bottom:1rem;
+}
+
+.hero-title span{
+  color:var(--gold);
+}
+
+.hero-sub{
+  max-width:700px;
+
+  margin:auto;
+
+  line-height:1.8;
+
+  color:rgba(255,255,255,0.82);
+}
+
+/* BUTTONS */
+
+.hero-actions{
+  margin-top:2rem;
+
+  display:flex;
+  justify-content:center;
+  gap:1rem;
+
+  flex-wrap:wrap;
+}
+
+.btn-primary{
+  text-decoration:none;
+
+  background:var(--gold);
+  color:var(--navy);
+
+  padding:14px 24px;
+
+  border-radius:8px;
+
+  font-weight:600;
+
+  transition:0.3s;
+}
+
+.btn-primary:hover{
+  transform:translateY(-3px);
+}
+
+.btn-outline{
+  text-decoration:none;
+
+  border:1px solid rgba(255,255,255,0.4);
+
+  padding:14px 24px;
+
+  border-radius:8px;
+
+  color:white;
+
+  backdrop-filter:blur(12px);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+  .nav-links{
+    display:none;
+  }
+
+  .hamburger{
+    display:flex;
+  }
+
+  .hero-title{
+    font-size:2.8rem;
+  }
+
+}
+
+@media(max-width:480px){
+
+  .mobile-menu a{
+    font-size:2rem;
+  }
+
+  .hero-title{
+    font-size:2.3rem;
+  }
+
+}
+
+</style>
 </head>
+
 <body>
 
-<!-- NAV -->
-<nav style="background-color: whitesmoke;" id="navbar">
+<!-- ───────── NAVBAR ───────── -->
+
+<nav>
+
   <a href="index.html" class="nav-logo">
-    <img class="nav-logo-img" src="foreign bridge logo.png">
+
+    <img src="foreign bridge logo.png" alt="logo">
+
     <div class="nav-logo-text">
       <span class="nav-logo-main">FOREIGN BRIDGE</span>
-      <span class="nav-logo-sub">Export &amp; Import Corp</span>
+      <span class="nav-logo-sub">EXPORT & IMPORT CORP</span>
     </div>
+
   </a>
+
   <ul class="nav-links">
     <li><a href="about.html">About</a></li>
     <li><a href="products.html">Products</a></li>
     <li><a href="services.html">Services</a></li>
     <li><a href="why-us.html">Why Us</a></li>
-    <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
   </ul>
-  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-</nav>
 
-<!-- MOBILE MENU -->
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-
-  <!-- BACK BUTTON -->
-  <button class="mobile-close" id="mobileClose">
-    <i class="fas fa-arrow-left"></i>
+  <!-- HAMBURGER -->
+  <button class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
   </button>
 
-  <!-- LOGO -->
-  <a href="index.html" class="nav-logo" style="margin-bottom:2rem;">
-    <img class="nav-logo-img" src="foreign bridge logo.png">
+</nav>
 
-    <div class="nav-logo-text">
-      <span class="nav-logo-main">FOREIGN BRIDGE</span>
-      <span class="nav-logo-sub">Export &amp; Import Corp</span>
-    </div>
-  </a>
+<!-- ───────── MOBILE MENU ───────── -->
+
+<div class="mobile-menu" id="mobileMenu">
+
+  <!-- CLOSE BUTTON -->
+  <button
+    class="mobile-close"
+    id="mobileClose"
+    aria-label="Close Menu">
+  </button>
 
   <!-- LINKS -->
   <a href="index.html" class="mobile-link">Home</a>
@@ -263,372 +491,84 @@
   <a href="contact.html" class="mobile-link">Contact Us</a>
 
 </div>
-<!-- HERO SECTION -->
-<section class="hero" id="home">
-  <div class="hero-video-bg">
-    <video autoplay muted loop playsinline>
-      <source src="WhatsApp_Video_2026-04-25_at_7_18_55_PM.mp4" type="video/mp4">
-    </video>
-    <div class="hero-overlay"></div>
-  </div>
+
+<!-- ───────── HERO ───────── -->
+
+<section class="hero">
+
+  <!-- VIDEO -->
+  <video autoplay muted loop playsinline>
+    <source src="WhatsApp_Video_2026-04-25_at_7_18_55_PM.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-overlay"></div>
+
+  <!-- CONTENT -->
   <div class="hero-content">
-    <div class="hero-bg-dots"></div>
-    <div class="hero-badge">🌶️ Est. 2008 · Chennai, India · Global Agri Exporters</div>
-    <h1 class="hero-title">India's Finest Spices &amp; Produce,<br><span class="accent">Delivered Worldwide.</span></h1>
-    <p class="hero-sub"><strong>Premium Spices, Nuts, Rice, Fruits &amp; Organic Fertilizers</strong> — sourced from India's best farms and exported to 40+ countries with full APEDA certification, quality grading, and compliance.</p>
+
+    <div class="hero-badge">
+      🌍 Chennai • India • Global Exporters
+    </div>
+
+    <h1 class="hero-title">
+      India's Finest <span>Spices & Produce</span>
+    </h1>
+
+    <p class="hero-sub">
+      Premium spices, fruits, rice, dry fruits, and organic products exported globally with trusted quality and APEDA certified standards.
+    </p>
+
     <div class="hero-actions">
-      <a href="contact.html" class="btn-primary">Get Export Quote ↗</a>
-      <a href="products.html" class="btn-outline">View Our Products →</a>
+
+      <a href="contact.html" class="btn-primary">
+        Get Export Quote
+      </a>
+
+      <a href="products.html" class="btn-outline">
+        View Products
+      </a>
+
     </div>
-    <p class="hero-note">📞 <a href="tel:+917200628777">+91 72006 28777</a> &nbsp;|&nbsp; <a href="tel:+917200629888">+91 72006 29888</a> &nbsp;|&nbsp; ✉️ <a href="mailto:foreignbridgeofficial@gmail.com">foreignbridgeofficial@gmail.com</a></p>
-    <div class="hero-stats-bar">
-      <div class="h-stat"><div class="h-stat-num">40<span>+</span></div><div class="h-stat-label">Countries</div></div>
-      <div class="h-stat"><div class="h-stat-num">15<span>+</span></div><div class="h-stat-label">Years Active</div></div>
-      <div class="h-stat"><div class="h-stat-num">1200<span>+</span></div><div class="h-stat-label">Shipments</div></div>
-      <div class="h-stat"><div class="h-stat-num">200<span>+</span></div><div class="h-stat-label">Global Buyers</div></div>
-    </div>
+
   </div>
+
 </section>
 
-<!-- PRODUCT CATEGORY BAR -->
-<div class="prod-bar">
-  <div class="prod-bar-inner">
-    <div class="prod-cat" onclick="openModal('chilli')">
-      <img class="prod-cat-img" src="https://images.unsplash.com/photo-1588252303782-cb80119abd6d?w=120&q=80" alt="Chilli" loading="lazy">
-      <span class="prod-cat-name">Red &amp; Green Chilli</span>
-    </div>
-    <div class="prod-cat" onclick="openModal('banana')">
-      <img class="prod-cat-img" src="https://images.unsplash.com/photo-1528825871115-3581a5387919?w=120&q=80" alt="Banana" loading="lazy">
-      <span class="prod-cat-name">Robusta Banana</span>
-    </div>
-    <div class="prod-cat" onclick="openModal('turmeric')">
-      <img class="prod-cat-img" src="https://images.unsplash.com/photo-1615485500834-bc10199bc727?w=120&q=80" alt="Turmeric" loading="lazy">
-      <span class="prod-cat-name">Turmeric</span>
-    </div>
-    <div class="prod-cat" onclick="openModal('cashew')">
-      <img class="prod-cat-img" src="https://images.pexels.com/photos/36285399/pexels-photo-36285399.jpeg" alt="Cashew" loading="lazy">
-      <span class="prod-cat-name">Cashew Nuts</span>
-    </div>
-    <div class="prod-cat" onclick="openModal('cardamom')">
-      <img class="prod-cat-img" src="https://images.pexels.com/photos/10487768/pexels-photo-10487768.jpeg" alt="Cardamom" loading="lazy">
-      <span class="prod-cat-name">Cardamom</span>
-    </div>
-    <div class="prod-cat" onclick="openModal('rice')">
-      <img class="prod-cat-img" src="https://images.pexels.com/photos/7421204/pexels-photo-7421204.jpeg" alt="Rice" loading="lazy">
-      <span class="prod-cat-name">Basmati Rice</span>
-    </div>
-    <div class="prod-cat" onclick="openModal('pepper')">
-      <img class="prod-cat-img" src="https://images.pexels.com/photos/7925714/pexels-photo-7925714.jpeg" alt="Black Pepper" loading="lazy">
-      <span class="prod-cat-name">Black Pepper</span>
-    </div>
-    <div class="prod-cat" onclick="openModal('fertilizer')">
-      <img class="prod-cat-img" src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=900&q=80" alt="Fertilizer" loading="lazy">
-      <span class="prod-cat-name">Organic Fertilizer</span>
-    </div>
-  </div>
-</div>
-
-<!-- ── PRODUCT MODAL ── -->
-<div class="prod-modal-overlay" id="prodModalOverlay" onclick="handleOverlayClick(event)">
-  <div class="prod-modal-wrapper">
-    <div class="prod-modal" id="prodModal">
-      <div class="prod-modal-img-wrap">
-        <img id="modalImg" src="" alt="">
-        <span class="prod-modal-img-badge" id="modalBadge">Premium Export</span>
-      </div>
-      <div class="prod-modal-info">
-        <div class="prod-modal-category" id="modalCategory"></div>
-        <div class="prod-modal-title" id="modalTitle"></div>
-        <div class="prod-modal-desc" id="modalDesc"></div>
-        <div class="prod-modal-specs" id="modalSpecs"></div>
-        <div class="prod-modal-tags" id="modalTags"></div>
-        <div class="prod-modal-actions">
-          <a href="contact.html" class="btn-primary">Get Export Quote ↗</a>
-          <a id="modalViewProduct" href="products.html" class="btn-outline-navy"></a>
-        </div>
-      </div>
-    </div>
-    <button class="prod-modal-close" onclick="closeModal()" title="Close">✕</button>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-top">
-    <div class="footer-brand">
-      <a href="index.html" class="nav-logo" style="text-decoration:none;">
-        <img class="footer-logo-img" src="foreign bridge logo.png" alt="Foreign Bridge Logo">
-        <div class="nav-logo-text">
-          <span style="color:#ccc;" class="nav-logo-main">FOREIGN BRIDGE</span>
-          <span class="nav-logo-sub">Export &amp; Import Corp</span>
-        </div>
-      </a>
-      <p class="footer-desc">Connecting Chennai's trade ecosystem to global markets with over 15 years of expertise, integrity, and excellence.</p>
-      <div class="footer-social">
-        <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="social-btn"><i class="fab fa-x-twitter"></i></a>
-        <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
-        <a href="https://wa.me/917200628777" class="social-btn"><i class="fab fa-whatsapp"></i></a>
-      </div>
-    </div>
-    <div>
-      <div class="footer-col-title">Quick Links</div>
-      <ul class="footer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="products.html">Our Products</a></li>
-        <li><a href="services.html">Our Services</a></li>
-        <li><a href="why-us.html">Why Choose Us</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Products</div>
-      <ul class="footer-links">
-        <li><a href="products.html">Red &amp; Green Chilli</a></li>
-        <li><a href="products.html">Robusta Banana</a></li>
-        <li><a href="products.html">Turmeric Powder</a></li>
-        <li><a href="products.html">Cashew Nuts</a></li>
-        <li><a href="products.html">Cardamom</a></li>
-        <li><a href="products.html">Basmati Rice</a></li>
-        <li><a href="products.html">Black Pepper</a></li>
-        <li><a href="products.html">Organic Fertilizers</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Contact</div>
-      <ul class="footer-links">
-        <li><a href="tel:+917200628777">+91 72006 28777</a></li>
-        <li><a href="tel:+917200629888">+91 72006 29888</a></li>
-        <li><a href="mailto:foreignbridgeofficial@gmail.com">foreignbridgeofficial@gmail.com</a></li>
-        <li><a href="#">Chennai, Tamil Nadu, India</a></li>
-        <li><div class="footer-badge">🇮🇳 Made in India</div></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2025 Foreign Bridge Export &amp; Import Corp. All rights reserved.</span>
-    <span>
-      <a href="#">Privacy Policy</a> ·
-      <a href="#">Terms of Service</a> ·
-      <a href="#">www.foreignbridgeglobal.com</a>
-    </span>
-  </div>
-</footer>
-
-<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+<!-- ───────── JAVASCRIPT ───────── -->
 
 <script>
-  // ── PRODUCT DATA ──
-  const products = {
-    chilli: {
-      category: 'Spices',
-      badge: 'Best Seller',
-      title: 'Red & Green Chilli',
-      img: 'https://images.unsplash.com/photo-1588252303782-cb80119abd6d?w=900&q=90',
-      desc: 'Our premium Red & Green Chillies are sourced from the finest growing regions of Andhra Pradesh and Telangana. Available in 14+ varieties including Teja S17, Byadagi, Guntur Sannam, and more — with precise SHU and ASTA colour value grading for global buyers.',
-      specs: [
-        { label: 'Varieties', value: '14+ (Teja, Guntur, Byadagi…)' },
-        { label: 'Form', value: 'Whole, Powder, Crushed' },
-        { label: 'Moisture', value: '≤ 12%' },
-        { label: 'Packaging', value: '25 kg / 50 kg Bags' },
-        { label: 'Certification', value: 'APEDA, FSSAI' },
-        { label: 'Origin', value: 'Andhra Pradesh, India' },
-      ],
-      tags: ['APEDA Certified', 'FOB Chennai', 'Custom Grading', 'Year-round Supply'],
-      link: 'products.html#chilli'
-    },
-    banana: {
-      category: 'Fresh Fruits',
-      badge: 'Premium Export',
-      title: 'Robusta Banana',
-      img: 'https://images.unsplash.com/photo-1528825871115-3581a5387919?w=900&q=90',
-      desc: 'Robusta Bananas from Tamil Nadu and Kerala — thick-peeled, firm, and sweet with a long shelf life ideal for long-distance export. Harvested at precise ripeness stages and packed with ethylene control for freshness on arrival.',
-      specs: [
-        { label: 'Variety', value: 'Robusta (Grand Naine)' },
-        { label: 'Ripeness', value: 'Stage 1–2 (Export)' },
-        { label: 'Weight', value: '12–18 kg per box' },
-        { label: 'Packaging', value: 'Corrugated Cartons' },
-        { label: 'Shelf Life', value: '18–22 days (controlled)' },
-        { label: 'Origin', value: 'Tamil Nadu & Kerala' },
-      ],
-      tags: ['Cold Chain', 'APEDA Certified', 'Phytosanitary Cert', 'FOB Chennai'],
-      link: 'products.html#banana'
-    },
-    turmeric: {
-      category: 'Spices',
-      badge: 'High Curcumin',
-      title: 'Turmeric',
-      img: 'https://images.unsplash.com/photo-1615485500834-bc10199bc727?w=900&q=90',
-      desc: 'Sourced from Erode — the "Turmeric City" of India — our turmeric boasts high curcumin content (3–7%), vibrant golden colour, and consistent quality. Available as whole finger, polished bulb, or powder in custom micron grades.',
-      specs: [
-        { label: 'Curcumin', value: '3% – 7%' },
-        { label: 'Form', value: 'Finger, Bulb, Powder' },
-        { label: 'Moisture', value: '≤ 10%' },
-        { label: 'Packaging', value: '25 kg / 50 kg PP Bags' },
-        { label: 'Certification', value: 'APEDA, Organic Available' },
-        { label: 'Origin', value: 'Erode, Tamil Nadu' },
-      ],
-      tags: ['Organic Available', 'High Curcumin', 'APEDA', 'Steam Sterilised'],
-      link: 'products.html#turmeric'
-    },
-    cashew: {
-      category: 'Nuts & Dry Fruits',
-      badge: 'W240 · W320 · W450',
-      title: 'Cashew Nuts',
-      img: 'https://images.pexels.com/photos/36285399/pexels-photo-36285399.jpeg?w=900&q=90',
-      desc: 'Premium grade Indian cashews — ivory white, crisp, and full-flavoured. We export W180, W240, W320, W450 grades and splits/pieces for industrial buyers. Processed in certified units with metal-detection and moisture-controlled packaging.',
-      specs: [
-        { label: 'Grades', value: 'W180, W240, W320, W450' },
-        { label: 'Form', value: 'Whole, Splits, Pieces' },
-        { label: 'Moisture', value: '≤ 5%' },
-        { label: 'Packaging', value: 'Vacuum Tin / 10 kg Carton' },
-        { label: 'Certification', value: 'APEDA, FSSAI, ISO' },
-        { label: 'Origin', value: 'Kerala & Tamil Nadu' },
-      ],
-      tags: ['Vacuum Packed', 'Metal Detected', 'W240 Popular', 'Bulk Available'],
-      link: 'products.html#cashew'
-    },
-    cardamom: {
-      category: 'Spices',
-      badge: 'Bold Aroma',
-      title: 'Green Cardamom',
-      img: 'https://images.pexels.com/photos/10487768/pexels-photo-10487768.jpeg?w=900&q=90',
-      desc: 'Hand-picked green cardamom from the misty hills of Idukki, Kerala. Rich essential oil content (5–8%), bold camphor-sweet aroma, and bright green colour make our cardamom the preferred choice for Middle Eastern and European buyers.',
-      specs: [
-        { label: 'Variety', value: 'Malabar & Mysore' },
-        { label: 'Bold Size', value: '6mm – 8mm+' },
-        { label: 'Essential Oil', value: '5% – 8%' },
-        { label: 'Packaging', value: '25 kg Jute / Vacuum Bag' },
-        { label: 'Certification', value: 'APEDA, Organic Cert.' },
-        { label: 'Origin', value: 'Idukki, Kerala' },
-      ],
-      tags: ['Hand-picked', 'High Oil Content', 'APEDA', 'Middle East Preferred'],
-      link: 'products.html#cardamom'
-    },
-    rice: {
-      category: 'Grains & Rice',
-      badge: 'FSSAI & APEDA',
-      title: 'Basmati Rice',
-      img: 'https://images.pexels.com/photos/7421204/pexels-photo-7421204.jpeg?w=900&q=90',
-      desc: 'Long-grain, aged Basmati rice with signature aromatic fragrance, non-sticky texture, and 2x elongation on cooking. We supply 1121 Extra Long, Traditional Basmati, and Pusa varieties — aged 12–24 months for maximum aroma and texture.',
-      specs: [
-        { label: 'Varieties', value: '1121, Pusa, Traditional' },
-        { label: 'Grain Length', value: '7.5mm – 8.5mm' },
-        { label: 'Moisture', value: '≤ 12.5%' },
-        { label: 'Packaging', value: '1/5/10/25/50 kg Bags' },
-        { label: 'Certification', value: 'APEDA GI Tag, FSSAI' },
-        { label: 'Origin', value: 'Punjab & Haryana' },
-      ],
-      tags: ['GI Tagged', 'Aged 12–24 mo', 'Bulk & Retail', 'Custom Branding'],
-      link: 'products.html#rice'
-    },
-    pepper: {
-      category: 'Spices',
-      badge: 'High Piperine',
-      title: 'Black Pepper',
-      img: 'https://images.pexels.com/photos/7925714/pexels-photo-7925714.jpeg?w=900&q=90',
-      desc: 'Bold, pungent Indian Black Pepper from the Wayanad and Coorg estates. Available as whole berry (500–600 g/L bulk density), ground pepper, or cracked — with piperine content tested per batch. A favourite among European spice importers.',
-      specs: [
-        { label: 'Variety', value: 'Malabar / Tellicherry' },
-        { label: 'Bulk Density', value: '500 – 600 g/L' },
-        { label: 'Moisture', value: '≤ 12%' },
-        { label: 'Packaging', value: '25 kg / 50 kg Bags' },
-        { label: 'Piperine', value: '4% – 6%' },
-        { label: 'Origin', value: 'Wayanad & Coorg' },
-      ],
-      tags: ['Tellicherry Grade', 'Tested Piperine', 'APEDA', 'Steam Sterilised'],
-      link: 'products.html#pepper'
-    },
-    fertilizer: {
-      category: 'Organic Inputs',
-      badge: '100% Organic',
-      title: 'Organic Fertilizers',
-      img: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=900&q=90',
-      desc: 'Our certified organic fertilizers — including vermicompost, neem cake, and bio-compost — are exported to organic farming markets across Europe, Japan, and South Korea. Rich in NPK and soil microbiota, ideal for sustainable agriculture.',
-      specs: [
-        { label: 'Types', value: 'Vermicompost, Neem Cake, Bio-compost' },
-        { label: 'NPK', value: 'As per variety' },
-        { label: 'Moisture', value: '≤ 20%' },
-        { label: 'Packaging', value: '5 / 25 / 50 kg Bags' },
-        { label: 'Certification', value: 'NPOP Organic, APEDA' },
-        { label: 'Origin', value: 'Tamil Nadu, India' },
-      ],
-      tags: ['NPOP Organic', 'EU Compliant', 'Neem Cake', 'Vermicompost'],
-      link: 'products.html#fertilizer'
-    }
-  };
 
-  function openModal(key) {
-    const p = products[key];
-    if (!p) return;
+/* MENU OPEN */
+document.getElementById('hamburger')
+.addEventListener('click', () => {
 
-    document.getElementById('modalImg').src = p.img;
-    document.getElementById('modalImg').alt = p.title;
-    document.getElementById('modalBadge').textContent = p.badge;
-    document.getElementById('modalCategory').textContent = p.category;
-    document.getElementById('modalTitle').textContent = p.title;
-    document.getElementById('modalDesc').textContent = p.desc;
+  document.getElementById('mobileMenu')
+  .classList.add('open');
 
-    // Specs
-    const specsEl = document.getElementById('modalSpecs');
-    specsEl.innerHTML = p.specs.map(s =>
-      `<div class="prod-spec-item"><div class="prod-spec-label">${s.label}</div><div class="prod-spec-value">${s.value}</div></div>`
-    ).join('');
+  document.body.style.overflow='hidden';
 
-    // Tags
-    const tagsEl = document.getElementById('modalTags');
-    tagsEl.innerHTML = p.tags.map(t => `<span class="prod-tag">${t}</span>`).join('');
+});
 
-   // Product page links
-const productPages = {
-  chilli: 'green-chillie.html',
-  banana: 'banana.html',
-  turmeric: 'turmeric.html',
-  cashew: 'cashew.html',
-  cardamom: 'cardamom.html',
-  rice: 'basmati.html',
-  pepper: 'black-pepper.html',
-  fertilizer: 'organic-fertilizer.html'
-};
+/* MENU CLOSE */
+document.getElementById('mobileClose')
+.addEventListener('click', closeMenu);
 
-// View Product Button
-const viewBtn = document.getElementById('modalViewProduct');
-viewBtn.href = productPages[key] || 'products.html';
-viewBtn.textContent = 'View ' + p.title + ' →';
-    // Open
-    document.getElementById('prodModalOverlay').classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
+document.querySelectorAll('.mobile-link')
+.forEach(link => {
 
-  function closeModal() {
-    document.getElementById('prodModalOverlay').classList.remove('active');
-    document.body.style.overflow = '';
-  }
+  link.addEventListener('click', closeMenu);
 
-  function handleOverlayClick(e) {
-    if (e.target === document.getElementById('prodModalOverlay')) closeModal();
-  }
+});
 
-  // Close on ESC
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+function closeMenu(){
 
-  // ── NAV ──
-  window.addEventListener('scroll', () => {
-    document.getElementById('btt').classList.toggle('visible', window.scrollY > 400);
-  });
-  document.getElementById('hamburger').addEventListener('click', () => {
-    document.getElementById('mobileMenu').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  });
-  document.getElementById('mobileClose').addEventListener('click', closeMenu);
-  document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', closeMenu));
-  function closeMenu() {
-    document.getElementById('mobileMenu').classList.remove('open');
-    document.body.style.overflow = '';
-  }
+  document.getElementById('mobileMenu')
+  .classList.remove('open');
+
+  document.body.style.overflow='';
+
+}
+
 </script>
 
 </body>
