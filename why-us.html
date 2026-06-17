@@ -49,11 +49,88 @@
   .nav-cta::after{display:none!important;}
   .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
   .hamburger span{display:block;width:24px;height:2px;background:var(--navy);}
-  .mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--white);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:2rem;}
-  .mobile-menu.open{display:flex;}
-  .mobile-menu a{text-decoration:none;color:var(--navy);font-family:'Teko',sans-serif;font-size:2rem;letter-spacing:0.08em;}
-  .mobile-menu a:hover{color:var(--gold);}
-  .mobile-close{position:absolute;top:1.5rem;right:2rem;background:none;border:none;font-size:2rem;cursor:pointer;color:var(--navy);}
+
+  /* MOBILE MENU */
+  .mobile-menu-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.25);z-index:1999;opacity:0;pointer-events:none;transition:opacity 0.4s ease;}
+  .mobile-menu-overlay.open{opacity:1;pointer-events:all;}
+  .mobile-menu-sidebar{
+    position:fixed;top:0;left:0;bottom:0;width:310px;max-width:85%;
+    background:linear-gradient(180deg,rgba(20,27,38,0.95) 0%,rgba(15,23,36,0.92) 40%,rgba(10,17,28,0.95) 100%) !important;
+    backdrop-filter:blur(20px) !important;
+    -webkit-backdrop-filter:blur(20px) !important;
+    box-shadow:10px 0 40px rgba(0,0,0,0.45);
+    border-right:1px solid rgba(255,255,255,0.08);
+    z-index:2000;
+    transform:translateX(-100%);
+    transition:transform 0.4s cubic-bezier(0.16,1,0.3,1);
+    display:flex;flex-direction:column;
+    padding:2rem 1.5rem 1.5rem 1.5rem;
+    overflow:hidden;
+  }
+  .mobile-menu-overlay.open .mobile-menu-sidebar{transform:translateX(0);}
+
+  .mobile-brand-block{display:flex;flex-direction:column;align-items:flex-start;flex-shrink:0;padding-bottom:1rem;}
+  .mobile-menu-logo{width:58px;height:58px;border-radius:50%;object-fit:contain;filter:drop-shadow(0 0 12px rgba(200,146,42,0.5));margin-bottom:0.9rem;}
+  .mobile-brand-name{color:#fff !important;font-size:1.25rem;font-weight:700;letter-spacing:0.01em;}
+  .mobile-brand-sub{color:rgba(255,255,255,0.5) !important;font-size:0.72rem;margin-top:0.12rem;}
+
+  .mobile-menu-divider{height:1px;background:rgba(255,255,255,0.1);width:100%;margin:0.8rem 0;flex-shrink:0;}
+
+  .mobile-section-label{font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:#c8922a !important;font-weight:700;margin-bottom:0.5rem;padding-left:0.4rem;flex-shrink:0;}
+
+  .mobile-nav-scroll{flex:1;overflow-y:auto;overflow-x:hidden;scrollbar-width:thin;scrollbar-color:rgba(200,146,42,0.3) transparent;}
+  .mobile-nav-scroll::-webkit-scrollbar{width:3px;}
+  .mobile-nav-scroll::-webkit-scrollbar-thumb{background:rgba(200,146,42,0.3);border-radius:3px;}
+
+  .mobile-nav-list{display:flex;flex-direction:column;gap:0.2rem;list-style:none;margin:0;padding:0;}
+
+  .mobile-nav-item{
+    display:flex !important;
+    align-items:center !important;
+    gap:1rem !important;
+    text-decoration:none !important;
+    color:rgba(255,255,255,0.82) !important;
+    font-size:0.93rem !important;
+    font-weight:500 !important;
+    padding:0.75rem 1rem !important;
+    border-radius:8px !important;
+    transition:all 0.25s ease !important;
+    background:transparent !important;
+    border:none !important;
+    width:100% !important;
+    box-sizing:border-box !important;
+  }
+  .mobile-nav-item i{
+    width:20px !important;
+    font-size:0.95rem !important;
+    text-align:center !important;
+    color:rgba(255,255,255,0.45) !important;
+    transition:color 0.25s !important;
+    flex-shrink:0 !important;
+  }
+  .mobile-nav-item.active{background:rgba(255,255,255,0.09) !important;color:#fff !important;}
+  .mobile-nav-item.active i{color:#e8b04a !important;}
+  .mobile-nav-item:hover{background:rgba(255,255,255,0.06) !important;color:#fff !important;}
+  .mobile-nav-item:hover i{color:#e8b04a !important;}
+
+  .mobile-menu-cta{
+    flex-shrink:0;
+    margin-top:1rem;
+    background:#c8922a !important;
+    color:#0b1e3d !important;
+    text-decoration:none !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:0.7rem !important;
+    padding:0.95rem !important;
+    border-radius:8px !important;
+    font-weight:700 !important;
+    font-size:0.95rem !important;
+    transition:background 0.2s,transform 0.2s !important;
+    box-shadow:0 4px 15px rgba(200,146,42,0.25) !important;
+  }
+  .mobile-menu-cta:hover{background:#e8b04a !important;transform:translateY(-1px) !important;}
 
   /* PAGE HERO BANNER */
   .page-banner{background:var(--navy);padding:4rem 4rem 3.5rem;text-align:center;position:relative;overflow:hidden;}
@@ -214,13 +291,39 @@
 </nav>
 
 <!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-close" id="mobileClose">✕</button>
-  <a href="about.html" class="mobile-link">About</a>
-  <a href="products.html" class="mobile-link">Products</a>
-  <a href="services.html" class="mobile-link">Services</a>
-  <a href="why-us.html" class="mobile-link">Why Us</a>
-  <a href="contact.html" class="mobile-link">Contact</a>
+<div class="mobile-menu-overlay" id="mobileMenuOverlay">
+  <div class="mobile-menu-sidebar">
+    <div class="mobile-brand-block">
+      <img class="mobile-menu-logo" src="foreign bridge logo.png" alt="Logo">
+      <span class="mobile-brand-name">Foreign Bridge Corp</span>
+      <span class="mobile-brand-sub">Global Export Ecosystem</span>
+    </div>
+    <div class="mobile-menu-divider"></div>
+    <div class="mobile-nav-scroll">
+      <div class="mobile-section-label">Main Pages</div>
+      <div class="mobile-nav-list">
+        <a href="index.html" class="mobile-nav-item"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="about.html" class="mobile-nav-item"><i class="fa-solid fa-circle-info"></i> About Us</a>
+        <a href="products.html" class="mobile-nav-item"><i class="fa-solid fa-leaf"></i> Our Products</a>
+        <a href="services.html" class="mobile-nav-item"><i class="fa-solid fa-truck-fast"></i> Core Services</a>
+        <a href="why-us.html" class="mobile-nav-item active"><i class="fa-solid fa-award"></i> Why Choose Us</a>
+        <a href="contact.html" class="mobile-nav-item"><i class="fa-solid fa-envelope"></i> Contact Us</a>
+      </div>
+      <div class="mobile-menu-divider"></div>
+      <div class="mobile-section-label">Our Products</div>
+      <div class="mobile-nav-list">
+        <a href="green-chillie.html" class="mobile-nav-item"><i class="fa-solid fa-pepper-hot"></i> Red &amp; Green Chilli</a>
+        <a href="banana.html" class="mobile-nav-item"><i class="fa-solid fa-seedling"></i> Robusta Banana</a>
+        <a href="turmeric.html" class="mobile-nav-item"><i class="fa-solid fa-mortar-pestle"></i> Turmeric</a>
+        <a href="cashew.html" class="mobile-nav-item"><i class="fa-solid fa-cookie-bite"></i> Cashew Nuts</a>
+        <a href="cardamom.html" class="mobile-nav-item"><i class="fa-solid fa-spa"></i> Green Cardamom</a>
+        <a href="basmati.html" class="mobile-nav-item"><i class="fa-solid fa-bowl-rice"></i> Basmati Rice</a>
+        <a href="black-pepper.html" class="mobile-nav-item"><i class="fa-solid fa-circle-dot"></i> Black Pepper</a>
+        <a href="organic-fertilizer.html" class="mobile-nav-item"><i class="fa-solid fa-plant-wilt"></i> Organic Fertilizer</a>
+      </div>
+    </div>
+    <a href="contact.html" class="mobile-menu-cta"><i class="fa-solid fa-paper-plane"></i> Get Export Quote</a>
+  </div>
 </div>
 
 <!-- PAGE BANNER -->
@@ -397,13 +500,50 @@
 <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
 
 <script>
-  window.addEventListener('scroll',()=>{document.getElementById('btt').classList.toggle('visible',window.scrollY>400);});
-  document.getElementById('hamburger').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.add('open');document.body.style.overflow='hidden';});
-  document.getElementById('mobileClose').addEventListener('click',closeMenu);
-  document.querySelectorAll('.mobile-link').forEach(l=>l.addEventListener('click',closeMenu));
-  function closeMenu(){document.getElementById('mobileMenu').classList.remove('open');document.body.style.overflow='';}
-  const obs=new IntersectionObserver(e=>{e.forEach(i=>{if(i.isIntersecting){i.target.classList.add('visible');obs.unobserve(i.target);}});},{threshold:0.08});
-  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  // BTT
+  window.addEventListener('scroll', function() {
+    document.getElementById('btt').classList.toggle('visible', window.scrollY > 400);
+  });
+
+  // SIDEBAR
+  var burgerBtn = document.getElementById('hamburger');
+  var menuOverlay = document.getElementById('mobileMenuOverlay');
+
+  burgerBtn.addEventListener('click', function() {
+    menuOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+
+  function closeMenu() {
+    menuOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  menuOverlay.addEventListener('click', function(e) {
+    if (e.target === menuOverlay) closeMenu();
+  });
+
+  document.querySelectorAll('.mobile-nav-item, .mobile-menu-cta').forEach(function(link) {
+    link.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  // REVEAL on scroll
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.reveal').forEach(function(el) {
+    obs.observe(el);
+  });
 </script>
 </body>
 </html>
