@@ -128,6 +128,7 @@ width:100%;
 height:220px;
 object-fit:cover;
 border-radius:12px;
+display:block;
 }
 
 .btn{
@@ -217,6 +218,39 @@ margin-top:50px;
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
     .hamburger span { display: block; width: 24px; height: 2px; background: white; }
     @media(max-width:768px) { .hamburger { display: flex; } }
+
+    /* ── MOBILE RESPONSIVE FIX (page layout) ── */
+    @media (max-width: 768px) {
+      .header{ padding:14px 18px; }
+      .logo{ font-size:20px; }
+      .back-btn{ padding:8px 14px; font-size:14px; }
+
+      .hero{ height:300px; }
+      .hero h1{ font-size:36px; padding:0 16px; }
+
+      .container{ padding:40px 16px; }
+
+      .grid{
+        grid-template-columns: 1fr;   /* stack cards instead of side-by-side */
+        gap: 24px;
+      }
+
+      .card{ padding:24px; }
+      .title{ font-size:28px; }
+
+      .gallery{
+        grid-template-columns: 1fr 1fr; /* keep 2 columns but now they have full card width */
+        gap: 10px;
+      }
+
+      .gallery img{ height:150px; }
+    }
+
+    @media (max-width: 420px) {
+      .hero h1{ font-size:30px; }
+      .gallery{ grid-template-columns: 1fr 1fr; }
+      .gallery img{ height:130px; }
+    }
 
 </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
