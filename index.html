@@ -21,7 +21,6 @@
     ::-webkit-scrollbar-track{background:var(--cream);}
     ::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px;}
 
-    /* ── NAV ── */
     nav{position:sticky;top:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0.9rem 4rem;background:var(--white);border-bottom:1px solid var(--border);box-shadow:0 2px 20px rgba(11,30,61,0.06);}
     .nav-logo{display:flex;align-items:center;gap:0.5rem;text-decoration:none;max-width: 100%;}
     .nav-logo-img{width:54px;height:54px;min-width:54px;object-fit:contain;border-radius:50%;filter:drop-shadow(0 0 6px rgba(200,146,42,0.5));}
@@ -39,149 +38,70 @@
     .nav-cta::after{display:none!important;}
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
     .hamburger span{display:block;width:24px;height:2px;background:var(--navy);}
-    
-    /* ── MOBILE SIDEBAR (MATCHES IMAGE PERFECTLY) ── */
+
     .mobile-menu-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.25);
-      z-index: 1999;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.4s ease;
+      position: fixed; inset: 0; background: rgba(0, 0, 0, 0.25); z-index: 1999;
+      opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
     }
-    .mobile-menu-overlay.open {
-      opacity: 1;
-      pointer-events: all;
-    }
+    .mobile-menu-overlay.open { opacity: 1; pointer-events: all; }
     .mobile-menu-sidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      width: 310px;
-      max-width: 85%;
-      
-      /* Rich vertical dark glass gradient matching your reference screenshot */
-      background: linear-gradient(
-        180deg, 
-        rgba(20, 27, 38, 0.88) 0%, 
-        rgba(15, 23, 36, 0.75) 40%, 
-        rgba(10, 17, 28, 0.85) 100%
-      ) !important;
-      
-      /* High-end background blur blurring the video behind it */
-      backdrop-filter: blur(20px) !important; 
-      -webkit-backdrop-filter: blur(20px) !important;
-      
-      /* Elegant dark drop shadow on the right edge */
+      position: fixed; top: 0; left: 0; bottom: 0; width: 310px; max-width: 85%;
+      background: linear-gradient(180deg, rgba(20,27,38,0.92) 0%, rgba(15,23,36,0.85) 40%, rgba(10,17,28,0.92) 100%) !important;
+      backdrop-filter: blur(20px) !important; -webkit-backdrop-filter: blur(20px) !important;
       box-shadow: 10px 0 40px rgba(0, 0, 0, 0.45);
       border-right: 1px solid rgba(255, 255, 255, 0.08);
-      
-      z-index: 2000;
-      transform: translateX(-100%);
+      z-index: 2000; transform: translateX(-100%);
       transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      display: flex;
-      flex-direction: column;
-      padding: 3.5rem 1.8rem 2.5rem 1.8rem; /* Extra top padding to clear status bars beautifully */
+      display: flex; flex-direction: column;
+      padding: 2.4rem 1.6rem 1.6rem 1.6rem;
+      overflow: hidden;
     }
-    .mobile-menu-overlay.open .mobile-menu-sidebar {
-      transform: translateX(0);
-    }
-    .mobile-brand-block {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    .mobile-menu-logo {
-      width: 62px;
-      height: 62px;
-      border-radius: 50%;
-      object-fit: contain;
-      filter: drop-shadow(0 0 12px rgba(200, 146, 42, 0.5));
-      margin-bottom: 1.2rem;
-    }
-    .mobile-brand-name {
-      color: var(--white);
-      font-size: 1.35rem;
-      font-weight: 700;
-      letter-spacing: 0.01em;
-    }
-    .mobile-brand-sub {
-      color: rgba(255, 255, 255, 0.5);
-      font-size: 0.75rem;
-      letter-spacing: 0.02em;
-      margin-top: 0.15rem;
-    }
-    .mobile-menu-divider {
-      height: 1px;
-      background: rgba(255, 255, 255, 0.08);
-      width: 100%;
-      margin-top: 1.4rem;
-      margin-bottom: 1.8rem;
-    }
-    .mobile-nav-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-      list-style: none;
-    }
+    .mobile-menu-overlay.open .mobile-menu-sidebar { transform: translateX(0); }
+
+    .mobile-menu-scroll { flex: 1; overflow-y: auto; padding-right: 0.3rem; margin-right: -0.3rem; }
+    .mobile-menu-scroll::-webkit-scrollbar{ width:3px; }
+    .mobile-menu-scroll::-webkit-scrollbar-thumb{ background:rgba(200,146,42,0.35); border-radius:3px; }
+
+    .mobile-brand-block { display: flex; flex-direction: column; align-items: flex-start; flex-shrink: 0; }
+    .mobile-menu-logo { width: 58px; height: 58px; border-radius: 50%; object-fit: contain; filter: drop-shadow(0 0 12px rgba(200, 146, 42, 0.5)); margin-bottom: 1rem; }
+    .mobile-brand-name { color: var(--white); font-size: 1.3rem; font-weight: 700; letter-spacing: 0.01em; }
+    .mobile-brand-sub { color: rgba(255, 255, 255, 0.5); font-size: 0.74rem; letter-spacing: 0.02em; margin-top: 0.15rem; }
+    .mobile-menu-divider { height: 1px; background: rgba(255, 255, 255, 0.08); width: 100%; margin-top: 1.2rem; margin-bottom: 1.3rem; flex-shrink: 0; }
+
+    .mobile-nav-list { display: flex; flex-direction: column; gap: 0.35rem; list-style: none; }
     .mobile-nav-item {
-      display: flex;
-      align-items: center;
-      gap: 1.2rem;
-      text-decoration: none;
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 0.98rem;
-      font-weight: 500;
-      padding: 0.9rem 1.2rem;
-      border-radius: 8px;
-      transition: all 0.25s ease;
+      display: flex; align-items: center; gap: 1.1rem; text-decoration: none;
+      color: rgba(255, 255, 255, 0.8); font-size: 0.94rem; font-weight: 500;
+      padding: 0.78rem 1.1rem; border-radius: 8px; transition: all 0.25s ease;
     }
-    .mobile-nav-item i {
-      width: 22px;
-      font-size: 1rem;
-      text-align: center;
-      color: rgba(255, 255, 255, 0.6);
-      transition: color 0.25s;
-    }
-    /* Home item active highlight matching your reference image layout */
-    .mobile-nav-item.active {
-      background: rgba(255, 255, 255, 0.08);
-      color: var(--white);
-    }
-    .mobile-nav-item.active i {
-      color: var(--gold-light);
-    }
-    .mobile-nav-item:hover {
-      background: rgba(255, 255, 255, 0.05);
-      color: var(--white);
-    }
-    .mobile-nav-item:hover i {
-      color: var(--gold-light);
-    }
-    .mobile-menu-cta {
-      margin-top: auto;
-      background: var(--gold);
-      color: var(--navy);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.7rem;
-      padding: 1rem;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 1rem;
-      transition: background 0.2s, transform 0.2s;
-      box-shadow: 0 4px 15px rgba(200, 146, 42, 0.2);
-    }
-    .mobile-menu-cta:hover {
-      background: var(--gold-light);
-      transform: translateY(-1px);
+    .mobile-nav-item i { width: 20px; font-size: 0.95rem; text-align: center; color: rgba(255, 255, 255, 0.6); transition: color 0.25s; }
+    .mobile-nav-item.active { background: rgba(255, 255, 255, 0.08); color: var(--white); }
+    .mobile-nav-item.active i { color: var(--gold-light); }
+    .mobile-nav-item:hover { background: rgba(255, 255, 255, 0.05); color: var(--white); }
+    .mobile-nav-item:hover i { color: var(--gold-light); }
+
+    .mobile-section-label{
+      font-size:0.66rem; letter-spacing:0.2em; text-transform:uppercase;
+      color:var(--gold-light); font-weight:700; padding:0.9rem 1.1rem 0.5rem;
     }
 
-    /* ── HERO ── */
+    .mobile-product-item {
+      display: flex; align-items: center; gap: 1.1rem; text-decoration: none;
+      color: rgba(255, 255, 255, 0.72); font-size: 0.88rem; font-weight: 500;
+      padding: 0.68rem 1.1rem; border-radius: 8px; transition: all 0.22s ease;
+    }
+    .mobile-product-item i { width: 20px; font-size: 0.9rem; text-align: center; color: rgba(255, 255, 255, 0.5); transition: color 0.22s; }
+    .mobile-product-item:hover, .mobile-product-item.active { background: rgba(255, 255, 255, 0.05); color: var(--white); }
+    .mobile-product-item:hover i, .mobile-product-item.active i { color: var(--gold-light); }
+
+    .mobile-menu-cta {
+      margin-top: 1rem; flex-shrink: 0; background: var(--gold); color: var(--navy);
+      text-decoration: none; display: flex; align-items: center; justify-content: center;
+      gap: 0.7rem; padding: 1rem; border-radius: 8px; font-weight: 700; font-size: 1rem;
+      transition: background 0.2s, transform 0.2s; box-shadow: 0 4px 15px rgba(200, 146, 42, 0.2);
+    }
+    .mobile-menu-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
     .hero{position:relative;overflow:hidden;min-height:100vh;display:flex;flex-direction:column;}
     .hero-video-bg{position:absolute;inset:0;z-index:0;}
     .hero-video-bg video{width:100%;height:100%;object-fit:cover;display:block;}
@@ -205,7 +125,6 @@
     .hero-note a{color:var(--gold-light);text-decoration:none;}
     .hero-note a:hover{color:var(--white);}
 
-    /* Stats bar */
     .hero-stats-bar{position:relative;z-index:1;display:flex;align-items:stretch;justify-content:center;flex-wrap:wrap;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:12px;max-width:660px;margin:2.3rem auto 0;overflow:hidden;animation:fadeUp 0.8s 0.5s ease both;}
     .h-stat{flex:1;min-width:120px;padding:1.3rem 0.9rem;text-align:center;border-right:1px solid rgba(255,255,255,0.12);}
     .h-stat:last-child{border-right:none;}
@@ -213,7 +132,6 @@
     .h-stat-num span{color:var(--gold-light);}
     .h-stat-label{font-size:0.65rem;color:rgba(255,255,255,0.55);letter-spacing:0.15em;text-transform:uppercase;margin-top:0.25rem;}
 
-    /* Product category bar */
     .prod-bar{position:relative;z-index:2;background:rgba(6,15,28,0.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid rgba(200,146,42,0.25);animation:fadeUp 0.8s 0.6s ease both;}
     .prod-bar-inner{display:flex;align-items:stretch;justify-content:center;flex-wrap:wrap;max-width:1100px;margin:0 auto;}
     .prod-cat{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.55rem;padding:1.1rem 1.4rem;text-decoration:none;border-right:1px solid rgba(255,255,255,0.06);transition:background 0.25s;flex:1;min-width:100px;cursor:pointer;}
@@ -224,42 +142,28 @@
     .prod-cat-name{font-size:0.62rem;color:rgba(255,255,255,0.7);letter-spacing:0.14em;text-transform:uppercase;text-align:center;font-weight:500;transition:color 0.25s;}
     .prod-cat:hover .prod-cat-name{color:var(--gold-light);}
 
-    /* ── PRODUCT MODAL ── */
     .prod-modal-overlay{
-      position:fixed;inset:0;z-index:2000;
-      background:rgba(5,12,30,0.88);
+      position:fixed;inset:0;z-index:2000;background:rgba(5,12,30,0.88);
       backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
-      display:flex;align-items:center;justify-content:center;
-      padding:1.5rem;
-      opacity:0;pointer-events:none;
-      transition:opacity 0.3s ease;
+      display:flex;align-items:center;justify-content:center;padding:1.5rem;
+      opacity:0;pointer-events:none;transition:opacity 0.3s ease;
     }
     .prod-modal-overlay.active{opacity:1;pointer-events:all;}
 
     .prod-modal{
-      background:var(--white);
-      border-radius:16px;
-      max-width:860px;width:100%;
-      max-height:90vh;overflow-y:auto;
-      display:grid;grid-template-columns:1fr 1fr;
+      background:var(--white);border-radius:16px;max-width:860px;width:100%;
+      max-height:90vh;overflow-y:auto;display:grid;grid-template-columns:1fr 1fr;
       box-shadow:0 32px 80px rgba(0,0,0,0.4);
       transform:translateY(24px) scale(0.97);
       transition:transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
     }
     .prod-modal-overlay.active .prod-modal{transform:translateY(0) scale(1);}
 
-    .prod-modal-img-wrap{
-      position:relative;overflow:hidden;border-radius:16px 0 0 16px;
-      min-height:320px;
-    }
-    .prod-modal-img-wrap img{
-      width:100%;height:100%;object-fit:cover;display:block;
-      transition:transform 0.5s ease;
-    }
+    .prod-modal-img-wrap{position:relative;overflow:hidden;border-radius:16px 0 0 16px;min-height:320px;}
+    .prod-modal-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;}
     .prod-modal-img-wrap:hover img{transform:scale(1.04);}
     .prod-modal-img-badge{
-      position:absolute;top:1rem;left:1rem;
-      background:var(--gold);color:var(--navy);
+      position:absolute;top:1rem;left:1rem;background:var(--gold);color:var(--navy);
       font-size:0.62rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
       padding:0.28rem 0.72rem;border-radius:100px;
     }
@@ -280,30 +184,22 @@
     .prod-modal-actions{display:flex;gap:0.7rem;flex-wrap:wrap;margin-top:auto;}
     .prod-modal-actions .btn-primary{font-size:0.8rem;padding:0.7rem 1.4rem;}
     .prod-modal-actions .btn-outline-navy{
-      background:transparent;color:var(--navy);
-      border:2px solid var(--border);
-      text-decoration:none;padding:0.7rem 1.4rem;
-      font-weight:600;font-size:0.8rem;border-radius:5px;
-      display:inline-flex;align-items:center;gap:0.4rem;
-      transition:all 0.25s;cursor:pointer;font-family:'Outfit',sans-serif;
+      background:transparent;color:var(--navy);border:2px solid var(--border);
+      text-decoration:none;padding:0.7rem 1.4rem;font-weight:600;font-size:0.8rem;border-radius:5px;
+      display:inline-flex;align-items:center;gap:0.4rem;transition:all 0.25s;cursor:pointer;font-family:'Outfit',sans-serif;
     }
     .prod-modal-actions .btn-outline-navy:hover{border-color:var(--navy);background:var(--navy);color:var(--white);}
 
     .prod-modal-close{
-      position:absolute;top:1rem;right:1rem;
-      width:36px;height:36px;border-radius:50%;
+      position:absolute;top:1rem;right:1rem;width:36px;height:36px;border-radius:50%;
       background:rgba(255,255,255,0.95);border:none;cursor:pointer;
-      display:flex;align-items:center;justify-content:center;
-      font-size:1.1rem;color:var(--navy);
-      box-shadow:0 4px 12px rgba(0,0,0,0.15);
-      transition:background 0.2s,transform 0.2s;
-      z-index:10;
+      display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--navy);
+      box-shadow:0 4px 12px rgba(0,0,0,0.15);transition:background 0.2s,transform 0.2s;z-index:10;
     }
     .prod-modal-close:hover{background:var(--gold);color:var(--white);transform:scale(1.1);}
 
     .prod-modal-wrapper{position:relative; max-width: 100%;}
 
-    /* ── FOOTER ── */
     footer{background:#060f1c;color:rgba(255,255,255,0.55);padding:3.5rem 4rem 2rem; overflow: hidden;}
     .footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,0.06);}
     .footer-brand{max-width: 100%; overflow: hidden;}
@@ -319,12 +215,10 @@
     .footer-bottom a{color:var(--gold);text-decoration:none;}
     .footer-badge{display:inline-flex;align-items:center;gap:0.38rem;background:rgba(200,146,42,0.1);border:1px solid rgba(200,146,42,0.2);padding:0.26rem 0.7rem;border-radius:100px;color:var(--gold-light);font-size:0.64rem;}
 
-    /* BTT */
     #btt{position:fixed;bottom:2rem;right:2rem;z-index:999;width:40px;height:40px;background:var(--navy);border:none;border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:1rem;cursor:pointer;opacity:0;transform:translateY(10px);transition:all 0.3s;pointer-events:none;box-shadow:0 4px 16px rgba(11,30,61,0.25);}
     #btt.visible{opacity:1;transform:translateY(0);pointer-events:all;}
     #btt:hover{background:var(--gold);}
 
-    /* ── RESPONSIVE ── */
     @media(max-width:768px){
       nav{padding:0.82rem 1.5rem;}
       .nav-links{display:none;}
@@ -371,26 +265,45 @@
   <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
-<!-- ── MOBILE MENU SIDEBAR LAYER ── -->
 <div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="handleOverlayClose(event)">
   <div class="mobile-menu-sidebar">
+
     <div class="mobile-brand-block">
       <img class="mobile-menu-logo" src="foreign bridge logo.png" alt="Logo">
       <span class="mobile-brand-name">Foreign Bridge Corp</span>
       <span class="mobile-brand-sub">Global Export Ecosystem</span>
     </div>
-    
+
     <div class="mobile-menu-divider"></div>
-    
-    <div class="mobile-nav-list">
-      <a href="index.html" class="mobile-nav-item active"><i class="fa-solid fa-house"></i> Home</a>
-      <a href="about.html" class="mobile-nav-item"><i class="fa-solid fa-circle-info"></i> About Us</a>
-      <a href="products.html" class="mobile-nav-item"><i class="fa-solid fa-leaf"></i> Our Products</a>
-      <a href="services.html" class="mobile-nav-item"><i class="fa-solid fa-truck-fast"></i> Core Services</a>
-      <a href="why-us.html" class="mobile-nav-item"><i class="fa-solid fa-award"></i> Why Choose Us</a>
+
+    <div class="mobile-menu-scroll">
+
+      <div class="mobile-nav-list">
+        <a href="index.html" class="mobile-nav-item active"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="about.html" class="mobile-nav-item"><i class="fa-solid fa-circle-info"></i> About Us</a>
+        <a href="products.html" class="mobile-nav-item"><i class="fa-solid fa-leaf"></i> Our Products</a>
+        <a href="services.html" class="mobile-nav-item"><i class="fa-solid fa-truck-fast"></i> Core Services</a>
+        <a href="why-us.html" class="mobile-nav-item"><i class="fa-solid fa-award"></i> Why Choose Us</a>
+        <a href="contact.html" class="mobile-nav-item"><i class="fa-solid fa-envelope"></i> Contact Us</a>
+      </div>
+
+      <div class="mobile-menu-divider"></div>
+
+      <div class="mobile-section-label">Our Products</div>
+      <div class="mobile-nav-list">
+        <a href="green-chillie.html" class="mobile-product-item"><i class="fa-solid fa-pepper-hot"></i> Red &amp; Green Chilli</a>
+        <a href="banana.html" class="mobile-product-item"><i class="fa-solid fa-seedling"></i> Robusta Banana</a>
+        <a href="turmeric.html" class="mobile-product-item"><i class="fa-solid fa-mortar-pestle"></i> Turmeric</a>
+        <a href="cashew.html" class="mobile-product-item"><i class="fa-solid fa-cookie"></i> Cashew Nuts</a>
+        <a href="cardamom.html" class="mobile-product-item"><i class="fa-solid fa-leaf"></i> Green Cardamom</a>
+        <a href="basmati.html" class="mobile-product-item"><i class="fa-solid fa-bowl-rice"></i> Basmati Rice</a>
+        <a href="black-pepper.html" class="mobile-product-item"><i class="fa-solid fa-circle-dot"></i> Black Pepper</a>
+        <a href="organic-fertilizer.html" class="mobile-product-item"><i class="fa-solid fa-spa"></i> Organic Fertilizer</a>
+      </div>
+
     </div>
-    
-    <a href="contact.html" class="mobile-menu-cta"><i class="fa-solid fa-paper-plane"></i> Get Quote</a>
+
+    <a href="contact.html" class="mobile-menu-cta"><i class="fa-solid fa-paper-plane"></i> Get Export Quote</a>
   </div>
 </div>
 
@@ -548,10 +461,9 @@
 <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
 
 <script>
-  // ── PRODUCT DATA ──
   const products = {
     chilli: {
-      category: 'Spices', batch: 'Best Seller', title: 'Dry Red & Green Chilli',
+      category: 'Spices', badge: 'Best Seller', title: 'Dry Red & Green Chilli',
       img: 'https://images.unsplash.com/photo-1588252303782-cb80119abd6d?w=900&q=90',
       desc: 'Our premium Red & Green Chillies are sourced from the finest growing regions of Andhra Pradesh and Telangana. Available in 14+ varieties including Teja S17, Byadagi, Guntur Sannam, and more — with precise SHU and ASTA colour value grading for global buyers.',
       specs: [
@@ -566,7 +478,7 @@
       link: 'products.html#chilli'
     },
     banana: {
-      category: 'Fresh Fruits', batch: 'Premium Export', title: 'Robusta Banana',
+      category: 'Fresh Fruits', badge: 'Premium Export', title: 'Robusta Banana',
       img: 'https://images.unsplash.com/photo-1528825871115-3581a5387919?w=900&q=90',
       desc: 'Robusta Bananas from Tamil Nadu and Kerala — thick-peeled, firm, and sweet with a long shelf life ideal for long-distance export. Harvested at precise ripeness stages and packed with ethylene control for freshness on arrival.',
       specs: [
@@ -581,7 +493,7 @@
       link: 'products.html#banana'
     },
     turmeric: {
-      category: 'Spices', batch: 'High Curcumin', title: 'Turmeric',
+      category: 'Spices', badge: 'High Curcumin', title: 'Turmeric',
       img: 'https://images.illustrationx.com/images_artists/22022/153171/612/turmeric-root-and-powder-botanical-illustration.jpg?w=900&q=90',
       desc: 'Sourced from Erode — the "Turmeric City" of India — our turmeric boasts high curcumin content (3–7%), vibrant golden colour, and consistent quality. Available as whole finger, polished bulb, or powder in custom micron grades.',
       specs: [
@@ -596,7 +508,7 @@
       link: 'products.html#turmeric'
     },
     cashew: {
-      category: 'Nuts & Dry Fruits', batch: 'W240 · W320 · W450', title: 'Cashew Nuts',
+      category: 'Nuts & Dry Fruits', badge: 'W240 · W320 · W450', title: 'Cashew Nuts',
       img: 'https://images.pexels.com/photos/36285399/pexels-photo-36285399.jpeg?w=900&q=90',
       desc: 'Premium grade Indian cashews — ivory white, crisp, and full-flavoured. We export W180, W240, W320, W450 grades and splits/pieces for industrial buyers. Processed in certified units with metal-detection and moisture-controlled packaging.',
       specs: [
@@ -611,7 +523,7 @@
       link: 'products.html#cashew'
     },
     cardamom: {
-      category: 'Spices', batch: 'Bold Aroma', title: 'Green Cardamom',
+      category: 'Spices', badge: 'Bold Aroma', title: 'Green Cardamom',
       img: 'https://images.pexels.com/photos/10487768/pexels-photo-10487768.jpeg?w=900&q=90',
       desc: 'Premium green cardamom from the hills of Idukki, Kerala. Rich essential oil content (5–8%), bold camphor-sweet aroma, and bright green colour make our cardamom the preferred choice for Middle Eastern and European buyers.',
       specs: [
@@ -626,7 +538,7 @@
       link: 'products.html#cardamom'
     },
     rice: {
-      category: 'Grains & Rice', batch: 'FSSAI & APEDA', title: 'Basmati Rice',
+      category: 'Grains & Rice', badge: 'FSSAI & APEDA', title: 'Basmati Rice',
       img: 'https://images.pexels.com/photos/7421204/pexels-photo-7421204.jpeg?w=900&q=90',
       desc: 'Long-grain, aged Basmati rice with signature aromatic fragrance, non-sticky texture, and 2x elongation on cooking. We supply 1121 Extra Long, Traditional Basmati, and Pusa varieties — aged 12–24 months for maximum aroma and texture.',
       specs: [
@@ -641,7 +553,7 @@
       link: 'products.html#rice'
     },
     pepper: {
-      category: 'Spices', batch: 'High Piperine', title: 'Black Pepper',
+      category: 'Spices', badge: 'High Piperine', title: 'Black Pepper',
       img: 'https://images.pexels.com/photos/7925714/pexels-photo-7925714.jpeg?w=900&q=90',
       desc: 'Bold, pungent Indian Black Pepper from the Wayanad and Coorg estates. Available as whole berry (500–600 g/L bulk density), ground pepper, or cracked — with piperine content tested per batch. A favourite among European spice importers.',
       specs: [
@@ -656,7 +568,7 @@
       link: 'products.html#pepper'
     },
     fertilizer: {
-      category: 'Organic Inputs', batch: '100% Organic', title: 'Organic Fertilizers',
+      category: 'Organic Inputs', badge: '100% Organic', title: 'Organic Fertilizers',
       img: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=900&q=80',
       desc: 'Our certified organic fertilizers — including vermicompost, neem cake, and bio-compost — are exported to organic farming markets across Europe, Japan, and South Korea. Rich in NPK and soil microbiota, ideal for sustainable agriculture.',
       specs: [
@@ -716,7 +628,6 @@
 
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-  // ── NAV & SIDEBAR OPERATIONS ──
   window.addEventListener('scroll', () => {
     document.getElementById('btt').classList.toggle('visible', window.scrollY > 400);
   });
@@ -740,7 +651,7 @@
     }
   }
 
-  document.querySelectorAll('.mobile-nav-item, .mobile-menu-cta').forEach(link => {
+  document.querySelectorAll('.mobile-nav-item, .mobile-product-item, .mobile-menu-cta').forEach(link => {
     link.addEventListener('click', closeMenu);
   });
 </script>
