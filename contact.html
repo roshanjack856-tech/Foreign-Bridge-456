@@ -1270,6 +1270,8 @@ Chennai, Tamil Nadu, India
 
 <script type="module">
 
+/* FIREBASE IMPORT */
+
 import {
 initializeApp
 }
@@ -1284,6 +1286,9 @@ serverTimestamp
 }
 from
 "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
+
+
+/* FIREBASE CONFIG */
 
 const firebaseConfig = {
 
@@ -1307,57 +1312,99 @@ appId:
 
 };
 
-const app = initializeApp(firebaseConfig);
 
-const db = getFirestore(app);
+/* INITIALIZE FIREBASE */
+
+const app =
+initializeApp(firebaseConfig);
+
+
+/* INITIALIZE FIRESTORE */
+
+const db =
+getFirestore(app);
 
 console.log("Firebase Connected");
+
+
+/* CONTACT FORM */
 
 const contactForm =
 document.getElementById("contactForm");
 
-contactForm.addEventListener("submit", async function(event){
+
+contactForm.addEventListener(
+"submit",
+async function(event){
 
 event.preventDefault();
+
 
 const submitBtn =
 document.getElementById("submitBtn");
 
-submitBtn.disabled = true;
 
-submitBtn.textContent = "Sending...";
+submitBtn.disabled =
+true;
+
+
+submitBtn.textContent =
+"Sending...";
+
 
 try{
 
+
+/* SAVE ENQUIRY TO FIRESTORE */
+
 await addDoc(
 
-collection(db,"enquiries"),
+collection(
+db,
+"enquiries"
+),
 
 {
 
 firstName:
-document.getElementById("firstName").value,
+document.getElementById(
+"firstName"
+).value.trim(),
 
 lastName:
-document.getElementById("lastName").value,
+document.getElementById(
+"lastName"
+).value.trim(),
 
 company:
-document.getElementById("company").value,
+document.getElementById(
+"company"
+).value.trim(),
 
 phone:
-document.getElementById("phone").value,
+document.getElementById(
+"phone"
+).value.trim(),
 
 email:
-document.getElementById("email").value,
+document.getElementById(
+"email"
+).value.trim(),
 
 product:
-document.getElementById("product").value,
+document.getElementById(
+"product"
+).value,
 
 country:
-document.getElementById("country").value,
+document.getElementById(
+"country"
+).value.trim(),
 
 message:
-document.getElementById("message").value,
+document.getElementById(
+"message"
+).value.trim(),
 
 createdAt:
 serverTimestamp()
@@ -1366,15 +1413,22 @@ serverTimestamp()
 
 );
 
+
+/* SUCCESS */
+
 submitBtn.textContent =
 "✓ Enquiry Sent Successfully!";
 
 submitBtn.style.background =
 "#1e6e3a";
 
+
 contactForm.reset();
 
-setTimeout(function(){
+
+setTimeout(
+
+function(){
 
 submitBtn.textContent =
 "Send Enquiry ↗";
@@ -1385,93 +1439,148 @@ submitBtn.style.background =
 submitBtn.disabled =
 false;
 
-},4000);
+},
+
+4000
+
+);
+
 
 }
 
+
 catch(error){
 
-console.error("Firebase Error:",error);
+
+console.error(
+"Firebase Error:",
+error
+);
+
 
 alert(
 "Something went wrong. Please try again."
 );
 
+
 submitBtn.textContent =
 "Send Enquiry ↗";
 
+
 submitBtn.disabled =
 false;
+
 
 }
 
 });
 
+
 /* MOBILE MENU */
 
 const hamburger =
-document.getElementById("hamburger");
+document.getElementById(
+"hamburger"
+);
 
 const mobileMenu =
-document.getElementById("mobileMenu");
+document.getElementById(
+"mobileMenu"
+);
 
 const mobileClose =
-document.getElementById("mobileClose");
+document.getElementById(
+"mobileClose"
+);
 
-hamburger.addEventListener("click",function(){
 
-mobileMenu.classList.add("open");
+hamburger.addEventListener(
+"click",
+function(){
+
+mobileMenu.classList.add(
+"open"
+);
 
 document.body.style.overflow =
 "hidden";
 
 });
 
-mobileClose.addEventListener("click",function(){
 
-mobileMenu.classList.remove("open");
+mobileClose.addEventListener(
+"click",
+function(){
 
-document.body.style.overflow =
-"";
-
-});
-
-document.querySelectorAll(".mobile-link")
-.forEach(function(link){
-
-link.addEventListener("click",function(){
-
-mobileMenu.classList.remove("open");
+mobileMenu.classList.remove(
+"open"
+);
 
 document.body.style.overflow =
 "";
 
 });
 
+
+document.querySelectorAll(
+".mobile-link"
+)
+.forEach(
+function(link){
+
+link.addEventListener(
+"click",
+function(){
+
+mobileMenu.classList.remove(
+"open"
+);
+
+document.body.style.overflow =
+"";
+
 });
+
+});
+
+
 
 /* BACK TO TOP */
 
 const btt =
-document.getElementById("btt");
+document.getElementById(
+"btt"
+);
 
-window.addEventListener("scroll",function(){
 
-if(window.scrollY > 400){
+window.addEventListener(
+"scroll",
+function(){
 
-btt.classList.add("visible");
+if(
+window.scrollY > 400
+){
+
+btt.classList.add(
+"visible"
+);
 
 }
 
 else{
 
-btt.classList.remove("visible");
+btt.classList.remove(
+"visible"
+);
 
 }
 
 });
 
-btt.addEventListener("click",function(){
+
+btt.addEventListener(
+"click",
+function(){
 
 window.scrollTo({
 
