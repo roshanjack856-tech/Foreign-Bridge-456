@@ -565,7 +565,12 @@
 <!-- FIREBASE + FIRESTORE (saves form data to database) -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
-  import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
+  import {
+    getDatabase,
+    ref,
+    push,
+    serverTimestamp
+  } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-database.js";
 
   const firebaseConfig = {
     apiKey: "AIzaSyA4P3_vuNP14HF5DmQMNVQ2lMc3wWX6yYM",
@@ -577,53 +582,41 @@
   };
 
   const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
+  const database = getDatabase(app);
 
-  window.handleSubmit = async function() {
-    const b = document.querySelector('.form-submit');
+  window.submitEnquiry = async function () {
+    const form = document.getElementById("enquiryForm");
+    const button = document.querySelector(".form-submit");
 
     const data = {
-      firstName:   document.getElementById('firstName').value.trim(),
-      lastName:    document.getElementById('lastName').value.trim(),
-      company:     document.getElementById('company').value.trim(),
-      phone:       document.getElementById('phone').value.trim(),
-      email:       document.getElementById('email').value.trim(),
-      product:     document.getElementById('product').value,
-      country:     document.getElementById('country').value.trim(),
-      message:     document.getElementById('message').value.trim(),
-      submittedAt: serverTimestamp()
+      firstName: document.getElementById("firstName").value,
+      lastName: document.getElementById("lastName").value,
+      company: document.getElementById("company").value,
+      phone: document.getElementById("phone").value,
+      email: document.getElementById("email").value,
+      product: document.getElementById("product").value,
+      country: document.getElementById("country").value,
+      message: document.getElementById("message").value,
+      createdAt: serverTimestamp()
     };
 
-    // Basic validation
-    if (!data.firstName || !data.email) {
-      alert('Please fill in at least your First Name and Email.');
-      return;
-    }
-
     try {
-      b.textContent = 'Sending...';
-      b.disabled = true;
+      await push(ref(database, "enquiries"), data);
 
-      await addDoc(collection(db, 'enquiries'), data);
+      button.textContent = "✓ Enquiry Sent Successfully";
+      button.style.background = "#1e6e3a";
 
-      b.textContent = '✓ Sent! We\'ll reply within 24hrs';
-      b.style.background = '#1e6e3a';
+      form.reset();
 
-      // Clear the form
-      ['firstName','lastName','company','phone','email','product','country','message']
-        .forEach(id => document.getElementById(id).value = '');
+      setTimeout(() => {
+        button.textContent = "Send Enquiry ↗";
+        button.style.background = "";
+      }, 4000);
 
-    } catch (err) {
-      console.error('Firebase error:', err);
-      b.textContent = '✗ Error. Please try again.';
-      b.style.background = '#c0392b';
+    } catch (error) {
+      console.error(error);
+      alert("Something went wrong. Please try again.");
     }
-
-    setTimeout(() => {
-      b.textContent = 'Send Enquiry ↗';
-      b.style.background = '';
-      b.disabled = false;
-    }, 4000);
   };
 </script>
 
