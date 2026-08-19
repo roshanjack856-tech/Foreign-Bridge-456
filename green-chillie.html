@@ -73,6 +73,8 @@ body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);-we
   display:grid;grid-template-columns:1fr 1fr;
   height:84px;position:relative;
   border-bottom:1px solid var(--line);
+  gap:2px;
+  background:var(--gold);
 }
 .tab-btn{
   position:relative;overflow:hidden;
@@ -80,6 +82,10 @@ body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);-we
   font-family:'Inter',sans-serif;font-size:13px;font-weight:600;
   color:white;letter-spacing:2px;text-transform:uppercase;
   transition:0.4s;
+  box-shadow:inset 0 0 0 1px rgba(180,138,63,0.55);
+}
+.tab-btn.active{
+  box-shadow:inset 0 0 0 2px var(--gold);
 }
 /* red tab BG image */
 .tab-btn.red-tab::before{
