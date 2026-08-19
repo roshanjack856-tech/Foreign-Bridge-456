@@ -4,37 +4,48 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chilli Export | Foreign Bridge</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#0b1e3d;
-  --gold:#c8922a;
-  --red:#b82a1e;
-  --green:#1e6b2e;
-  --light:#f5f5f5;
-  --white:#ffffff;
+  --ink:#161513;
+  --ink-soft:#5c584f;
+  --paper:#ffffff;
+  --paper-warm:#faf8f4;
+  --line:#e7e3da;
+  --red:#a8402f;
+  --red-deep:#7f2f21;
+  --red-tint:#f8eeeb;
+  --green:#3f6b4e;
+  --green-deep:#2c4d38;
+  --green-tint:#eef4ee;
+  --gold:#b48a3f;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Outfit',sans-serif;background:var(--light);color:#222;}
+body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;}
 
 /* ── HEADER ── */
 .header{
-  background:var(--navy);
-  padding:18px 40px;
+  background:var(--paper);
+  border-bottom:1px solid var(--line);
+  padding:22px 48px;
   display:flex;justify-content:space-between;align-items:center;
   position:sticky;top:0;z-index:200;
 }
-.logo{color:white;font-size:22px;font-weight:700;letter-spacing:1px;font-family:'Playfair Display',serif;}
-.back-btn{
-  text-decoration:none;color:white;
-  border:1px solid rgba(255,255,255,0.35);
-  padding:9px 20px;border-radius:5px;font-size:13px;transition:0.3s;
+.logo{
+  color:var(--ink);font-size:14px;font-weight:600;
+  letter-spacing:3px;text-transform:uppercase;
 }
-.back-btn:hover{background:white;color:var(--navy);}
+.back-btn{
+  text-decoration:none;color:var(--ink-soft);
+  font-size:13px;font-weight:500;letter-spacing:0.3px;
+  padding-bottom:2px;border-bottom:1px solid transparent;
+  transition:0.25s;
+}
+.back-btn:hover{color:var(--ink);border-bottom-color:var(--ink);}
 
 /* ── HERO ── */
 .hero{
-  height:480px;
+  height:380px;
   position:relative;
   display:flex;align-items:center;justify-content:center;overflow:hidden;
 }
@@ -42,26 +53,32 @@ body{font-family:'Outfit',sans-serif;background:var(--light);color:#222;}
   position:absolute;inset:0;
   background:url('https://images.pexels.com/photos/2894234/pexels-photo-2894234.jpeg?cs=srgb&dl=pexels-enginakyurt-2894234.jpg&fm=jpg&_gl=1*1xgxzd8*_ga*MTM4MzkzMzc4NS4xNzcyNzEzMzk4*_ga_8JE65Q40S6*czE3ODA0NjkzMjMkbzMkZzEkdDE3ODA0NzIzMDckajQ1JGwwJGgw') center/cover no-repeat;
 }
-.hero-overlay{position:absolute;inset:0;background:rgba(10,5,0,0.58);}
+.hero-overlay{position:absolute;inset:0;background:rgba(18,15,12,0.5);}
 .hero-content{position:relative;z-index:2;text-align:center;color:white;padding:20px;}
+.hero-content .eyebrow{
+  display:block;font-size:12px;letter-spacing:3px;text-transform:uppercase;
+  opacity:0.8;margin-bottom:16px;font-weight:500;
+}
 .hero-content h1{
   font-family:'Playfair Display',serif;
-  font-size:68px;font-weight:900;
-  letter-spacing:-1px;margin-bottom:14px;
-  text-shadow:0 4px 30px rgba(0,0,0,0.6);
+  font-size:56px;font-weight:800;
+  letter-spacing:-1px;margin-bottom:16px;
+  text-shadow:0 4px 24px rgba(0,0,0,0.35);
 }
-.hero-content p{font-size:18px;opacity:0.88;max-width:560px;margin:auto;line-height:1.7;}
+.hero-content p{font-size:16px;opacity:0.9;max-width:520px;margin:0 auto;line-height:1.7;font-weight:300;}
+.hero-rule{width:44px;height:2px;background:var(--gold);margin:22px auto 0;}
 
 /* ── TAB SWITCHER ── */
 .tab-switcher{
   display:grid;grid-template-columns:1fr 1fr;
-  height:120px;position:relative;
+  height:84px;position:relative;
+  border-bottom:1px solid var(--line);
 }
 .tab-btn{
   position:relative;overflow:hidden;
   border:none;cursor:pointer;
-  font-family:'Outfit',sans-serif;font-size:18px;font-weight:700;
-  color:white;letter-spacing:0.5px;
+  font-family:'Inter',sans-serif;font-size:13px;font-weight:600;
+  color:white;letter-spacing:2px;text-transform:uppercase;
   transition:0.4s;
 }
 /* red tab BG image */
@@ -69,59 +86,55 @@ body{font-family:'Outfit',sans-serif;background:var(--light);color:#222;}
   content:'';position:absolute;inset:0;
   background:url('https://images.pexels.com/photos/33440709/pexels-photo-33440709.jpeg?cs=srgb&dl=pexels-bonaventure-fernandez-744363-33440709.jpg&fm=jpg&_gl=1*jpjlul*_ga*MTM4MzkzMzc4NS4xNzcyNzEzMzk4*_ga_8JE65Q40S6*czE3ODA0NjkzMjMkbzMkZzEkdDE3ODA0NzMyNzIkajM4JGwwJGgw') center/cover;
   transition:0.4s;
+  filter:grayscale(0.45) brightness(0.7);
 }
 /* green tab BG image */
 .tab-btn.green-tab::before{
   content:'';position:absolute;inset:0;
   background:url('https://images.pexels.com/photos/5792476/pexels-photo-5792476.jpeg?cs=srgb&dl=pexels-n-voitkevich-5792476.jpg&fm=jpg&_gl=1*y3ikcq*_ga*MTM4MzkzMzc4NS4xNzcyNzEzMzk4*_ga_8JE65Q40S6*czE3ODA0NjkzMjMkbzMkZzEkdDE3ODA0NzMxMzgkajU5JGwwJGgw') center/cover;
   transition:0.4s;
+  filter:grayscale(0.45) brightness(0.7);
 }
 /* dark overlay on each tab */
 .tab-btn::after{
   content:'';position:absolute;inset:0;
-  background:rgba(0,0,0,0.52);
+  background:rgba(15,12,10,0.55);
   transition:background 0.4s;
 }
-.tab-btn.active::after{background:rgba(0,0,0,0.18);}
-.tab-btn:hover::after{background:rgba(0,0,0,0.28);}
+.tab-btn.active::after{background:rgba(15,12,10,0.25);}
+.tab-btn:hover::after{background:rgba(15,12,10,0.35);}
 
-/* active red */
-.tab-btn.red-tab.active::before{filter:none;}
-.tab-btn.red-tab::before{filter:brightness(0.6) saturate(0.7);}
-
-/* active green */
-.tab-btn.green-tab.active::before{filter:none;}
-.tab-btn.green-tab::before{filter:brightness(0.6) saturate(0.7);}
+.tab-btn.red-tab.active::before{filter:grayscale(0) brightness(0.9);}
+.tab-btn.green-tab.active::before{filter:grayscale(0) brightness(0.9);}
 
 .tab-label{
   position:relative;z-index:2;
-  display:flex;flex-direction:column;align-items:center;gap:5px;
+  display:flex;flex-direction:column;align-items:center;gap:6px;
 }
-.tab-label span.title{font-size:19px;font-weight:700;text-shadow:0 2px 10px rgba(0,0,0,0.7);}
-.tab-label span.sub{font-size:13px;opacity:0.85;font-weight:400;}
+.tab-label span.title{font-size:13px;font-weight:600;letter-spacing:2px;}
 
-/* active bar */
-.tab-btn.red-tab.active .tab-label::after{
-  content:'';display:block;width:40px;height:3px;
-  background:var(--gold);border-radius:2px;margin-top:6px;
-}
-.tab-btn.green-tab.active .tab-label::after{
-  content:'';display:block;width:40px;height:3px;
-  background:#7ddf9b;border-radius:2px;margin-top:6px;
+/* active indicator */
+.tab-btn.active .tab-label::after{
+  content:'';display:block;width:26px;height:2px;
+  background:white;border-radius:1px;margin-top:4px;
 }
 
 /* ── SECTION TITLE ── */
 .section-title-bar{
-  padding:55px 40px 10px;text-align:center;
+  padding:64px 40px 8px;text-align:center;
 }
+.section-title-bar .eyebrow{
+  display:block;font-size:12px;letter-spacing:3px;text-transform:uppercase;
+  font-weight:600;margin-bottom:14px;
+}
+.section-title-bar.red .eyebrow{color:var(--red);}
+.section-title-bar.green .eyebrow{color:var(--green);}
 .section-title-bar h2{
-  font-family:'Playfair Display',serif;font-size:40px;margin-bottom:10px;
+  font-family:'Playfair Display',serif;font-size:34px;font-weight:800;margin-bottom:16px;color:var(--ink);
 }
-.section-title-bar.red h2{color:var(--red);}
-.section-title-bar.green h2{color:var(--green);}
-.section-title-bar p{color:#666;font-size:15px;max-width:680px;margin:auto;line-height:1.7;}
+.section-title-bar p{color:var(--ink-soft);font-size:15px;max-width:640px;margin:auto;line-height:1.75;font-weight:300;}
 .divider{
-  width:60px;height:3px;margin:18px auto 0;border-radius:2px;
+  width:40px;height:2px;margin:24px auto 0;
 }
 .divider.red{background:var(--red);}
 .divider.green{background:var(--green);}
@@ -131,108 +144,110 @@ body{font-family:'Outfit',sans-serif;background:var(--light);color:#222;}
 .tab-content.active{display:block;}
 
 /* ── VARIETY CARDS ── */
-.container{max-width:1200px;margin:auto;padding:40px 30px 80px;}
+.container{max-width:1180px;margin:auto;padding:20px 30px 80px;}
 
 .variety-card{
-  background:white;
-  border-radius:16px;
-  box-shadow:0 6px 28px rgba(0,0,0,0.08);
-  margin-bottom:50px;
-  overflow:hidden;
+  border-top:1px solid var(--line);
+  padding:56px 0;
   display:grid;
   grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
 }
 .variety-card.reverse{grid-template-columns:1fr 1fr;}
 
 /* info side */
-.card-info{padding:40px 44px;display:flex;flex-direction:column;justify-content:center;}
+.card-info{display:flex;flex-direction:column;justify-content:center;}
 .variety-num{
-  font-size:12px;font-weight:700;letter-spacing:3px;
-  text-transform:uppercase;margin-bottom:8px;opacity:0.45;
+  font-size:12px;font-weight:600;letter-spacing:2px;
+  text-transform:uppercase;margin-bottom:12px;color:var(--ink-soft);
 }
 .variety-name{
   font-family:'Playfair Display',serif;
-  font-size:28px;color:var(--navy);margin-bottom:14px;line-height:1.3;
+  font-size:26px;font-weight:800;color:var(--ink);margin-bottom:14px;line-height:1.3;
 }
-.variety-desc{color:#666;line-height:1.85;margin-bottom:22px;font-size:15px;}
+.variety-desc{color:var(--ink-soft);line-height:1.85;margin-bottom:26px;font-size:15px;font-weight:300;}
 
 .specs-list{
-  list-style:none;margin-bottom:24px;
-  display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;
+  list-style:none;margin-bottom:26px;
+  display:grid;grid-template-columns:1fr 1fr;gap:16px 24px;
+  padding-top:20px;border-top:1px solid var(--line);
 }
-.specs-list li{font-size:14px;color:#444;}
+.specs-list li{font-size:14px;color:var(--ink);}
 .specs-list li strong{
-  display:block;font-size:11px;text-transform:uppercase;
-  letter-spacing:0.7px;margin-bottom:2px;
+  display:block;font-size:10px;text-transform:uppercase;
+  letter-spacing:1px;margin-bottom:4px;font-weight:600;
+  color:var(--ink-soft);
 }
-.red-tab-content .specs-list li strong{color:var(--red);}
-.green-tab-content .specs-list li strong{color:var(--green);}
 
-.tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:24px;}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;}
 .tag{
-  display:inline-block;padding:5px 13px;
-  border-radius:20px;font-size:12px;font-weight:600;
+  display:inline-block;padding:6px 14px;
+  border-radius:999px;font-size:11px;font-weight:600;
+  letter-spacing:0.4px;background:transparent;
 }
-.tag-red{background:#fff0ee;color:var(--red);border:1px solid #f5c0bb;}
-.tag-green{background:#edfdf2;color:var(--green);border:1px solid #b5e8c3;}
-.tag-navy{background:#eef1f9;color:var(--navy);border:1px solid #c4cfea;}
+.tag-red{color:var(--red);border:1px solid #e3bcb3;}
+.tag-green{color:var(--green);border:1px solid #b9d4c2;}
+.tag-navy{color:var(--ink-soft);border:1px solid var(--line);}
 
 .quote-btn{
   display:inline-block;text-decoration:none;
-  font-weight:700;font-size:14px;letter-spacing:0.3px;
-  padding:13px 26px;border-radius:7px;transition:0.3s;width:fit-content;
+  font-weight:600;font-size:14px;letter-spacing:0.3px;
+  padding:14px 30px;border-radius:999px;transition:0.25s;width:fit-content;
 }
 .quote-btn-red{background:var(--red);color:white;}
-.quote-btn-red:hover{background:#8c1f15;}
+.quote-btn-red:hover{background:var(--red-deep);transform:translateY(-1px);box-shadow:0 8px 18px rgba(168,64,47,0.28);}
 .quote-btn-green{background:var(--green);color:white;}
-.quote-btn-green:hover{background:#155120;}
+.quote-btn-green:hover{background:var(--green-deep);transform:translateY(-1px);box-shadow:0 8px 18px rgba(63,107,78,0.28);}
 
 /* photo side — single image */
 .card-photos{
-  min-height:340px;
+  min-height:320px;
   overflow:hidden;
+  border-radius:6px;
 }
 .card-photos img{
   width:100%;height:100%;object-fit:cover;display:block;
   transition:transform 0.5s;
+  border-radius:6px;
 }
 .card-photos img:not(:first-child){display:none;}
-.card-photos img:hover{transform:scale(1.05);}
-/* overflow clip on corners */
-.variety-card:not(.reverse) .card-photos{border-radius:0 16px 16px 0;}
-.variety-card.reverse .card-photos{border-radius:16px 0 0 16px;}
+.card-photos img:hover{transform:scale(1.03);}
 .variety-card.reverse .card-photos{order:-1;}
 
 /* ── FOOTER ── */
 .footer{
-  background:#060f1c;color:rgba(255,255,255,0.75);
-  text-align:center;padding:30px;font-size:13px;
+  background:var(--paper-warm);color:var(--ink-soft);
+  text-align:center;padding:34px;font-size:12px;
+  letter-spacing:0.5px;border-top:1px solid var(--line);
 }
 
 /* ── MOBILE ── */
 @media(max-width:850px){
   .variety-card,
-  .variety-card.reverse{grid-template-columns:1fr;}
+  .variety-card.reverse{grid-template-columns:1fr;gap:24px;padding:40px 0;}
   .card-photos,
   .variety-card.reverse .card-photos{
-    order:0;border-radius:0;min-height:240px;
-    grid-template-columns:1fr 1fr;grid-template-rows:120px 120px;
+    order:0;min-height:220px;
   }
-  .card-info{padding:28px 22px;}
+  .card-info{padding:0;}
   .specs-list{grid-template-columns:1fr 1fr;}
-  .hero-content h1{font-size:40px;}
-  .tab-btn{font-size:15px;}
-  .tab-switcher{height:100px;}
-  .header{padding:16px 18px;}
-  .container{padding:20px 14px 60px;}
-  .section-title-bar{padding:40px 20px 8px;}
+  .hero-content h1{font-size:36px;}
+  .hero{height:320px;}
+  .tab-btn{font-size:11px;}
+  .tab-label span.title{letter-spacing:1px;}
+  .tab-switcher{height:72px;}
+  .header{padding:16px 20px;}
+  .container{padding:10px 16px 60px;}
+  .section-title-bar{padding:44px 20px 8px;}
+  .section-title-bar h2{font-size:26px;}
 }
 </style>
 </head>
 <body>
 
 <div class="header">
-  <div class="logo">FOREIGN BRIDGE</div>
+  <div class="logo">Foreign Bridge</div>
   <a href="index.html" class="back-btn">← Back Home</a>
 </div>
 
@@ -241,8 +256,10 @@ body{font-family:'Outfit',sans-serif;background:var(--light);color:#222;}
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
+    <span class="eyebrow">Foreign Bridge Export &amp; Import Corp</span>
     <h1>Chilli Export</h1>
     <p>Premium Dry Red &amp; Green Chilli sourced from India's finest farms — exported worldwide with certified quality.</p>
+    <div class="hero-rule"></div>
   </div>
 </div>
 
@@ -265,6 +282,7 @@ body{font-family:'Outfit',sans-serif;background:var(--light);color:#222;}
 <div class="tab-content red-tab-content active" id="tab-red">
 
   <div class="section-title-bar red">
+    <span class="eyebrow">10 Varieties</span>
     <h2>Red Chilli Varieties</h2>
     <p>We export premium red chilli varieties, hand-picked from India's finest growing regions in Andhra Pradesh, Telangana, Rajasthan &amp; Karnataka.</p>
     <div class="divider red"></div>
@@ -542,6 +560,7 @@ body{font-family:'Outfit',sans-serif;background:var(--light);color:#222;}
 <div class="tab-content green-tab-content" id="tab-green">
 
   <div class="section-title-bar green">
+    <span class="eyebrow">5 Varieties</span>
     <h2>Green Chilli Varieties</h2>
     <p>We export 5 premium fresh green chilli varieties, farm-harvested from Tamil Nadu &amp; Andhra Pradesh and shipped in export-grade cold-chain packaging.</p>
     <div class="divider green"></div>
@@ -599,7 +618,6 @@ body{font-family:'Outfit',sans-serif;background:var(--light);color:#222;}
       </div>
       <div class="card-photos">
         <img src="https://images.pexels.com/photos/12955689/pexels-photo-12955689.jpeg?cs=srgb&dl=pexels-freestockpro-12955689.jpg&fm=jpg&_gl=1*1dygq7u*_ga*MTM4MzkzMzc4NS4xNzcyNzEzMzk4*_ga_8JE65Q40S6*czE3ODA0NjkzMjMkbzMkZzEkdDE3ODA0NzE0MzYkajUyJGwwJGgw" alt="Bullet green chilli fresh">
-       
       </div>
     </div>
 
@@ -626,7 +644,6 @@ body{font-family:'Outfit',sans-serif;background:var(--light);color:#222;}
       </div>
       <div class="card-photos">
         <img src="https://images.pexels.com/photos/10899475/pexels-photo-10899475.jpeg?cs=srgb&dl=pexels-enginakyurt-10899475.jpg&fm=jpg&_gl=1*qxlduh*_ga*MTM4MzkzMzc4NS4xNzcyNzEzMzk4*_ga_8JE65Q40S6*czE3ODA0NjkzMjMkbzMkZzEkdDE3ODA0NzE1MTEkajQ0JGwwJGgw" alt="Long green chilli fresh">
-        
       </div>
     </div>
 
@@ -653,7 +670,6 @@ body{font-family:'Outfit',sans-serif;background:var(--light);color:#222;}
       </div>
       <div class="card-photos">
         <img src="https://images.pexels.com/photos/34111554/pexels-photo-34111554.jpeg?cs=srgb&dl=pexels-youtuber-25128702-34111554.jpg&fm=jpg&_gl=1*1plgtrj*_ga*MTM4MzkzMzc4NS4xNzcyNzEzMzk4*_ga_8JE65Q40S6*czE3ODA0NjkzMjMkbzMkZzEkdDE3ODA0NzE2MzQkajU5JGwwJGgw" alt="Jwala green Gujarat">
-       
       </div>
     </div>
 
@@ -681,7 +697,6 @@ body{font-family:'Outfit',sans-serif;background:var(--light);color:#222;}
       </div>
       <div class="card-photos">
         <img src="https://images.pexels.com/photos/10682991/pexels-photo-10682991.jpeg?cs=srgb&dl=pexels-panduru-10682991.jpg&fm=jpg&_gl=1*1r7ii11*_ga*MTM4MzkzMzc4NS4xNzcyNzEzMzk4*_ga_8JE65Q40S6*czE3ODA0NjkzMjMkbzMkZzEkdDE3ODA0NzE3NDYkajMzJGwwJGgw" alt="Banana pepper sweet green">
-       
       </div>
     </div>
 
